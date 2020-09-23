@@ -1,0 +1,48 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="IdOrigen.valid" [class.red-icon]="IdOrigen.invalid && IdOrigen.touched"></i>
+          </div>
+        </div>
+        <input name="IdOrigen" #IdOrigen="ngModel" [(ngModel)]="service.formData.IdOrigen" class="form-control"
+               type="number" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="IdDestino.valid" [class.red-icon]="IdDestino.invalid && IdDestino.touched"></i>
+          </div>
+        </div>
+        <input name="IdDestino" #IdDestino="ngModel" [(ngModel)]="service.formData.IdDestino" class="form-control"
+               type="number" required>
+      </div>
+      
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="Estado.valid" [class.red-icon]="Estado.invalid && Estado.touched"></i>
+          </div>
+        </div>
+        <input name="Estado" #Estado="ngModel" [(ngModel)]="service.formData.Estado" class="form-control"
+               type="text" required>
+      </div>
+    </div>
+  
+   
+  
+    <div class="form-group">
+      <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+              (click)="onSubmit(form)">
+        <i class="fas fa-database"></i> Guardar
+      </button>
+    </div>
+  </form>
+  
+  

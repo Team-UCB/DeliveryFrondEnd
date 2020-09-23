@@ -1,0 +1,66 @@
+<form>
+    <div class="row">
+      <div class="col-md-5">
+        Cantidad de Pag:
+        <select #cant ng-model="cant">
+          <option value="">
+          <option value=1>1
+          <option value=4>4
+          <option value=6>6
+        </select>
+        <button class="btn btn-success float-rigth" type="button" (click)="listar(cant.value)">Listar</button>
+      </div>
+      <div class="row">
+        Filtrar:
+        <div class="col-md-15">
+        <input #buscar class="form-control"placeholder="ingrese la busqueda" required>
+        <button class="btn btn-success float-rigth" type="button" (click)="filtrar(buscar.value)">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <hr>
+  <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col" sortable="Nombre" (sort)="onSort($event)">Nombre</th>
+          <th scope="col" sortable="PrecioUnitario" (sort)="onSort($event)">Precio unitario</th>
+          <th scope="col" sortable="Cantidad" (sort)="onSort($event)">Cantidad</th>
+          <th scope="col" sortable="PrecioMayor" (sort)="onSort($event)">Precio mayor</th>
+          <th scope="col" sortable="Marca" (sort)="onSort($event)">Marca</th>
+          <th scope="col" sortable="Modelo" (sort)="onSort($event)">Modelo</th>
+          <th scope="col" sortable="Especificaciones" (sort)="onSort($event)">Especificaciones</th>
+          <th scope="col" sortable="IdCategoria" (sort)="onSort($event)">Categoria</th>
+          <th scope="col" sortable="IdVendedor" (sort)="onSort($event)">Vendedor</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of service.list">
+          <td (click)="populateForm(producto)">{{producto.Nombre}}</td>
+          <td (click)="populateForm(producto)">{{producto.PrecioUnitario}}</td>
+          <td (click)="populateForm(producto)">{{producto.Cantidad}}</td>
+          <td (click)="populateForm(producto)">{{producto.PrecioMayor}}</td>
+          <td (click)="populateForm(producto)">{{producto.Marca}}</td>
+          <td (click)="populateForm(producto)">{{producto.Modelo}}</td>
+          <td (click)="populateForm(producto)">{{producto.Especificaciones}}</td>
+          <td (click)="populateForm(producto)">{{producto.IdCategoria}}</td>
+          <td (click)="populateForm(producto)">{{producto.IdVendedor}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(producto.Id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <form>
+      <div class="row">
+        <div class="col-md-5">
+          <button class="btn btn-success float-rigth" type="button" (click)="Anterior()">Anterior</button>
+        </div>
+        <div class="col-md-5">
+          <button class="btn btn-success float-rigth" type="button"(click)="Siguiente()">Siguiente</button>
+        </div>
+      </div>
+    </form>

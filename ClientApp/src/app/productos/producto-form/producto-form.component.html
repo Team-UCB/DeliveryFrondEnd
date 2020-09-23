@@ -1,0 +1,118 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Nombre.valid" [class.red-icon]="Nombre.invalid && Nombre.touched"></i>
+          </div>
+        </div>
+        <input name="Nombre" #Nombre="ngModel" [(ngModel)]="service.formData.Nombre" class="form-control"
+               placeholder="Nombre de Producto" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="PrecioUnitario.valid" [class.red-icon]="PrecioUnitario.invalid && PrecioUnitario.touched"></i>
+          </div>
+        </div>
+        <input name="PrecioUnitario" #PrecioUnitario="ngModel" [(ngModel)]="service.formData.PrecioUnitario" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Cantidad.valid" [class.red-icon]="Cantidad.invalid && Cantidad.touched"></i>
+          </div>
+        </div>
+        <input name="Cantidad" #Cantidad="ngModel" [(ngModel)]="service.formData.Cantidad" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="PrecioMayor.valid" [class.red-icon]="PrecioMayor.invalid && PrecioMayor.touched"></i>
+          </div>
+        </div>
+        <input name="PrecioMayor" #PrecioMayor="ngModel" [(ngModel)]="service.formData.PrecioMayor" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Marca.valid" [class.red-icon]="Marca.invalid && Marca.touched"></i>
+          </div>
+        </div>
+        <input name="Marca" #Marca="ngModel" [(ngModel)]="service.formData.Marca" class="form-control"
+              placeholder="Marca de Producto" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Modelo.valid" [class.red-icon]="Modelo.invalid && Modelo.touched"></i>
+          </div>
+        </div>
+        <input name="Modelo" #Modelo="ngModel" [(ngModel)]="service.formData.Modelo" class="form-control"
+              placeholder="Modelo de Producto" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Especificaciones.valid" [class.red-icon]="Especificaciones.invalid && Especificaciones.touched"></i>
+          </div>
+        </div>
+        <input name="Especificaciones" #Especificaciones="ngModel" [(ngModel)]="service.formData.Especificaciones" class="form-control"
+              placeholder="Especificaciones de Producto" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdCategoria.valid" [class.red-icon]="IdCategoria.invalid && IdCategoria.touched"></i>
+          </div>
+        </div>
+        <input name="IdCategoria" #IdCategoria="ngModel" [(ngModel)]="service.formData.IdCategoria" class="form-control"
+            type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdVendedor.valid" [class.red-icon]="IdVendedor.invalid && IdVendedor.touched"></i>
+          </div>
+        </div>
+        <input name="IdVendedor" #IdVendedor="ngModel" [(ngModel)]="service.formData.IdVendedor" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+      (click)="onSubmit(form)"><i class="fas fa-database"></i> Guardar</button>
+    </div>
+  
+  </form>
+  

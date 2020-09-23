@@ -1,0 +1,58 @@
+<form #form="ngForm" autocomplete="off">
+  <input type="hidden" name="id" [value]="service.formData.Id">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="FechaInicio.valid" [class.red-icon]="FechaInicio.invalid && FechaInicio.touched"></i>
+        </div>
+      </div>
+      <input  name="FechaInicio" #FechaInicio="ngModel" [(ngModel)]="service.formData.FechaInicio" class="form-control"
+             placeholder="yyyy-mm-dd Fecha de inicio de oferta" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaFin.valid" [class.red-icon]="FechaFin.invalid && FechaFin.touched"></i>
+        </div>
+      </div>
+      
+      <input  format=""name="FechaFin" #FechaFin="ngModel" [(ngModel)]="service.formData.FechaFin" class="form-control"
+             placeholder="yyyy-mm-dd Fecha de fin de oferta " required>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="PrecioOferta.valid" [class.red-icon]="PrecioOferta.invalid && PrecioOferta.touched"></i>
+        </div>
+      </div>
+      <input name="PrecioOferta" #PrecioOferta="ngModel" [(ngModel)]="service.formData.PrecioOferta" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="IdProducto.valid" [class.red-icon]="IdProducto.invalid && IdProducto.touched"></i>
+        </div>
+      </div>
+      <input name="IdProducto" #IdProducto="ngModel" [(ngModel)]="service.formData.IdProducto" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+            (click)="onSubmit(form)">
+      <i class="fas fa-database"></i> Guardar
+    </button>
+  </div>
+</form>
+

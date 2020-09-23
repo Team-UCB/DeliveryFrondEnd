@@ -1,0 +1,56 @@
+<form #form="ngForm" autocomplete="off">
+  <input type="hidden" name="id" [value]="service.formData.Id">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="Zona.valid" [class.red-icon]="Zona.invalid && Zona.touched"></i>
+        </div>
+      </div>
+      <input name="Zona" #Zona="ngModel" [(ngModel)]="service.formData.Zona" class="form-control"
+             placeholder="Zona de ubicacion" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="Descripcion.valid" [class.red-icon]="Descripcion.invalid && Descripcion.touched"></i>
+        </div>
+      </div>
+      <input name="Descripcion" #Descripcion="ngModel" [(ngModel)]="service.formData.Descripcion" class="form-control"
+             placeholder="Descripcion de la localizacion" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="Latitud.valid" [class.red-icon]="Latitud.invalid && Latitud.touched"></i>
+        </div>
+      </div>
+      <input name="Latitud" #Latitud="ngModel" [(ngModel)]="service.formData.Latitud" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="Longitud.valid" [class.red-icon]="Longitud.invalid && Longitud.touched"></i>
+        </div>
+      </div>
+      <input name="Longitud" #Longitud="ngModel" [(ngModel)]="service.formData.Longitud" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+            (click)="onSubmit(form)">
+      <i class="fas fa-database"></i> Guardar
+    </button>
+  </div>
+</form>
+

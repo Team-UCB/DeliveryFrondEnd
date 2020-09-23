@@ -1,0 +1,17 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="login-container">
+            <div id="output"></div>
+            <div class="avatar"></div>
+            <div class="form-box">
+                <form action="" method="">
+                    <input name="Nombre_Usuario" type="text" placeholder="Usuario" [(ngModel)]="registerUserData.Nombre_Usuario" required>
+                    <input name="Contrasena" type="password" placeholder="Contrasena" [(ngModel)]="registerUserData.Contrasena" required>
+                    <button class="btn btn-info btn-block login" type="button" (click)="registerUser()">Registrar</button>
+                </form>
+            </div>
+        </div>
+</div>
