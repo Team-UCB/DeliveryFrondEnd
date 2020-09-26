@@ -1,0 +1,73 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    <div class="form-group">
+        <label>Cantidad:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-info-circle" [class.green-icon]="Cantidad.valid" [class.red-icon]="Cantidad.invalid && Cantidad.touched"></i>
+            </div>
+          </div>
+          
+          <input name="Cantidad" #Cantidad="ngModel" [(ngModel)]="service.formData.Cantidad" class="form-control"
+          type="number" placeholder="ingrese la Cantidad" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Monto:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-info-circle" [class.green-icon]="Monto.valid" [class.red-icon]="Monto.invalid && Monto.touched"></i>
+            </div>
+          </div>
+          <input name="Monto" #Monto="ngModel" [(ngModel)]="service.formData.Monto" class="form-control"
+          type="number" placeholder="ingrese el Monto" required>
+        </div>
+      </div>
+      <div class="form-group">
+          <label>Descripcion:</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                <i class="fas fa-info-circle" [class.green-icon]="Descripcion.valid" [class.red-icon]="Descripcion.invalid && Descripcion.touched"></i>
+              </div>
+            </div>
+            <input name="Descripcion" #Descripcion="ngModel" [(ngModel)]="service.formData.Descripcion" class="form-control"
+            type="text" placeholder="ingrese la Descripcion" required>
+          </div>
+        </div>
+    <div class="form-group">
+      <label>Detalle Pedido:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdDetallePedido.valid" [class.red-icon]="IdDetallePedido.invalid && IdDetallePedido.touched"></i>
+          </div>
+        </div>
+        <input  name="IdDetallePedido" #IdDetallePedido="ngModel" [(ngModel)]="service.formData.IdDetallePedido" class="form-control"
+        type="number" placeholder="IdDetallePedido" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Factura:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="IdFactura.valid" [class.red-icon]="IdFactura.invalid && IdFactura.touched"></i>
+          </div>
+        </div>
+        
+        <input name="IdFactura" #IdFactura="ngModel" [(ngModel)]="service.formData.IdFactura" class="form-control"
+        type="number" placeholder="IdFactura" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+              (click)="onSubmit(form)">
+        <i class="fas fa-database"></i> Guardar
+      </button>
+    </div>
+  </form>
+  
+ 

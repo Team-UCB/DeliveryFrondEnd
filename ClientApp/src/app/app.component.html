@@ -26,8 +26,17 @@
 <li class="nav-item">
         <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a>
       </li>
-      <li class="nav-item">
+<li class="nav-item">
         <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a>
+      </li>
+<li class="nav-item">
+        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a>
+      </li>
+<li class="nav-item">
+        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a>
+      </li>
+<li class="nav-item">
+        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a>
       </li>
 <li class="nav-item">
         <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/registrar']" routerLinkActive="router-link-active">Registrar</a>

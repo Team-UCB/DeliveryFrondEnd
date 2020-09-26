@@ -1,0 +1,62 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    <div class="form-group">
+      <label>Pedido:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdPedido.valid" [class.red-icon]="IdPedido.invalid && IdPedido.touched"></i>
+          </div>
+        </div>
+        <input  name="IdPedido" #IdPedido="ngModel" [(ngModel)]="service.formData.IdPedido" class="form-control"
+        type="number" placeholder="IdPedido" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Producto:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="IdProducto.valid" [class.red-icon]="IdProducto.invalid && IdProducto.touched"></i>
+          </div>
+        </div>
+        
+        <input name="IdProducto" #IdProducto="ngModel" [(ngModel)]="service.formData.IdProducto" class="form-control"
+        type="number" placeholder="IdProducto" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Cantidad:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="Cantidad.valid" [class.red-icon]="Cantidad.invalid && Cantidad.touched"></i>
+          </div>
+        </div>
+        
+        <input name="Cantidad" #Cantidad="ngModel" [(ngModel)]="service.formData.Cantidad" class="form-control"
+        type="number" placeholder="ingrese la Cantidad" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Sub monto:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="SubMonto.valid" [class.red-icon]="SubMonto.invalid && SubMonto.touched"></i>
+          </div>
+        </div>
+        <input name="SubMonto" #SubMonto="ngModel" [(ngModel)]="service.formData.SubMonto" class="form-control"
+        type="number" placeholder="ingrese el Sub Monto" required>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+              (click)="onSubmit(form)">
+        <i class="fas fa-database"></i> Guardar
+      </button>
+    </div>
+  </form>
+  
+
