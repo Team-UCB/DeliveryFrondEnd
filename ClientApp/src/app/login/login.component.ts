@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
     console.log(this.loginUserData);
-    this._usuarioSvr.authUsuarios(this.loginUserData.Nombre_Usuario, this.loginUserData.Contrasena).subscribe(
+    this._usuarioSvr.authUsuarios(this.loginUserData.Nombre, this.loginUserData.Clave).subscribe(
       res => {
       console.log(res);
       localStorage.setItem('UserId', (res as any).Id);

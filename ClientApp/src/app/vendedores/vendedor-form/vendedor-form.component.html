@@ -1,0 +1,102 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="PersonaContacto.valid" [class.red-icon]="PersonaContacto.invalid && PersonaContacto.touched"></i>
+          </div>
+        </div>
+        <input name="PersonaContacto" #PersonaContacto="ngModel" [(ngModel)]="service.formData.PersonaContacto" class="form-control"
+               placeholder="PersonaContacto de ubicacion" required>
+      </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-user-circle" [class.green-icon]="Celular.valid" [class.red-icon]="Celular.invalid && Celular.touched"></i>
+            </div>
+          </div>
+          <input name="Celular" #Celular="ngModel" [(ngModel)]="service.formData.Celular" class="form-control"
+                 placeholder="Celular  " required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-user-circle" [class.green-icon]="Telefono.valid" [class.red-icon]="Telefono.invalid && Telefono.touched"></i>
+            </div>
+          </div>
+          <input name="Telefono" #Telefono="ngModel" [(ngModel)]="service.formData.Telefono" class="form-control"
+                 placeholder="Telefono de ubicacion" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-user-circle" [class.green-icon]="Correo.valid" [class.red-icon]="Correo.invalid && Correo.touched"></i>
+            </div>
+          </div>
+          <input name="Correo" #Correo="ngModel" [(ngModel)]="service.formData.Correo" class="form-control"
+                 placeholder="Correo de ubicacion" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-user-circle" [class.green-icon]="NombreEmpresa.valid" [class.red-icon]="NombreEmpresa.invalid && NombreEmpresa.touched"></i>
+            </div>
+          </div>
+          <input name="NombreEmpresa" #NombreEmpresa="ngModel" [(ngModel)]="service.formData.NombreEmpresa" class="form-control"
+                 placeholder="NombreEmpresa de ubicacion" required>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="Direccion.valid" [class.red-icon]="Direccion.invalid && Direccion.touched"></i>
+          </div>
+        </div>
+        <input name="Direccion" #Direccion="ngModel" [(ngModel)]="service.formData.Direccion" class="form-control"
+               placeholder="Direccion de la localizacion" required>
+      </div>
+    </div>
+    
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="PathLogo.valid" [class.red-icon]="PathLogo.invalid && PathLogo.touched"></i>
+          </div>
+        </div>
+        <input name="PathLogo" #PathLogo="ngModel" [(ngModel)]="service.formData.PathLogo" class="form-control"
+        placeholder="PersonaContacto de ubicacion" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="IdRubro.valid" [class.red-icon]="IdRubro.invalid && IdRubro.touched"></i>
+          </div>
+        </div>
+        <input name="IdRubro" #IdRubro="ngModel" [(ngModel)]="service.formData.IdRubro" class="form-control"
+               type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+              (click)="onSubmit(form)">
+        <i class="fas fa-database"></i> Guardar
+      </button>
+    </div>
+  </form>
+  
+  
