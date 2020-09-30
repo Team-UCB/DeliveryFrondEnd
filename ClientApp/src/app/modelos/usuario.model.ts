@@ -1,7 +1,7 @@
 export class Usuario {
     Id: number;
-    Nombre_Usuario: string;
-    Contrasena: string;
+    Nombre: string;
+    Clave: string;
     Estado: string;
-    Rol: number;
+    IdRol: number;
   }

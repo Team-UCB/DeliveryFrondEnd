@@ -50,11 +50,27 @@ import { DetalleFacturaListComponent } from './detalle-facturas/detalle-factura-
 import { RubroService } from './servicios/rubro.service';
 import { DetalleFacturaService } from './servicios/detalle-factura.service';
 import { DetallePedidoService } from './servicios/detalle-pedido.service';
+import { ClientesComponent } from './clientes/clientes.component';
+import { ClienteFormComponent } from './clientes/cliente-form/cliente-form.component';
+import { ClienteListComponent} from './clientes/cliente-list/cliente-list.component';
+import { ClienteService } from './servicios/cliente.service';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuarioFormComponent } from './usuarios/usuario-form/usuario-form.component';
+import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
+import { UsuarioService } from './servicios/usuario.service';
+import { VendedoresComponent } from './vendedores/vendedores.component';
+import { VendedorFormComponent } from './vendedores/vendedor-form/vendedor-form.component';
+import { VendedorListComponent } from './vendedores/vendedor-list/vendedor-list.component';
+import { VendedorService } from './servicios/vendedor.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SortColumns,
+    ClientesComponent,
+    ClienteFormComponent,
+    ClienteListComponent,
     LocalizacionesComponent,
     LocalizacionFormComponent,
     LocalizacionListComponent,
@@ -85,7 +101,15 @@ import { DetallePedidoService } from './servicios/detalle-pedido.service';
     DetallePedidoListComponent,
     DetalleFacturasComponent,
     DetalleFacturaFormComponent,
-    DetalleFacturaListComponent
+    DetalleFacturaListComponent,
+    UsuariosComponent,
+    UsuarioFormComponent,
+    UsuarioListComponent,
+    VendedoresComponent,
+    VendedorFormComponent,
+    VendedorListComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -96,8 +120,11 @@ import { DetallePedidoService } from './servicios/detalle-pedido.service';
   ],
   providers: [
   LocalizacionService,
+  VendedorService,
+  UsuarioService,
   ProductoService,
   ChatService,
+  ClienteService,
   OfertaService,
   RubroService,
   DetalleFacturaService,
