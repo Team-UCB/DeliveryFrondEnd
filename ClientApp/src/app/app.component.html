@@ -1,5 +1,5 @@
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body style="background-color: #a7a9ad">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #b8bdc2 !important;">
   <a class="navbar-brand" href="#">Pedidos</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,78 +10,79 @@
      
 <ul class="navbar-nav mr-auto">
        
-<li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
+
  
        
 <li class="nav-item">
         <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/ingresar']" routerLinkActive="router-link-active">Ingresar</a>
       </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">vendedores</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">usuarios</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a>
-      </li>
 
-<li class="nav-item">
-
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a>
-      </li>
-<li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a>
-      </li>
 <li class="nav-item">
         <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/registrar']" routerLinkActive="router-link-active">Registrar</a>
       </li>
-<li class="nav-item">
-        <a class="nav-link" (click)="_authService.logoutUser()" style="cursor: pointer;">Salir</a>
-      </li>  
-       
+
 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Menu
         </a>
  
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown" style="    background-color: #212529;">
+  
+<li class="nav-item" >
+    <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones </a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">vendedores</a>
+  </li>
+<li class="nav-item">
+    <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">usuarios</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a>
+  </li>
+
+<li class="nav-item">
+
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a>
+  </li>
+<li class="nav-item">
+    <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a>
+  </li>
+<li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a>
+  </li>
+
+
+          
            
 <div class="dropdown-divider"></div>
  
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a style="color:floralwhite" class="dropdown-item" href="#">MAS</a>
         </div>
  
       </li>
- 
+      <li class="nav-item">
+        <a class="nav-link" (click)="_authService.logoutUser()" style="cursor: pointer;">Salir</a>
+      </li>  
+       
        
 <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Prueba 1</a>
       </li>
  
     </ul>
@@ -106,6 +107,15 @@
   </div>
 </header>
 <!-- Page Content -->
+
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<br>
+<br>
+<br>
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 mb-5">
@@ -134,15 +144,12 @@
     </div>
   </div>
 </div>
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
 <!-- Footer -->
 <footer class="py-5 bg-dark">
   <div class="container">
     <p class="m-0 text-center text-white">Copyright &copy; Delivery Website </p>
   </div>
+
   <!-- /.container -->
 </footer>
 
