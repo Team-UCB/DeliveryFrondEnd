@@ -1,19 +1,17 @@
-import { Usuario } from '../modelos/usuario.model';
+import { Cliente } from '../modelos/cliente.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { PageAndSort } from '../modelos/pageandsort.model';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
-  formData: Usuario;
+export class ClienteService {
+  formData: Cliente;
   filterData: PageAndSort;
-  //readonly rootURL = 'http://perezleonardo.somee.com/api';
-  list: Usuario[];
+  list: Cliente[];
   total = 0;
   tam = 0;
 
@@ -25,30 +23,30 @@ export class UsuarioService {
     this.filterData.TamPagina = 10;
     this.filterData.Filtro = "";
   }
-  postUsuario() {
-    return this.http.post(`${environment.apiUrl}Usuarios`, this.formData);
-  }
-  putUsuario() {
-    return this.http.put(`${environment.apiUrl}Usuarios/${this.formData.Id}`, this.formData);
-  }
-  deleteUsuario(id) {
-    return this.http.delete(`${environment.apiUrl}Usuarios/${id}`);
-  }
 
-  authUsuarios(nombre, clave){
-    return this.http.get(`${environment.apiUrl}Usuarios/${nombre}/${clave}`);
+  postCliente() {
+    return this.http.post(`${environment.apiUrl}Clientes`, this.formData);
+  }
+  putCliente() {
+    return this.http.put(`${environment.apiUrl}Clientes/${this.formData.Id}` , this.formData);
+  }
+  deleteCliente(id) {
+    return this.http.delete(`${environment.apiUrl}Clientes/${id}`);
   }
 
   refreshList() {
-    this.http.get(`${environment.apiUrl}Usuarios` + '?columna=' + this.filterData.Columna +
+    
+    this.http.get(`${environment.apiUrl}Clientes` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +
       '&pagina=' + this.filterData.Pagina +
       '&tampagina=' + this.filterData.TamPagina +
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
-      .then(res => this.list = (res as any).Datos as Usuario[]);
-  }
+      .then(res => this.list = (res as any).Datos as Cliente[]);
 
+      console.log(this.list);
+  }
+  
   filtrar(filtro) {
     this.filterData.Filtro = filtro;
     this.refreshList();
@@ -57,34 +55,15 @@ export class UsuarioService {
   listar(cantidad) {
     this.filterData.TamPagina = cantidad;
     this.refreshList();
-  } 
+  }
 
   Anterior() {
     this.filterData.Pagina = this.filterData.Pagina - 1;
     this.refreshList();
   }
-
+  
   Siguiente() {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
   }
-
-  loggedIn(){
-    return !!localStorage.getItem('UserId');
-  }
-
-  getUserId(){
-    return localStorage.getItem('UserId');
-  }
-  logoutUser(){
-      localStorage.removeItem('UserId');
-      this._router.navigate(['/inicio']);
- }
-
- getToken(){
-   return localStorage.getItem('Token');
-
-  }
-  
-
 }
