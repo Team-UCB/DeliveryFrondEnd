@@ -39,6 +39,12 @@
 
 <li class="nav-item">
 
+        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a>
+      </li>
+<li class="nav-item">
+        <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a>
+      </li>
+<li class="nav-item">
         <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a>
       </li>
 <li class="nav-item">

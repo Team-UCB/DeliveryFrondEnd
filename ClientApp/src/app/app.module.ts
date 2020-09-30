@@ -27,6 +27,17 @@ import { RegistrarComponent } from './registrar/registrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
 import { TokenInterceptor } from './token.interceptor';
+
+import { CategoriaProductosComponent } from './categoriaProductos/categoriaProductos.component';
+import { CategoriaProductoFormComponent } from './categoriaProductos/categoriaProducto-form/categoriaProducto-form.component';
+import { CategoriaProductoListComponent } from './categoriaProductos/categoriaProducto-list/categoriaProducto-list.component';
+import { CategoriaProductoService } from './servicios/categoriaProducto.service';
+
+import { TransportadoresComponent } from './transportadores/transportadores.component';
+import { TransportadorFormComponent } from './transportadores/transportador-form/transportador-form.component';
+import { TransportadorListComponent } from './transportadores/transportador-list/transportador-list.component';
+import { TransportadorService } from './servicios/transportador.service';
+
 import { RubrosComponent } from './rubros/rubros.component';
 import { RubroFormComponent } from './rubros/rubro-form/rubro-form.component';
 import { RubroListComponent } from './rubros/rubro-list/rubro-list.component';
@@ -66,9 +77,13 @@ import { VendedorService } from './servicios/vendedor.service';
     ProductosComponent,
     ProductoFormComponent,
     ProductoListComponent,
-    LocalizacionesComponent,
-    LocalizacionFormComponent,
-    LocalizacionListComponent,
+    CategoriaProductosComponent,
+    CategoriaProductoFormComponent,
+    CategoriaProductoListComponent,
+
+    TransportadoresComponent,
+    TransportadorFormComponent,
+    TransportadorListComponent,
     OfertasComponent,
     OfertaFormComponent,
     OfertaListComponent,
@@ -114,6 +129,8 @@ import { VendedorService } from './servicios/vendedor.service';
   RubroService,
   DetalleFacturaService,
   DetallePedidoService,
+  CategoriaProductoService,
+  TransportadorService,
   AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

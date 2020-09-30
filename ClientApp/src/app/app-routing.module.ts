@@ -9,6 +9,8 @@ import { ChatsComponent} from './chats/chats.component';
 import { ClientesComponent} from './clientes/clientes.component';
 import { RubrosComponent} from './rubros/rubros.component';
 import { LoginComponent } from './login/login.component';
+import { CategoriaProductosComponent} from './categoriaProductos/categoriaProductos.component';
+import { TransportadoresComponent} from './transportadores/transportadores.component';
 import { RegistrarComponent } from './registrar/registrar.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
@@ -25,7 +27,8 @@ const routes: Routes = [
   {path:"rubros", component: RubrosComponent, canActivate: [AuthGuard]},
   {path:"detalle-facturas", component: DetalleFacturasComponent, canActivate: [AuthGuard]},
   {path:"detalle-pedidos", component: DetallePedidosComponent, canActivate: [AuthGuard]},
-  {path:"rubros", component: RubrosComponent, canActivate: [AuthGuard]},
+  {path:"categoriaProductos", component: CategoriaProductosComponent, canActivate: [AuthGuard]},
+  {path:"transportadores", component: TransportadoresComponent, canActivate: [AuthGuard]},
   {path:"ingresar", component: LoginComponent},
   {path:"registrar", component: RegistrarComponent},
   {path:"inicio", component: InicioComponent},
