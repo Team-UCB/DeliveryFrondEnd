@@ -62,6 +62,9 @@ import { VendedoresComponent } from './vendedores/vendedores.component';
 import { VendedorFormComponent } from './vendedores/vendedor-form/vendedor-form.component';
 import { VendedorListComponent } from './vendedores/vendedor-list/vendedor-list.component';
 import { VendedorService } from './servicios/vendedor.service';
+import { FotosComponent } from './fotos/fotos.component';
+import { FotoFormComponent } from './fotos/foto-form/foto-form.component';
+import { FotoListComponent } from './fotos/foto-list/foto-list.component';
 
 
 @NgModule({
@@ -108,6 +111,9 @@ import { VendedorService } from './servicios/vendedor.service';
     VendedoresComponent,
     VendedorFormComponent,
     VendedorListComponent,
+    FotosComponent,
+    FotoFormComponent,
+    FotoListComponent,
     
     
   ],
