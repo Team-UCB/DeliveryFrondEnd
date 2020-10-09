@@ -49,8 +49,6 @@ export class FotoService {
     return this.http.delete(`${environment.apiUrl}Fotos/${id}`);
   }
 
-
-
   refreshList() {
     this.http.get(`${environment.apiUrl}Fotos` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +

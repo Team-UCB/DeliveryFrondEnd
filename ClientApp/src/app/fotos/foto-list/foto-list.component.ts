@@ -29,7 +29,6 @@ export class FotoListComponent implements OnInit {
   }
 
   onSort({ column, direction }: SortEvent) {
-    // resetting other headers
     this.headers.forEach(header => {
       if (header.sortable !== column) {
         header.direction = '';

@@ -21,9 +21,7 @@ export class FotoFormComponent implements OnInit {
   }
   ngOnInit(): void {
     this.resetForm();
-    //
     this.service.listProductos();
-    //
   }
   resetForm(form?: NgForm) {
     if (form != null)
