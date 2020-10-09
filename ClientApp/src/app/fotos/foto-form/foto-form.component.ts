@@ -44,7 +44,7 @@ export class FotoFormComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.putOFotos().subscribe(
+    this.service.putFotos().subscribe(
       res => {
         this.resetForm(form);
         this.toastr.info('Submitted successfully', 'Fotos');
