@@ -16,6 +16,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
 import { DetalleFacturasComponent } from './detalle-facturas/detalle-facturas.component';
 import { DetallePedidosComponent } from './detalle-pedidos/detalle-pedidos.component';
+import { FotosComponent } from './fotos/fotos.component';
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
   {path:"vendedores", component: VendedoresComponent, canActivate: [AuthGuard]},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:"detalle-pedidos", component: DetallePedidosComponent, canActivate: [AuthGuard]},
   {path:"categoriaProductos", component: CategoriaProductosComponent, canActivate: [AuthGuard]},
   {path:"transportadores", component: TransportadoresComponent, canActivate: [AuthGuard]},
+  {path:"fotos", component: FotosComponent, canActivate: [AuthGuard]},
   {path:"ingresar", component: LoginComponent},
   {path:"registrar", component: RegistrarComponent},
   {path:"inicio", component: InicioComponent},
