@@ -1,37 +1,20 @@
-import { UsuarioService } from '../../servicios/usuario.service';
+import { RolService } from '../../servicios/rol.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
 @Component({
-  selector: 'app-usuario-form',
-  templateUrl: './usuario-form.component.html',
+  selector: 'app-rol-form',
+  templateUrl: './rol-form.component.html',
   styles: [
   ]
 })
-export class UsuarioFormComponent implements OnInit {
+export class RolFormComponent implements OnInit {
 
-  opcionRol: number = 0;
-
-
-  constructor(public service: UsuarioService, private toastr: ToastrService) { }
-
-
-
-
-  capturar(id){
-    this.service.formData.IdRol = parseInt(id);
-  }
-
-
-
+  constructor(public service: RolService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.resetForm();
-
-    this.service.listRoles();
-
   }
 
   resetForm(form?: NgForm) {
@@ -39,13 +22,7 @@ export class UsuarioFormComponent implements OnInit {
       form.form.reset();
     this.service.formData = {
       Id: 0,
-      Nombre:'',
-      Clave: '',
-      Estado: '',
-      Entidad:'',
-      IdRef:0,
-      IdRol: 0
-      
+      Nombre:''
     }
   }
 
@@ -57,10 +34,10 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.putUsuario().subscribe(
+    this.service.putRol().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.info('Submitted successfully', 'Detalles de Usuario');
+        this.toastr.info('Submitted successfully', 'Detalles de oferta');
         this.service.refreshList();
       },
       err => {
@@ -70,7 +47,7 @@ export class UsuarioFormComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    this.service.postUsuario().subscribe(
+    this.service.postRol().subscribe(
       res => {
         this.resetForm(form);
         this.service.refreshList();

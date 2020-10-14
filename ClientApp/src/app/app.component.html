@@ -41,6 +41,9 @@
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">usuarios</a>
   </li>
 <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/roles']" routerLinkActive="router-link-active">roles</a>
+  </li>
+<li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a>
   </li>
 <li class="nav-item">
