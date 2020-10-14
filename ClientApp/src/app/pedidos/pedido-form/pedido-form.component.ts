@@ -38,7 +38,6 @@ export class PedidoFormComponent implements OnInit {
     this.service.listTransportadores();
     //
   }
-
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
@@ -78,7 +77,6 @@ export class PedidoFormComponent implements OnInit {
       }
     )
   }
-
   insertRecord(form: NgForm) {
     console.log(this.service.formData);
     this.service.postPedido().subscribe(
