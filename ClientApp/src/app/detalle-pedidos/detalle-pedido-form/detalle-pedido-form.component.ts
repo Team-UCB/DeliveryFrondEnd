@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DetallePedidoService } from '../../servicios/detalle-pedido.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-
+ 
 @Component({
   selector: 'app-detalle-pedido-form',
   templateUrl: './detalle-pedido-form.component.html',
@@ -10,11 +10,34 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class DetallePedidoFormComponent implements OnInit {
+  opcionProducto: number = 0;
+  opcionPedido: number = 0;
  
   constructor(public service: DetallePedidoService, private toastr: ToastrService) { }
 
+
+
+
+
+  
+
+  capturar(id) {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.service.formData.IdProducto = parseInt(id);
+    this.service.formData.IdPedido=parseInt(id);
+
+  }
+
+
+
+
+
+
   ngOnInit(): void {
+    
     this.resetForm();
+    this.service.listProductos();
+    this.service.listPedidos();
   }
   resetForm(form?: NgForm) {
     if (form != null)

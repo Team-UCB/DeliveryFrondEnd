@@ -65,6 +65,10 @@ import { VendedorService } from './servicios/vendedor.service';
 import { FotosComponent } from './fotos/fotos.component';
 import { FotoFormComponent } from './fotos/foto-form/foto-form.component';
 import { FotoListComponent } from './fotos/foto-list/foto-list.component';
+import { RolesComponent } from './roles/roles.component';
+import { RolFormComponent } from './roles/rol-form/rol-form.component';
+import { RolListComponent } from './roles/rol-list/rol-list.component';
+import { RolService } from './servicios/rol.service';
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { MensajeFormComponent } from './mensajes/mensaje-form/mensaje-form.component';
 import { MensajeListComponent } from './mensajes/mensaje-list/mensaje-list.component';
@@ -123,6 +127,9 @@ import { DireccionListComponent } from './direcciones/direccion-list/direccion-l
     FotosComponent,
     FotoFormComponent,
     FotoListComponent,
+    RolesComponent,
+    RolFormComponent,
+    RolListComponent,
     MensajesComponent,
     MensajeFormComponent,
     MensajeListComponent,
@@ -150,6 +157,7 @@ import { DireccionListComponent } from './direcciones/direccion-list/direccion-l
   ChatService,
   ClienteService,
   OfertaService,
+  RolService,
   RubroService,
   DetalleFacturaService,
   DetallePedidoService,
