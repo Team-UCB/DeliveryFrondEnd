@@ -22,3 +22,13 @@ input.ng-valid {
 table tr:hover {
   cursor: pointer;
 }
+
+.box{
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+.box img{
+  width: 100%;
+  height: auto;
+}

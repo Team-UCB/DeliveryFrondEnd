@@ -1,0 +1,90 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Descripcion.valid" [class.red-icon]="Descripcion.invalid && Descripcion.touched"></i>
+          </div>
+        </div>
+        <input name="Descripcion" #Descripcion="ngModel" [(ngModel)]="service.formData.Descripcion" class="form-control"
+        placeholder="Descripción de Dirección" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Latitud.valid" [class.red-icon]="Latitud.invalid && Latitud.touched"></i>
+          </div>
+        </div>
+        <input name="Latitud" #Latitud="ngModel" [(ngModel)]="service.formData.Latitud" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Longitud.valid" [class.red-icon]="Longitud.invalid && Longitud.touched"></i>
+          </div>
+        </div>
+        <input name="Longitud" #Longitud="ngModel" [(ngModel)]="service.formData.Longitud" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Referencia.valid" [class.red-icon]="Referencia.invalid && Referencia.touched"></i>
+          </div>
+        </div>
+        <input name="Referencia" #Referencia="ngModel" [(ngModel)]="service.formData.Referencia" class="form-control"
+              placeholder="Referencia" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Predeterminada.valid" [class.red-icon]="Predeterminada.invalid && Predeterminada.touched"></i>
+          </div>
+        </div>
+        <input name="Predeterminada" #Predeterminada="ngModel" [(ngModel)]="service.formData.Predeterminada" class="form-control"
+            type="number" required>
+      </div>
+    </div>
+  
+    <!--<div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdCliente.valid" [class.red-icon]="IdCliente.invalid && IdCliente.touched"></i>
+          </div>
+        </div>
+        <input name="IdCliente" #IdCliente="ngModel" [(ngModel)]="service.formData.IdCliente" class="form-control"
+              type="number" required>
+      </div>
+    </div>-->
+
+    <!---->
+  <select name="IdCliente" #IdCliente="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdCliente.value)" >
+    <option value="0">Selecciona una opción</option>
+    <option *ngFor="let dato of service.listCliente" value= {{dato.Id}}>
+      {{dato.NombresApellidos}}
+    </option>
+</select>
+<!---->
+  
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+      (click)="onSubmit(form)"><i class="fas fa-database"></i> Guardar</button>
+    </div>
+  
+  </form>

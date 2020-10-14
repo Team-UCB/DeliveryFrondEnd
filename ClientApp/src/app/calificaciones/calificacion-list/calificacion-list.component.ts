@@ -1,28 +1,29 @@
-import { Component, OnInit, ViewChildren, QueryList  } from '@angular/core';
-import { FotoService } from '../../servicios/foto.service';
+import { CalificacionService } from '../../servicios/calificacion.service'; 
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
-import { from } from 'rxjs';
+
 @Component({
-  selector: 'app-foto-list',
-  templateUrl: './foto-list.component.html',
-  styles: [
-  ]
-}) 
-export class FotoListComponent implements OnInit {
+  selector: 'app-calificacion-list',
+  templateUrl: './calificacion-list.component.html',
+  styleUrls: []
+})
+
+export class CalificacionListComponent implements OnInit {
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
-  constructor(public service: FotoService) { }
+
+  constructor(public service: CalificacionService) { }
 
   ngOnInit(): void {
     this.service.refreshList();
   }
+
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
-    this.service.cardImageBase64=this.service.formData.PathImg;
   }
 
   onDelete(id) {
-    if (confirm('Are you sure to delete this record ?')) {
-      this.service.deleteFotos(id)
+    if (confirm('Esta seguro de borrar el calificacion?')) {
+      this.service.deleteCalificacion(id)
         .subscribe(res => {
           this.service.refreshList();
         },
@@ -31,6 +32,7 @@ export class FotoListComponent implements OnInit {
   }
 
   onSort({ column, direction }: SortEvent) {
+    // resetting other headers
     this.headers.forEach(header => {
       if (header.sortable !== column) {
         header.direction = '';
@@ -42,20 +44,18 @@ export class FotoListComponent implements OnInit {
   }
 
   filtrar(filtro) {
-    // resetting other headers
     this.service.filtrar(filtro);
   }
+
   listar(cantidad) {
-    // resetting other headers
     this.service.listar(cantidad);
   }
 
   Anterior(){
     this.service.Anterior();
   }
+
   Siguiente(){
     this.service.Siguiente();
   }
-
-
 }

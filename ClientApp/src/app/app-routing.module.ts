@@ -18,6 +18,9 @@ import { AuthGuard } from './auth.guard';
 import { DetalleFacturasComponent } from './detalle-facturas/detalle-facturas.component';
 import { DetallePedidosComponent } from './detalle-pedidos/detalle-pedidos.component';
 import { FotosComponent } from './fotos/fotos.component';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { CalificacionesComponent } from './calificaciones/calificaciones.component';
+import { DireccionesComponent } from './direcciones/direcciones.component';
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
   {path:"vendedores", component: VendedoresComponent, canActivate: [AuthGuard]},
@@ -33,6 +36,9 @@ const routes: Routes = [
   {path:"categoriaProductos", component: CategoriaProductosComponent, canActivate: [AuthGuard]},
   {path:"transportadores", component: TransportadoresComponent, canActivate: [AuthGuard]},
   {path:"fotos", component: FotosComponent, canActivate: [AuthGuard]},
+  {path:"mensajes", component: MensajesComponent, canActivate: [AuthGuard]},
+  {path:"calificaciones", component: CalificacionesComponent, canActivate: [AuthGuard]},
+  {path:"direcciones", component: DireccionesComponent, canActivate: [AuthGuard]},
   {path:"ingresar", component: LoginComponent},
   {path:"registrar", component: RegistrarComponent},
   {path:"inicio", component: InicioComponent},

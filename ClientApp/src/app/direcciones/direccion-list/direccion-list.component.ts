@@ -1,28 +1,29 @@
-import { Component, OnInit, ViewChildren, QueryList  } from '@angular/core';
-import { FotoService } from '../../servicios/foto.service';
+import { DireccionService } from '../../servicios/direccion.service'; 
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
-import { from } from 'rxjs';
+
 @Component({
-  selector: 'app-foto-list',
-  templateUrl: './foto-list.component.html',
-  styles: [
-  ]
-}) 
-export class FotoListComponent implements OnInit {
+  selector: 'app-direccion-list',
+  templateUrl: './direccion-list.component.html',
+  styleUrls: []
+})
+
+export class DireccionListComponent implements OnInit {
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
-  constructor(public service: FotoService) { }
+
+  constructor(public service: DireccionService) { }
 
   ngOnInit(): void {
     this.service.refreshList();
   }
+
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
-    this.service.cardImageBase64=this.service.formData.PathImg;
   }
 
   onDelete(id) {
-    if (confirm('Are you sure to delete this record ?')) {
-      this.service.deleteFotos(id)
+    if (confirm('Esta seguro de borrar la direccion?')) {
+      this.service.deleteDireccion(id)
         .subscribe(res => {
           this.service.refreshList();
         },
@@ -31,31 +32,31 @@ export class FotoListComponent implements OnInit {
   }
 
   onSort({ column, direction }: SortEvent) {
+    // resetting other headers
     this.headers.forEach(header => {
       if (header.sortable !== column) {
         header.direction = '';
       }
     });
+    //REVISAR SI ES DIRECCION O DIRECTION
     this.service.filterData.Columna = column;
     this.service.filterData.Direccion = direction;
     this.service.refreshList();
   }
 
   filtrar(filtro) {
-    // resetting other headers
     this.service.filtrar(filtro);
   }
+
   listar(cantidad) {
-    // resetting other headers
     this.service.listar(cantidad);
   }
 
   Anterior(){
     this.service.Anterior();
   }
+
   Siguiente(){
     this.service.Siguiente();
   }
-
-
 }

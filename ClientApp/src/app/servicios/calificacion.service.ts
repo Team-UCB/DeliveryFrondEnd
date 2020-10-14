@@ -1,26 +1,23 @@
+import { Calificacion } from '../modelos/calificacion.model';
+import { Pedido } from '../modelos/pedido.model';
 import { Injectable } from '@angular/core';
-import { Foto } from '../modelos/foto.model';
 import { HttpClient } from "@angular/common/http";
 import { PageAndSort } from '../modelos/pageandsort.model';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
-import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
-import { Producto } from '../modelos/producto.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FotoService {
-  formData: Foto;
+export class CalificacionService {
+  formData: Calificacion;
   filterData: PageAndSort;
-  cardImageBase64: string;
-  //readonly rootURL = 'http://perezleonardo.somee.com/api';
-  list: Foto[];
-  //agregar lista de producto para la llave foranea
-  listProducto: Producto[];
-  //
+  list: Calificacion[];
+   //agregar lista de producto para la llave foranea
+  listPedido: Pedido[];
   total = 0;
   tam = 0;
+
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
     this.filterData.Columna = "Id";
@@ -28,39 +25,46 @@ export class FotoService {
     this.filterData.Pagina = 1;
     this.filterData.TamPagina = 10;
     this.filterData.Filtro = "";
-   }
-   listProductos() {
+  }
+
+  // Crear un metodo  que traiga todos los productos y los llene a la lista
+  listPedidos() {
     
-    this.http.get(`${environment.apiUrl}Productos` + '?columna=' + this.filterData.Columna +
+    this.http.get(`${environment.apiUrl}Pedidos` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +
       '&pagina=' + this.filterData.Pagina +
       '&tampagina=' + this.filterData.TamPagina +
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
-      .then(res => this.listProducto = (res as any).Datos as Producto[]);
+      .then(res => this.listPedido = (res as any).Datos as Pedido[]);
 
       console.log(this.list);
   }
-  postFotos() {
-    return this.http.post(`${environment.apiUrl}Fotos`, this.formData);
+
+
+  postCalificacion() {
+    return this.http.post(`${environment.apiUrl}Calificaciones`, this.formData);
   }
-  putFotos() {
-    return this.http.put(`${environment.apiUrl}Fotos/${this.formData.Id}`, this.formData);
+  putCalificacion() {
+    return this.http.put(`${environment.apiUrl}Calificaciones/${this.formData.Id}` , this.formData);
   }
-  deleteFotos(id) {
-    return this.http.delete(`${environment.apiUrl}Fotos/${id}`);
+  deleteCalificacion(id) {
+    return this.http.delete(`${environment.apiUrl}Calificaciones/${id}`);
   }
 
   refreshList() {
-    this.http.get(`${environment.apiUrl}Fotos` + '?columna=' + this.filterData.Columna +
+    
+    this.http.get(`${environment.apiUrl}Calificaciones` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +
       '&pagina=' + this.filterData.Pagina +
       '&tampagina=' + this.filterData.TamPagina +
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
-      .then(res => this.list = (res as any).Datos as Foto[]);
-  }
+      .then(res => this.list = (res as any).Datos as Calificacion[]);
 
+      console.log(this.list);
+  }
+  
   filtrar(filtro) {
     this.filterData.Filtro = filtro;
     this.refreshList();
@@ -75,7 +79,7 @@ export class FotoService {
     this.filterData.Pagina = this.filterData.Pagina - 1;
     this.refreshList();
   }
-
+  
   Siguiente() {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();

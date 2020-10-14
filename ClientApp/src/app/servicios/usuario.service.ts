@@ -103,7 +103,6 @@ export class UsuarioService {
 
  getToken(){
    return localStorage.getItem('Token');
-
   }
   
 
