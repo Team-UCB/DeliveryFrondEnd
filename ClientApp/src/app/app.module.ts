@@ -65,6 +65,15 @@ import { VendedorService } from './servicios/vendedor.service';
 import { FotosComponent } from './fotos/fotos.component';
 import { FotoFormComponent } from './fotos/foto-form/foto-form.component';
 import { FotoListComponent } from './fotos/foto-list/foto-list.component';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { MensajeFormComponent } from './mensajes/mensaje-form/mensaje-form.component';
+import { MensajeListComponent } from './mensajes/mensaje-list/mensaje-list.component';
+import { CalificacionesComponent } from './calificaciones/calificaciones.component';
+import { CalificacionFormComponent } from './calificaciones/calificacion-form/calificacion-form.component';
+import { CalificacionListComponent } from './calificaciones/calificacion-list/calificacion-list.component';
+import { DireccionesComponent } from './direcciones/direcciones.component';
+import { DireccionFormComponent } from './direcciones/direccion-form/direccion-form.component';
+import { DireccionListComponent } from './direcciones/direccion-list/direccion-list.component';
 
 
 @NgModule({
@@ -114,6 +123,15 @@ import { FotoListComponent } from './fotos/foto-list/foto-list.component';
     FotosComponent,
     FotoFormComponent,
     FotoListComponent,
+    MensajesComponent,
+    MensajeFormComponent,
+    MensajeListComponent,
+    CalificacionesComponent,
+    CalificacionFormComponent,
+    CalificacionListComponent,
+    DireccionesComponent,
+    DireccionFormComponent,
+    DireccionListComponent,
     
     
   ],
