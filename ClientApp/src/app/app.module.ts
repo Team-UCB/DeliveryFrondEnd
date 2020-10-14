@@ -65,8 +65,14 @@ import { VendedorService } from './servicios/vendedor.service';
 import { FotosComponent } from './fotos/fotos.component';
 import { FotoFormComponent } from './fotos/foto-form/foto-form.component';
 import { FotoListComponent } from './fotos/foto-list/foto-list.component';
-
-
+import { FacturasComponent } from './facturas/facturas.component';
+import { FacturaFormComponent } from './facturas/factura-form/factura-form.component';
+import { FacturaListComponent } from './facturas/factura-list/factura-list.component';
+import  { FacturaService } from './servicios/factura.service';
+import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { PedidoFormComponent } from './pedidos/pedido-form/pedido-form.component';
+import { PedidoService } from './servicios/pedido.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,7 +120,14 @@ import { FotoListComponent } from './fotos/foto-list/foto-list.component';
     FotosComponent,
     FotoFormComponent,
     FotoListComponent,
+   
     
+    FacturaListComponent,
+    FacturasComponent,
+    FacturaFormComponent,
+    PedidoListComponent,
+    PedidosComponent,
+    PedidoFormComponent,
     
   ],
   imports: [
@@ -137,6 +150,8 @@ import { FotoListComponent } from './fotos/foto-list/foto-list.component';
   DetallePedidoService,
   CategoriaProductoService,
   TransportadorService,
+  FacturaService,
+  PedidoService,
   AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

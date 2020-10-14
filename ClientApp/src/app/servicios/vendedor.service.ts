@@ -5,6 +5,7 @@ import { PageAndSort } from '../modelos/pageandsort.model';
 import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { Rubro } from '../modelos/rubro.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,7 @@ export class VendedorService {
   formData: Vendedor;
   filterData: PageAndSort;
   //readonly rootURL = 'http://perezleonardo.somee.com/api';
+  listRubro: Rubro[];
   list: Vendedor[];
   total = 0;
   tam = 0;
@@ -24,6 +26,18 @@ export class VendedorService {
     this.filterData.TamPagina = 10;
     this.filterData.Filtro = "";
 
+  }
+  listRubros() {
+    
+    this.http.get(`${environment.apiUrl}Rubros` + '?columna=' + this.filterData.Columna +
+      '&direccion=' + this.filterData.Direccion +
+      '&pagina=' + this.filterData.Pagina +
+      '&tampagina=' + this.filterData.TamPagina +
+      '&filtro=' + this.filterData.Filtro)
+      .toPromise()
+      .then(res => this.listRubro = (res as any).Datos as Rubro[]);
+
+      console.log(this.list);
   }
   postVendedor() {
     return this.http.post(`${environment.apiUrl}vendedores`, this.formData);
