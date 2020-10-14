@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList  } from '@angular/core';
 import { FotoService } from '../../servicios/foto.service';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-foto-list',
   templateUrl: './foto-list.component.html',
@@ -16,6 +17,7 @@ export class FotoListComponent implements OnInit {
   }
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
+    this.service.cardImageBase64=this.service.formData.PathImg;
   }
 
   onDelete(id) {

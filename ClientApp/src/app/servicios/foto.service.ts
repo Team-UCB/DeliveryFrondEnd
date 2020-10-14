@@ -6,12 +6,14 @@ import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Producto } from '../modelos/producto.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class FotoService {
   formData: Foto;
   filterData: PageAndSort;
+  cardImageBase64: string;
   //readonly rootURL = 'http://perezleonardo.somee.com/api';
   list: Foto[];
   //agregar lista de producto para la llave foranea
