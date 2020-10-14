@@ -73,6 +73,21 @@ import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { PedidoFormComponent } from './pedidos/pedido-form/pedido-form.component';
 import { PedidoService } from './servicios/pedido.service';
+import { RolesComponent } from './roles/roles.component';
+import { RolFormComponent } from './roles/rol-form/rol-form.component';
+import { RolListComponent } from './roles/rol-list/rol-list.component';
+import { RolService } from './servicios/rol.service';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { MensajeFormComponent } from './mensajes/mensaje-form/mensaje-form.component';
+import { MensajeListComponent } from './mensajes/mensaje-list/mensaje-list.component';
+import { CalificacionesComponent } from './calificaciones/calificaciones.component';
+import { CalificacionFormComponent } from './calificaciones/calificacion-form/calificacion-form.component';
+import { CalificacionListComponent } from './calificaciones/calificacion-list/calificacion-list.component';
+import { DireccionesComponent } from './direcciones/direcciones.component';
+import { DireccionFormComponent } from './direcciones/direccion-form/direccion-form.component';
+import { DireccionListComponent } from './direcciones/direccion-list/direccion-list.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,6 +136,18 @@ import { PedidoService } from './servicios/pedido.service';
     FotoFormComponent,
     FotoListComponent,
    
+    RolesComponent,
+    RolFormComponent,
+    RolListComponent,
+    MensajesComponent,
+    MensajeFormComponent,
+    MensajeListComponent,
+    CalificacionesComponent,
+    CalificacionFormComponent,
+    CalificacionListComponent,
+    DireccionesComponent,
+    DireccionFormComponent,
+    DireccionListComponent,
     
     FacturaListComponent,
     FacturasComponent,
@@ -145,6 +172,7 @@ import { PedidoService } from './servicios/pedido.service';
   ChatService,
   ClienteService,
   OfertaService,
+  RolService,
   RubroService,
   DetalleFacturaService,
   DetallePedidoService,

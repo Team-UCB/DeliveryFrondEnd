@@ -1,55 +1,48 @@
+import { CalificacionService } from '../../servicios/calificacion.service'; 
 import { Component, OnInit } from '@angular/core';
-import { DetallePedidoService } from '../../servicios/detalle-pedido.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
- 
+
+
 @Component({
-  selector: 'app-detalle-pedido-form',
-  templateUrl: './detalle-pedido-form.component.html',
-  styles: [
-  ]
+  selector: 'app-calificacion-form',
+  templateUrl: './calificacion-form.component.html',
+  styleUrls: []
 })
-export class DetallePedidoFormComponent implements OnInit {
-  opcionProducto: number = 0;
-  opcionPedido: number = 0;
- 
-  constructor(public service: DetallePedidoService, private toastr: ToastrService) { }
+export class CalificacionFormComponent implements OnInit {
+  datos;
+  // Seleccionamos o iniciamos el valor '0' del <select>
+  opcionSeleccionado: number=0;
+  verSeleccion: string = '';
 
-
-
-
-
-  
+  constructor(public service: CalificacionService, private toastr: ToastrService) { }
 
   capturar(id) {
     // Pasamos el valor seleccionado a la variable verSeleccion
-    this.service.formData.IdProducto = parseInt(id);
-    this.service.formData.IdPedido=parseInt(id);
-
+    this.service.formData.IdPedido = parseInt(id);
+    
+    console.log(this.opcionSeleccionado);
   }
-
-
-
-
-
 
   ngOnInit(): void {
-    
     this.resetForm();
-    this.service.listProductos();
+    //
     this.service.listPedidos();
   }
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
     this.service.formData = {
       Id: 0,
-      IdPedido:null,
-      IdProducto:null,
-      Cantidad:0,
-      SubMonto:0
+      IdOrigen: 0,
+      IdDestino: 0,
+      Puntaje: 0,
+      Observaciones: '',
+      Tipo: '',
+      IdPedido: 0
     }
-  } 
+  }
 
   onSubmit(form: NgForm) {
     if (this.service.formData.Id == 0)
@@ -59,10 +52,10 @@ export class DetallePedidoFormComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.putDetallePedido().subscribe(
+    this.service.putCalificacion().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.info('Submitted successfully', 'Detalles de pedido');
+        this.toastr.info('Datos Guardados', 'Calificacion');
         this.service.refreshList();
       },
       err => {
@@ -72,13 +65,13 @@ export class DetallePedidoFormComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    this.service.postDetallePedido().subscribe(
+    console.log(this.service.formData);
+    this.service.postCalificacion().subscribe(
       res => {
         this.resetForm(form);
         this.service.refreshList();
       },
       err => { console.log(err); }
     )
-  } 
-
+  }
 }

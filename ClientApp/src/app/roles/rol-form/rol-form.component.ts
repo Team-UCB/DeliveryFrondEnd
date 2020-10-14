@@ -1,34 +1,30 @@
+import { RolService } from '../../servicios/rol.service';
 import { Component, OnInit } from '@angular/core';
-import { DetalleFacturaService } from '../../servicios/detalle-factura.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-detalle-factura-form',
-  templateUrl: './detalle-factura-form.component.html',
+  selector: 'app-rol-form',
+  templateUrl: './rol-form.component.html',
   styles: [
   ]
 })
-export class DetalleFacturaFormComponent implements OnInit {
+export class RolFormComponent implements OnInit {
 
-  constructor(public service: DetalleFacturaService, private toastr: ToastrService) { }
- 
+  constructor(public service: RolService, private toastr: ToastrService) { }
+
   ngOnInit(): void {
     this.resetForm();
   }
+
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
     this.service.formData = {
       Id: 0,
-      Cantidad:null,
-      Monto:null,
-      Descripcion:'',
-      IdDetallePedido:0,
-      IdFactura:0
+      Nombre:''
     }
-  } 
+  }
 
   onSubmit(form: NgForm) {
     if (this.service.formData.Id == 0)
@@ -38,10 +34,10 @@ export class DetalleFacturaFormComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.putDetalleFactura().subscribe(
+    this.service.putRol().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.info('Submitted successfully', 'Detalles de pedido');
+        this.toastr.info('Submitted successfully', 'Detalles de oferta');
         this.service.refreshList();
       },
       err => {
@@ -51,13 +47,12 @@ export class DetalleFacturaFormComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    this.service.postDetalleFactura().subscribe(
+    this.service.postRol().subscribe(
       res => {
         this.resetForm(form);
         this.service.refreshList();
       },
       err => { console.log(err); }
     )
-  } 
-
+  }
 }

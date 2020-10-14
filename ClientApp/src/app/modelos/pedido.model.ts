@@ -13,3 +13,5 @@ export class Pedido {
     IdVendedor: number;
     IdTransporte:number;
 }
+ 
+

@@ -5,6 +5,7 @@ import { PageAndSort } from '../modelos/pageandsort.model';
 import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { Rol } from '../modelos/rol.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,10 @@ import { Router } from '@angular/router';
 export class UsuarioService {
   formData: Usuario;
   filterData: PageAndSort;
-  //readonly rootURL = 'http://perezleonardo.somee.com/api';
   list: Usuario[];
+
+
+  listRol: Rol[];
   total = 0;
   tam = 0;
 
@@ -25,7 +28,9 @@ export class UsuarioService {
     this.filterData.TamPagina = 10;
     this.filterData.Filtro = "";
   }
+  
   postUsuario() {
+    console.log(this.formData);
     return this.http.post(`${environment.apiUrl}Usuarios`, this.formData);
   }
   putUsuario() {
@@ -48,6 +53,21 @@ export class UsuarioService {
       .toPromise()
       .then(res => this.list = (res as any).Datos as Usuario[]);
   }
+
+
+
+  listRoles() {
+    this.http.get(`${environment.apiUrl}Roles` + '?columna=' + this.filterData.Columna +
+      '&direccion=' + this.filterData.Direccion +
+      '&pagina=' + this.filterData.Pagina +
+      '&tampagina=' + this.filterData.TamPagina +
+      '&filtro=' + this.filterData.Filtro)
+      .toPromise()
+      .then(res => this.listRol = (res as any).Datos as Rol[]);
+  }
+
+
+
 
   filtrar(filtro) {
     this.filterData.Filtro = filtro;
@@ -83,7 +103,6 @@ export class UsuarioService {
 
  getToken(){
    return localStorage.getItem('Token');
-
   }
   
 

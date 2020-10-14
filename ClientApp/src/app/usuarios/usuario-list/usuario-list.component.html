@@ -27,7 +27,10 @@
       <th scope="col" sortable="Nombre" (sort)="onSort($event)">Nombre</th>
       <th scope="col" sortable="Clave" (sort)="onSort($event)">Clave</th>
       <th scope="col" sortable="Estado" (sort)="onSort($event)">Estado</th>
+      <th scope="col" sortable="Entidad" (sort)="onSort($event)">Entidad</th>
+      <th scope="col" sortable="IdRef" (sort)="onSort($event)">IdRef</th>
       <th scope="col" sortable="IdRol" (sort)="onSort($event)">IdRol</th>
+      
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -36,7 +39,10 @@
       <td (click)="populateForm(usuario)">{{usuario.Nombre}}</td>
       <td (click)="populateForm(usuario)">{{usuario.Clave}}</td>
       <td (click)="populateForm(usuario)">{{usuario.Estado}}</td>
+      <td (click)="populateForm(usuario)">{{usuario.Entidad}}</td>
+      <td (click)="populateForm(usuario)">{{usuario.IdRef}}</td>
       <td (click)="populateForm(usuario)">{{usuario.IdRol}}</td>
+      
       <td>
         <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(usuario.Id)"></i>
       </td>

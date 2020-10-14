@@ -1,28 +1,23 @@
+import { Direccion } from '../modelos/direccion.model';
 import { Injectable } from '@angular/core';
-import { DetallePedido } from '../modelos/detalle-pedido.model';
 import { HttpClient } from "@angular/common/http";
 import { PageAndSort } from '../modelos/pageandsort.model';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { Producto } from '../modelos/producto.model';
-import { Pedido } from '../modelos/pedido.model';
+import { Cliente } from '../modelos/cliente.model';
+
 @Injectable({
   providedIn: 'root'
 })
-export class DetallePedidoService {
-  formData: DetallePedido;
+export class DireccionService {
+  formData: Direccion;
   filterData: PageAndSort;
-  list: DetallePedido[];
+  list: Direccion[];
+  //agregar lista de producto para la llave foranea
+  listCliente: Cliente[];
+  total = 0;
+  tam = 0;
 
-
-
-  listPedido: Pedido[];
-  listProducto: Producto[];
-
-
-
-
-  
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
     this.filterData.Columna = "Id";
@@ -30,54 +25,41 @@ export class DetallePedidoService {
     this.filterData.Pagina = 1;
     this.filterData.TamPagina = 10;
     this.filterData.Filtro = "";
-   }
-   postDetallePedido() {
-    return this.http.post(`${environment.apiUrl}DetallePedidos`, this.formData);
   }
-  putDetallePedido() {
-    return this.http.put(`${environment.apiUrl}DetallePedidos/${this.formData.Id}` , this.formData);
+
+  // Crear un metodo  que traiga todos los productos y los llene a la lista
+  listClientes() {
+    
+    this.http.get(`${environment.apiUrl}Clientes` + '?columna=' + this.filterData.Columna +
+      '&direccion=' + this.filterData.Direccion +
+      '&pagina=' + this.filterData.Pagina +
+      '&tampagina=' + this.filterData.TamPagina +
+      '&filtro=' + this.filterData.Filtro)
+      .toPromise()
+      .then(res => this.listCliente = (res as any).Datos as Cliente[]);
+
+      console.log(this.list);
   }
-  deleteDetallePedido(id) {
-    return this.http.delete(`${environment.apiUrl}DetallePedidos/${id}`);
+
+  postDireccion() {
+    return this.http.post(`${environment.apiUrl}Direcciones`, this.formData);
+  }
+  putDireccion() {
+    return this.http.put(`${environment.apiUrl}Direcciones/${this.formData.Id}` , this.formData);
+  }
+  deleteDireccion(id) {
+    return this.http.delete(`${environment.apiUrl}Direcciones/${id}`);
   }
 
   refreshList() {
     
-    this.http.get(`${environment.apiUrl}DetallePedidos` + '?columna=' + this.filterData.Columna +
+    this.http.get(`${environment.apiUrl}Direcciones` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +
       '&pagina=' + this.filterData.Pagina +
       '&tampagina=' + this.filterData.TamPagina +
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
-      .then(res => this.list = (res as any).Datos as DetallePedido[]);
-
-      console.log(this.list);
-  }
-
-
-  listPedidos() {
-    
-    this.http.get(`${environment.apiUrl}Pedidos` + '?columna=' + this.filterData.Columna +
-      '&direccion=' + this.filterData.Direccion +
-      '&pagina=' + this.filterData.Pagina +
-      '&tampagina=' + this.filterData.TamPagina +
-      '&filtro=' + this.filterData.Filtro)
-      .toPromise()
-      .then(res => this.listPedido = (res as any).Datos as Pedido[]);
-
-      console.log(this.list);
-  }
-
-
-  listProductos() {
-    
-    this.http.get(`${environment.apiUrl}Productos` + '?columna=' + this.filterData.Columna +
-      '&direccion=' + this.filterData.Direccion +
-      '&pagina=' + this.filterData.Pagina +
-      '&tampagina=' + this.filterData.TamPagina +
-      '&filtro=' + this.filterData.Filtro)
-      .toPromise()
-      .then(res => this.listProducto = (res as any).Datos as Producto[]);
+      .then(res => this.list = (res as any).Datos as Direccion[]);
 
       console.log(this.list);
   }
