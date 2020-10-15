@@ -49,7 +49,9 @@
 <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a>
   </li>
-
+  <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/facturas']" routerLinkActive="router-link-active">Facturas</a>
+  </li>
 <li class="nav-item">
 
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a>
@@ -68,6 +70,9 @@
   </li>
 <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/fotos']" routerLinkActive="router-link-active">Fotos</a>
+  </li>
+  <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/pedidos']" routerLinkActive="router-link-active">Pedidos</a>
   </li>
 <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a>

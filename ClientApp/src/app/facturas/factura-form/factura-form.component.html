@@ -1,0 +1,89 @@
+<form #form="ngForm" autocomplete="off">
+  <input type="hidden" name="id" [value]="service.formData.Id">
+  <div class="form-group">
+    <label>Numero de factura</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="NroFactura.valid" [class.red-icon]="NroFactura.invalid && NroFactura.touched"></i>
+        </div>
+      </div>
+      <input name="NroFactura" #NroFactura="ngModel" [(ngModel)]="service.formData.NroFactura" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Fecha de emision</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaEmision.valid" [class.red-icon]="FechaEmision.invalid && FechaEmision.touched"></i>
+        </div>
+      </div>
+      
+      <input  type='datetime-local'name="FechaEmision" #FechaEmision="ngModel" [(ngModel)]="service.formData.FechaEmision" class="form-control"
+              required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Estado de factura</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="Estado.valid" [class.red-icon]="Estado.invalid && Estado.touched"></i>
+        </div>
+      </div>
+      <input name="Estado" #Estado="ngModel" [(ngModel)]="service.formData.Estado" class="form-control"
+            type="text" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Codigo de control</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="CodigoControl.valid" [class.red-icon]="CodigoControl.invalid && CodigoControl.touched"></i>
+        </div>
+      </div>
+      <input name="CodigoControl" #CodigoControl="ngModel" [(ngModel)]="service.formData.CodigoControl" class="form-control"
+             type="text" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Observaciones</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="Observaciones.valid" [class.red-icon]="Observaciones.invalid && Observaciones.touched"></i>
+        </div>
+      </div>
+      <input name="Observaciones" #Observaciones="ngModel" [(ngModel)]="service.formData.Observaciones" class="form-control"
+             type="text" required>
+    </div>
+  </div>
+<!---->
+<label>Dosificacion</label>
+  <select name="IdDosificacion" #IdDosificacion="ngModel"  [(ngModel)]="opcionDosificacion" class="form-control" (change)="capturar(IdDosificacion.value)" >
+    <option value="0">Selecciona una opción</option>
+    <option *ngFor="let dato of service.listDosificacion" value= {{dato.Id}}>
+      {{dato.NroAutorizacion}}
+    </option>
+</select>
+<!---->
+<!---->
+<label>Pedido</label>
+<select name="IdPedido" #IdPedido="ngModel"  [(ngModel)]="opcionPedido" class="form-control" (change)="capturar(IdPedido.value)" >
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of service.listPedido" value= {{dato.Id}}>
+    {{dato.CodigoQrFactura}}
+  </option>
+</select>
+<!---->
+  <div class="form-group">
+    <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+            (click)="onSubmit(form)">
+      <i class="fas fa-database"></i> Guardar
+    </button>
+  </div>
+</form>
+

@@ -1,0 +1,148 @@
+<form #form="ngForm" autocomplete="off">
+  <input type="hidden" name="id" [value]="service.formData.Id">
+  <div class="form-group">
+    <label>Fecha de ingreso</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaIngreso.valid" [class.red-icon]="FechaIngreso.invalid && FechaIngreso.touched"></i>
+        </div>
+      </div>
+      
+      <input  type='datetime-local'name="FechaIngreso" #FechaIngreso="ngModel" [(ngModel)]="service.formData.FechaIngreso" class="form-control"
+              required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Fecha de atenci&oacute;</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaAtencion.valid" [class.red-icon]="FechaAtencion.invalid && FechaAtencion.touched"></i>
+        </div>
+      </div>
+      
+      <input  type='datetime-local'name="FechaAtencion" #FechaAtencion="ngModel" [(ngModel)]="service.formData.FechaAtencion" class="form-control"
+              required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaSalida.valid" [class.red-icon]="FechaSalida.invalid && FechaSalida.touched"></i>
+        </div>
+      </div>
+      
+      <input  type='datetime-local'name="FechaSalida" #FechaSalida="ngModel" [(ngModel)]="service.formData.FechaSalida" class="form-control"
+              required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Fecha de entrega</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaEntrega.valid" [class.red-icon]="FechaEntrega.invalid && FechaEntrega.touched"></i>
+        </div>
+      </div>
+      
+      <input  type='datetime-local'name="FechaEntrega" #FechaEntrega="ngModel" [(ngModel)]="service.formData.FechaEntrega" class="form-control"
+              required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Estado</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="Estado.valid" [class.red-icon]="Estado.invalid && Estado.touched"></i>
+        </div>
+      </div>
+      <input name="Estado" #Estado="ngModel" [(ngModel)]="service.formData.Estado" class="form-control"
+             type="text" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>C&oacute;digo QR de factura</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="CodigoQrFactura.valid" [class.red-icon]="CodigoQrFactura.invalid && CodigoQrFactura.touched"></i>
+        </div>
+      </div>
+      <input name="CodigoQrFactura" #CodigoQrFactura="ngModel" [(ngModel)]="service.formData.CodigoQrFactura" class="form-control"
+             type="text" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Monto de envio</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="MontoEnvio.valid" [class.red-icon]="MontoEnvio.invalid && MontoEnvio.touched"></i>
+        </div>
+      </div>
+      <input name="MontoEnvio" #MontoEnvio="ngModel" [(ngModel)]="service.formData.MontoEnvio" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Tipo de pago</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="TipoPago.valid" [class.red-icon]="TipoPago.invalid && TipoPago.touched"></i>
+        </div>
+      </div>
+      <input name="TipoPago" #TipoPago="ngModel" [(ngModel)]="service.formData.TipoPago" class="form-control"
+             type="text" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Monto de cliente</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="MontoCliente.valid" [class.red-icon]="MontoCliente.invalid && MontoCliente.touched"></i>
+        </div>
+      </div>
+      <input name="MontoCliente" #MontoCliente="ngModel" [(ngModel)]="service.formData.MontoCliente" class="form-control"
+             type="number" required>
+    </div>
+  </div>
+<!---->
+<label>Cliente</label>
+  <select name="IdCliente" #IdCliente="ngModel"  [(ngModel)]="opcionCliente" class="form-control" (change)="capturar(IdCliente.value)" >
+    <option value="0">Selecciona una opción</option>
+    <option *ngFor="let dato of service.listCliente" value= {{dato.Id}}>
+      {{dato.NombresApellidos}}
+    </option>
+</select>
+<!---->
+<!---->
+<label>Vendedor</label>
+<select name="IdVendedor" #IdVendedor="ngModel"  [(ngModel)]="opcionVendedor" class="form-control" (change)="capturar(IdVendedor.value)" >
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of service.listVendedor" value= {{dato.Id}}>
+    {{dato.PersonaContacto}}
+  </option>
+</select>
+<!---->
+<!---->
+<label>Transporte</label>
+<select name="IdTransporte" #IdTransporte="ngModel"  [(ngModel)]="opcionTransporte" class="form-control" (change)="capturar(IdTransporte.value)" >
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of service.listTransportador" value= {{dato.Id}}>
+    {{dato.NombreCompleto}}
+  </option>
+</select>
+<!---->
+  <div class="form-group">
+    <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+            (click)="onSubmit(form)">
+      <i class="fas fa-database"></i> Guardar
+    </button>
+  </div>
+</form>
+
