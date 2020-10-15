@@ -10,11 +10,18 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class VendedorFormComponent implements OnInit {
-
+  opcionRubro: number=0;
+  verSeleccion: string = '';
   constructor(public service: VendedorService, private toastr: ToastrService) { }
+  capturar(id) {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.service.formData.IdRubro = parseInt(id);
+    
+  }
 
   ngOnInit(): void {
     this.resetForm();
+    this.service.listRubros();
   }
 
   resetForm(form?: NgForm) {

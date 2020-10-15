@@ -1,5 +1,6 @@
 <form #form="ngForm" autocomplete="off">
     <input type="hidden" name="id" [value]="service.formData.Id">
+    <input type="hidden" name="PathImg" [value]="service.formData.PathImg">
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -11,25 +12,35 @@
                placeholder="ingrese la Descripcion" required>
       </div>
     </div>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-info-circle" [class.green-icon]="PathImg.valid" [class.red-icon]="PathImg.invalid && PathImg.touched"></i>
-          </div>
-        </div>
-        
-        <input name="PathImg" #PathImg="ngModel" [(ngModel)]="service.formData.PathImg" class="form-control"
-               placeholder="ingrese la img " required>
-      </div>
-    </div>
-  <!---->
-    <select name="IdProducto" #IdProducto="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdProducto.value)" >
+     <!---->
+     <select name="IdProducto" #IdProducto="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdProducto.value)" >
       <option value="0">Selecciona un producto</option>
       <option *ngFor="let dato of service.listProducto" value= {{dato.Id}}>
         {{dato.Nombre}}
       </option>
-  </select>
+    </select>
+  <!---->
+  <!---->
+  <br>
+  <div class="form-group">
+    <label>Ingresa la Imagen:</label>
+    <div class="box">
+    <fieldset class="form-group">
+        {{imageError}}
+        <div class="custom-file fileInputProfileWrap">
+            <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+            <div class="img-space" >
+                <ng-container *ngIf="isImageSaved; else elseTemplate">
+                    <img [src]="service.cardImageBase64" class="rounded-circle"/>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <img [src]="service.cardImageBase64" class="rounded-circle">
+                </ng-template>
+            </div>
+        </div>
+    </fieldset>
+    </div>
+  </div>
   <!---->
     <div class="form-group">
       <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"

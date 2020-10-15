@@ -2,6 +2,7 @@ import { UsuarioService } from '../../servicios/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Token } from '@angular/compiler/src/ml_parser/lexer';
 
 @Component({
   selector: 'app-usuario-form',
@@ -11,10 +12,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UsuarioFormComponent implements OnInit {
 
+  opcionRol: number = 0;
+
+
   constructor(public service: UsuarioService, private toastr: ToastrService) { }
+
+
+
+
+  capturar(id){
+    this.service.formData.IdRol = parseInt(id);
+  }
+
+
+
 
   ngOnInit(): void {
     this.resetForm();
+
+    this.service.listRoles();
+
   }
 
   resetForm(form?: NgForm) {
@@ -25,7 +42,10 @@ export class UsuarioFormComponent implements OnInit {
       Nombre:'',
       Clave: '',
       Estado: '',
+      Entidad:'',
+      IdRef:0,
       IdRol: 0
+      
     }
   }
 

@@ -65,6 +65,27 @@ import { VendedorService } from './servicios/vendedor.service';
 import { FotosComponent } from './fotos/fotos.component';
 import { FotoFormComponent } from './fotos/foto-form/foto-form.component';
 import { FotoListComponent } from './fotos/foto-list/foto-list.component';
+import { FacturasComponent } from './facturas/facturas.component';
+import { FacturaFormComponent } from './facturas/factura-form/factura-form.component';
+import { FacturaListComponent } from './facturas/factura-list/factura-list.component';
+import  { FacturaService } from './servicios/factura.service';
+import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { PedidoFormComponent } from './pedidos/pedido-form/pedido-form.component';
+import { PedidoService } from './servicios/pedido.service';
+import { RolesComponent } from './roles/roles.component';
+import { RolFormComponent } from './roles/rol-form/rol-form.component';
+import { RolListComponent } from './roles/rol-list/rol-list.component';
+import { RolService } from './servicios/rol.service';
+import { MensajesComponent } from './mensajes/mensajes.component';
+import { MensajeFormComponent } from './mensajes/mensaje-form/mensaje-form.component';
+import { MensajeListComponent } from './mensajes/mensaje-list/mensaje-list.component';
+import { CalificacionesComponent } from './calificaciones/calificaciones.component';
+import { CalificacionFormComponent } from './calificaciones/calificacion-form/calificacion-form.component';
+import { CalificacionListComponent } from './calificaciones/calificacion-list/calificacion-list.component';
+import { DireccionesComponent } from './direcciones/direcciones.component';
+import { DireccionFormComponent } from './direcciones/direccion-form/direccion-form.component';
+import { DireccionListComponent } from './direcciones/direccion-list/direccion-list.component';
 
 
 @NgModule({
@@ -114,7 +135,26 @@ import { FotoListComponent } from './fotos/foto-list/foto-list.component';
     FotosComponent,
     FotoFormComponent,
     FotoListComponent,
+   
+    RolesComponent,
+    RolFormComponent,
+    RolListComponent,
+    MensajesComponent,
+    MensajeFormComponent,
+    MensajeListComponent,
+    CalificacionesComponent,
+    CalificacionFormComponent,
+    CalificacionListComponent,
+    DireccionesComponent,
+    DireccionFormComponent,
+    DireccionListComponent,
     
+    FacturaListComponent,
+    FacturasComponent,
+    FacturaFormComponent,
+    PedidoListComponent,
+    PedidosComponent,
+    PedidoFormComponent,
     
   ],
   imports: [
@@ -132,11 +172,14 @@ import { FotoListComponent } from './fotos/foto-list/foto-list.component';
   ChatService,
   ClienteService,
   OfertaService,
+  RolService,
   RubroService,
   DetalleFacturaService,
   DetallePedidoService,
   CategoriaProductoService,
   TransportadorService,
+  FacturaService,
+  PedidoService,
   AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

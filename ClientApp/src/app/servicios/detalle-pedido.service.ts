@@ -4,7 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { PageAndSort } from '../modelos/pageandsort.model';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-
+import { Producto } from '../modelos/producto.model';
+import { Pedido } from '../modelos/pedido.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,16 @@ export class DetallePedidoService {
   formData: DetallePedido;
   filterData: PageAndSort;
   list: DetallePedido[];
+
+
+
+  listPedido: Pedido[];
+  listProducto: Producto[];
+
+
+
+
+  
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
     this.filterData.Columna = "Id";
@@ -39,6 +50,34 @@ export class DetallePedidoService {
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
       .then(res => this.list = (res as any).Datos as DetallePedido[]);
+
+      console.log(this.list);
+  }
+
+
+  listPedidos() {
+    
+    this.http.get(`${environment.apiUrl}Pedidos` + '?columna=' + this.filterData.Columna +
+      '&direccion=' + this.filterData.Direccion +
+      '&pagina=' + this.filterData.Pagina +
+      '&tampagina=' + this.filterData.TamPagina +
+      '&filtro=' + this.filterData.Filtro)
+      .toPromise()
+      .then(res => this.listPedido = (res as any).Datos as Pedido[]);
+
+      console.log(this.list);
+  }
+
+
+  listProductos() {
+    
+    this.http.get(`${environment.apiUrl}Productos` + '?columna=' + this.filterData.Columna +
+      '&direccion=' + this.filterData.Direccion +
+      '&pagina=' + this.filterData.Pagina +
+      '&tampagina=' + this.filterData.TamPagina +
+      '&filtro=' + this.filterData.Filtro)
+      .toPromise()
+      .then(res => this.listProducto = (res as any).Datos as Producto[]);
 
       console.log(this.list);
   }

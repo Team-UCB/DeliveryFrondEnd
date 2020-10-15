@@ -1,0 +1,60 @@
+<form>
+    <div class="row">
+      <div class="col-md-5">
+        Puntaje de Pag:
+        <select #cant ng-model="cant">
+          <option value="">
+          <option value=1>1
+          <option value=4>4
+          <option value=6>6
+        </select>
+        <button class="btn btn-success float-rigth" type="button" (click)="listar(cant.value)">Listar</button>
+      </div>
+      <div class="row">
+        Filtrar:
+        <div class="col-md-15">
+        <input #buscar class="form-control"placeholder="ingrese la busqueda" required>
+        <button class="btn btn-success float-rigth" type="button" (click)="filtrar(buscar.value)">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <hr>
+  <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th scope="col" sortable="IdOrigen" (sort)="onSort($event)">Id de Origen</th>
+          <th scope="col" sortable="IdDestino" (sort)="onSort($event)">Id de Destino</th>
+          <th scope="col" sortable="Puntaje" (sort)="onSort($event)">Puntaje</th>
+          <th scope="col" sortable="Observaciones" (sort)="onSort($event)">Observaciones</th>
+          <th scope="col" sortable="Tipo" (sort)="onSort($event)">Tipo</th>
+          <th scope="col" sortable="IdPedido" (sort)="onSort($event)">Id de Pedido</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let calificacion of service.list">
+          <td (click)="populateForm(calificacion)">{{calificacion.IdOrigen}}</td>
+          <td (click)="populateForm(calificacion)">{{calificacion.IdDestino}}</td>
+          <td (click)="populateForm(calificacion)">{{calificacion.Puntaje}}</td>
+          <td (click)="populateForm(calificacion)">{{calificacion.Observaciones}}</td>
+          <td (click)="populateForm(calificacion)">{{calificacion.Tipo}}</td>
+          <td (click)="populateForm(calificacion)">{{calificacion.IdPedido}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(calificacion.Id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <form>
+      <div class="row">
+        <div class="col-md-5">
+          <button class="btn btn-success float-rigth" type="button" (click)="Anterior()">Anterior</button>
+        </div>
+        <div class="col-md-5">
+          <button class="btn btn-success float-rigth" type="button"(click)="Siguiente()">Siguiente</button>
+        </div>
+      </div>
+    </form>

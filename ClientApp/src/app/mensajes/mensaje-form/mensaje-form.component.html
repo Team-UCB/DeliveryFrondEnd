@@ -1,0 +1,55 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    
+    <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-info-circle" [class.green-icon]="FechaHora.valid" [class.red-icon]="FechaHora.invalid && FechaHora.touched"></i>
+        </div>
+      </div>
+      
+      <input  format=""name="FechaHora" #FechaHora="ngModel" [(ngModel)]="service.formData.FechaHora" class="form-control"
+             placeholder="yyyy-mm-dd" required>
+    </div>
+  </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Text.valid" [class.red-icon]="Text.invalid && Text.touched"></i>
+          </div>
+        </div>
+        <input name="Text" #Text="ngModel" [(ngModel)]="service.formData.Text" class="form-control"
+               placeholder="Texto" required>
+      </div>
+    </div>
+
+    <!--<div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdChat.valid" [class.red-icon]="IdChat.invalid && IdChat.touched"></i>
+          </div>
+        </div>
+        <input name="IdChat" #IdChat="ngModel" [(ngModel)]="service.formData.IdChat" class="form-control"
+              type="number" required>
+      </div>
+    </div>-->
+
+<!--REVISAR FORANEA-->
+  <select name="IdChat" #IdChat="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdChat.value)" >
+    <option value="0">Selecciona una opción</option>
+    <option *ngFor="let dato of service.listChat" value= {{dato.Id}}>
+      {{dato.IdOrigen}}
+    </option>
+</select>
+<!---->
+  
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+      (click)="onSubmit(form)"><i class="fas fa-database"></i> Guardar</button>
+    </div>
+  
+  </form>

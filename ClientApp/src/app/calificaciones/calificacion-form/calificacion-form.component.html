@@ -1,0 +1,90 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdOrigen.valid" [class.red-icon]="IdOrigen.invalid && IdOrigen.touched"></i>
+          </div>
+        </div>
+        <input name="IdOrigen" #IdOrigen="ngModel" [(ngModel)]="service.formData.IdOrigen" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdDestino.valid" [class.red-icon]="IdDestino.invalid && IdDestino.touched"></i>
+          </div>
+        </div>
+        <input name="IdDestino" #IdDestino="ngModel" [(ngModel)]="service.formData.IdDestino" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Puntaje.valid" [class.red-icon]="Puntaje.invalid && Puntaje.touched"></i>
+          </div>
+        </div>
+        <input name="Puntaje" #Puntaje="ngModel" [(ngModel)]="service.formData.Puntaje" class="form-control"
+              type="number" required>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Observaciones.valid" [class.red-icon]="Observaciones.invalid && Observaciones.touched"></i>
+          </div>
+        </div>
+        <input name="Observaciones" #Observaciones="ngModel" [(ngModel)]="service.formData.Observaciones" class="form-control"
+               placeholder="Observaciones" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Tipo.valid" [class.red-icon]="Tipo.invalid && Tipo.touched"></i>
+          </div>
+        </div>
+        <input name="Tipo" #Tipo="ngModel" [(ngModel)]="service.formData.Tipo" class="form-control"
+              placeholder="Tipo" required>
+      </div>
+    </div>
+  
+    <!--<div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="IdPedido.valid" [class.red-icon]="IdPedido.invalid && IdPedido.touched"></i>
+          </div>
+        </div>
+        <input name="IdPedido" #IdPedido="ngModel" [(ngModel)]="service.formData.IdPedido" class="form-control"
+              type="number" required>
+      </div>
+    </div>-->
+    
+    <!---->
+      <select name="IdPedido" #IdPedido="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdPedido.value)" >
+        <option value="0">Selecciona una opción</option>
+        <option *ngFor="let dato of service.listPedido" value= {{dato.Id}}>
+          {{dato.Id}}
+        </option>
+    </select>
+    <!---->
+  
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+      (click)="onSubmit(form)"><i class="fas fa-database"></i> Guardar</button>
+    </div>
+  
+  </form>
