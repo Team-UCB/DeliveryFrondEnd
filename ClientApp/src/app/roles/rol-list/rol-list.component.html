@@ -1,0 +1,53 @@
+<form>
+    <div class="row">
+      <div class="col-md-5">
+        Cantidad de Pag:
+        <select #cant ng-model="cant">
+          <option value="">
+          <option value=1>1
+          <option value=4>4
+          <option value=6>6
+        </select>
+        <button class="btn btn-success float-rigth" type="button" (click)="listar(cant.value)">Listar</button>
+      </div>
+      <div class="row">
+        Filtrar:
+        <div class="col-md-15">
+        <input #buscar class="form-control"placeholder="ingrese la busqueda" required>
+        <button class="btn btn-success float-rigth" type="button" (click)="filtrar(buscar.value)">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <hr>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col" sortable="Nombre" (sort)="onSort($event)"> Nombre del rol </th>
+        
+      
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rol of service.list"> 
+        <td (click)="populateForm(rol)">{{rol.Nombre}}</td>
+       
+        
+        <td>
+          <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(rol.Id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form>
+    <div class="row">
+      <div class="col-md-5">
+        <button class="btn btn-success float-rigth" type="button" (click)="Anterior()">Anterior</button>
+      </div>
+      <div class="col-md-5">
+        <button class="btn btn-success float-rigth" type="button"(click)="Siguiente()">Siguiente</button>
+      </div>
+    </div>
+  </form>

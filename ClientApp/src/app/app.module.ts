@@ -65,6 +65,18 @@ import { VendedorService } from './servicios/vendedor.service';
 import { FotosComponent } from './fotos/fotos.component';
 import { FotoFormComponent } from './fotos/foto-form/foto-form.component';
 import { FotoListComponent } from './fotos/foto-list/foto-list.component';
+import { FacturasComponent } from './facturas/facturas.component';
+import { FacturaFormComponent } from './facturas/factura-form/factura-form.component';
+import { FacturaListComponent } from './facturas/factura-list/factura-list.component';
+import  { FacturaService } from './servicios/factura.service';
+import { PedidoListComponent } from './pedidos/pedido-list/pedido-list.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { PedidoFormComponent } from './pedidos/pedido-form/pedido-form.component';
+import { PedidoService } from './servicios/pedido.service';
+import { RolesComponent } from './roles/roles.component';
+import { RolFormComponent } from './roles/rol-form/rol-form.component';
+import { RolListComponent } from './roles/rol-list/rol-list.component';
+import { RolService } from './servicios/rol.service';
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { MensajeFormComponent } from './mensajes/mensaje-form/mensaje-form.component';
 import { MensajeListComponent } from './mensajes/mensaje-list/mensaje-list.component';
@@ -123,6 +135,10 @@ import { DireccionListComponent } from './direcciones/direccion-list/direccion-l
     FotosComponent,
     FotoFormComponent,
     FotoListComponent,
+   
+    RolesComponent,
+    RolFormComponent,
+    RolListComponent,
     MensajesComponent,
     MensajeFormComponent,
     MensajeListComponent,
@@ -133,6 +149,12 @@ import { DireccionListComponent } from './direcciones/direccion-list/direccion-l
     DireccionFormComponent,
     DireccionListComponent,
     
+    FacturaListComponent,
+    FacturasComponent,
+    FacturaFormComponent,
+    PedidoListComponent,
+    PedidosComponent,
+    PedidoFormComponent,
     
   ],
   imports: [
@@ -150,11 +172,14 @@ import { DireccionListComponent } from './direcciones/direccion-list/direccion-l
   ChatService,
   ClienteService,
   OfertaService,
+  RolService,
   RubroService,
   DetalleFacturaService,
   DetallePedidoService,
   CategoriaProductoService,
   TransportadorService,
+  FacturaService,
+  PedidoService,
   AuthGuard, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,

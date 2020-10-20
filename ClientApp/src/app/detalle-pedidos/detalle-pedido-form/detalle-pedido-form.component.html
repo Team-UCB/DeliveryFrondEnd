@@ -1,30 +1,35 @@
 <form #form="ngForm" autocomplete="off">
     <input type="hidden" name="id" [value]="service.formData.Id">
-    <div class="form-group">
-      <label>Pedido:</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="IdPedido.valid" [class.red-icon]="IdPedido.invalid && IdPedido.touched"></i>
-          </div>
-        </div>
-        <input  name="IdPedido" #IdPedido="ngModel" [(ngModel)]="service.formData.IdPedido" class="form-control"
-        type="number" placeholder="IdPedido" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Producto:</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-info-circle" [class.green-icon]="IdProducto.valid" [class.red-icon]="IdProducto.invalid && IdProducto.touched"></i>
-          </div>
-        </div>
-        
-        <input name="IdProducto" #IdProducto="ngModel" [(ngModel)]="service.formData.IdProducto" class="form-control"
-        type="number" placeholder="IdProducto" required>
-      </div>
-    </div>
+
+
+
+    <!---->
+ <label>pedido:</label>
+ <select name="IdPedido" #IdPedido="ngModel"  [(ngModel)]="opcionPedido" class="form-control" (change)="capturar(IdPedido.value)" >
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of service.listPedido" value= {{dato.Id}}>
+    {{dato.FechaIngreso}}
+  </option>
+</select>
+<!---->
+   <!---->
+ <label>Producto:</label>
+ <select name="IdProducto" #IdProducto="ngModel"  [(ngModel)]="opcionProducto" class="form-control" (change)="capturar(IdProducto.value)" >
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of service.listProducto" value= {{dato.Id}}>
+    {{dato.Nombre}}
+  </option>
+</select>
+<!---->
+
+
+
+
+
+
+
+
+
     <div class="form-group">
       <label>Cantidad:</label>
       <div class="input-group">

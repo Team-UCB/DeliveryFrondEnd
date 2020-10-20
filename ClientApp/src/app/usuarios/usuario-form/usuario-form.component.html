@@ -8,7 +8,7 @@
           </div>
         </div>
         <input name="Nombre" #Nombre="ngModel" [(ngModel)]="service.formData.Nombre" class="form-control"
-               placeholder="Nombre de ubicacion" required>
+               placeholder="Nombre de usuario" required>
       </div>
     </div>
     <div class="form-group">
@@ -33,7 +33,41 @@
         placeholder="Estado del usuario" required>
       </div>
     </div>
-  
+
+
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="Entidad.valid" [class.red-icon]="Entidad.invalid && Entidad.touched"></i>
+          </div>
+        </div>
+        <input name="Entidad" #Entidad="ngModel" [(ngModel)]="service.formData.Entidad" class="form-control"
+        placeholder="Entidad del usuario" required>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="IdRef.valid" [class.red-icon]="IdRef.invalid && IdRef.touched"></i>
+          </div>
+        </div>
+        <input name="IdRef" #IdRef="ngModel" [(ngModel)]="service.formData.IdRef" class="form-control"
+        type="number" required>
+      </div>
+    </div>
+
+
+
+
+
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -42,9 +76,28 @@
           </div>
         </div>
         <input name="IdRol" #IdRol="ngModel" [(ngModel)]="service.formData.IdRol" class="form-control"
-               type="number" required>
+        type="number" required>
       </div>
     </div>
+
+
+ 
+
+  
+  <!--
+<label>Rol del ususario:</label>
+ <select name="IdRol" #IdRol="ngModel"  [(ngModel)]="opcionRol" class="form-control" (change)="capturar(IdRol.value)" >
+  <option value="0">Selecciona una opción</option>
+  <option *ngFor="let dato of service.listRol" value= {{dato.Id}}>
+    {{dato.Nombre}}
+  </option>
+</select>
+-->
+
+
+    
+
+
   
     <div class="form-group">
       <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"

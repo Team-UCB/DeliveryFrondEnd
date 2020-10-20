@@ -11,5 +11,7 @@ export class Pedido {
     MontoCliente: number;
     IdCliente: number;
     IdVendedor: number;
-    IdTransporte: number;
+    IdTransporte:number;
 }
+ 
+

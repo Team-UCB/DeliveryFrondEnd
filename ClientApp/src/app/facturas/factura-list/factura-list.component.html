@@ -16,7 +16,7 @@
       <input #buscar class="form-control"placeholder="ingrese la busqueda" required>
       <button class="btn btn-success float-rigth" type="button" (click)="filtrar(buscar.value)">Filtrar</button>
       </div>
-    </div> 
+    </div>
   </div>
 </form>
 
@@ -24,27 +24,27 @@
 <table class="table table-hover table-striped">
   <thead>
     <tr>
-      <th scope="col" sortable="Nombre" (sort)="onSort($event)">Nombre</th>
-      <th scope="col" sortable="Clave" (sort)="onSort($event)">Clave</th>
+      <th scope="col" sortable="NroFactura" (sort)="onSort($event)">Numero de factura</th>
+      <th scope="col" sortable="FechaEmision" (sort)="onSort($event)">Fecha de emision</th>
       <th scope="col" sortable="Estado" (sort)="onSort($event)">Estado</th>
-      <th scope="col" sortable="Entidad" (sort)="onSort($event)">Entidad</th>
-      <th scope="col" sortable="IdRef" (sort)="onSort($event)">IdRef</th>
-      <th scope="col" sortable="IdRol" (sort)="onSort($event)">IdRol</th>
-      
+      <th scope="col" sortable="CodigoControl" (sort)="onSort($event)">Codigo de control</th>
+      <th scope="col" sortable="Observaciones" (sort)="onSort($event)">Observaciones</th>
+      <th scope="col" sortable="IdDosificacion" (sort)="onSort($event)">Dosificacion</th>
+      <th scope="col" sortable="IdPedido" (sort)="onSort($event)">Pedido</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let usuario of service.list">
-      <td (click)="populateForm(usuario)">{{usuario.Nombre}}</td>
-      <td (click)="populateForm(usuario)">{{usuario.Clave}}</td>
-      <td (click)="populateForm(usuario)">{{usuario.Estado}}</td>
-      <td (click)="populateForm(usuario)">{{usuario.Entidad}}</td>
-      <td (click)="populateForm(usuario)">{{usuario.IdRef}}</td>
-      <td (click)="populateForm(usuario)">{{usuario.IdRol}}</td>
-      
+    <tr *ngFor="let factura of service.list">
+      <td (click)="populateForm(factura)">{{factura.NroFactura}}</td>
+      <td (click)="populateForm(factura)">{{factura.FechaEmision}}</td>
+      <td (click)="populateForm(factura)">{{factura.Estado}}</td>
+      <td (click)="populateForm(factura)">{{factura.CodigoControl}}</td>
+      <td (click)="populateForm(factura)">{{factura.Observaciones}}</td>
+      <td (click)="populateForm(factura)">{{factura.IdDosificacion}}</td>
+      <td (click)="populateForm(factura)">{{factura.IdPedido}}</td>
       <td>
-        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(usuario.Id)"></i>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(factura.Id)"></i>
       </td>
     </tr>
   </tbody>
@@ -59,5 +59,3 @@
     </div>
   </div>
 </form>
-
-

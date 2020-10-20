@@ -79,17 +79,15 @@
         placeholder="PersonaContacto de ubicacion" required>
       </div>
     </div>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-info-circle" [class.green-icon]="IdRubro.valid" [class.red-icon]="IdRubro.invalid && IdRubro.touched"></i>
-          </div>
-        </div>
-        <input name="IdRubro" #IdRubro="ngModel" [(ngModel)]="service.formData.IdRubro" class="form-control"
-               type="number" required>
-      </div>
-    </div>
+    <!---->
+    <label>Rubro</label>
+    <select name="IdRubro" #IdRubro="ngModel"  [(ngModel)]="opcionRubro" class="form-control" (change)="capturar(IdRubro.value)" >
+      <option value="0">Selecciona una opción</option>
+      <option *ngFor="let dato of service.listRubro" value= {{dato.Id}}>
+        {{dato.Nombre}}
+      </option>
+    </select>
+    <!---->
   
     <div class="form-group">
       <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
