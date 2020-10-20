@@ -12,12 +12,18 @@ import { Producto } from '../modelos/producto.model';
 })
 export class FotoService {
   formData: Foto;
+  formData1: Producto;
   filterData: PageAndSort;
   cardImageBase64: string;
+  select: number = 0;
+  nombre: string="seleccione un producto"
   //readonly rootURL = 'http://perezleonardo.somee.com/api';
   list: Foto[];
   //agregar lista de producto para la llave foranea
   listProducto: Producto[];
+  //
+  //agregar producto para el select
+  NProducto: Producto[];
   //
   total = 0;
   tam = 0;
@@ -30,7 +36,6 @@ export class FotoService {
     this.filterData.Filtro = "";
    }
    listProductos() {
-    
     this.http.get(`${environment.apiUrl}Productos` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +
       '&pagina=' + this.filterData.Pagina +
@@ -38,9 +43,22 @@ export class FotoService {
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
       .then(res => this.listProducto = (res as any).Datos as Producto[]);
-
-      console.log(this.list);
   }
+  //metodos para mostrar en el select
+  Asignacion(id){
+    this.getProducto(id);
+    this.mostrar(this.NProducto);
+  }
+  getProducto(id) {
+    this.http.get(`${environment.apiUrl}Productos/${id}`).subscribe(data => this.NProducto = data as Producto[]);
+  }
+  mostrar(obj){
+    this.formData1 = Object.assign({}, obj);
+    this.select = this.formData1.Id;
+    this.nombre = this.formData1.Nombre;
+  }
+  //fin de metodos para mostrar en el select
+
   postFotos() {
     return this.http.post(`${environment.apiUrl}Fotos`, this.formData);
   }
@@ -50,7 +68,6 @@ export class FotoService {
   deleteFotos(id) {
     return this.http.delete(`${environment.apiUrl}Fotos/${id}`);
   }
-
   refreshList() {
     this.http.get(`${environment.apiUrl}Fotos` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +

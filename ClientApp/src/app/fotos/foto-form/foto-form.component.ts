@@ -21,22 +21,9 @@ export class FotoFormComponent implements OnInit {
   verSeleccion: string = '';
   constructor(public service: FotoService, private toastr: ToastrService) { }
 
-  urllink:string="assets/img/2.jpg";
-  selectFiles(event){
-    if(event.target.files){
-      var reader= new FileReader()
-      reader.readAsDataURL(event.target.files[0])
-      reader.onload=(event:any)=>{
-        this.urllink=event.target.result
-      }
-    }
-  }
-
-  
   capturar(id) {
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.service.formData.IdProducto = parseInt(id);
-    
     console.log(this.opcionSeleccionado);
   }
   ngOnInit(): void {

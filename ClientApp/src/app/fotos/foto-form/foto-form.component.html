@@ -13,8 +13,8 @@
       </div>
     </div>
      <!---->
-     <select name="IdProducto" #IdProducto="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdProducto.value)" >
-      <option value="0">Selecciona un producto</option>
+     <select name="IdProducto" #IdProducto="ngModel"  [(ngModel)]="service.select" class="form-control" (change)="capturar(IdProducto.value)" >
+      <option value="{{service.select}}">{{service.nombre}}</option>
       <option *ngFor="let dato of service.listProducto" value= {{dato.Id}}>
         {{dato.Nombre}}
       </option>

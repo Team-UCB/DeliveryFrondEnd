@@ -17,7 +17,8 @@ export class FotoListComponent implements OnInit {
   }
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
-    this.service.cardImageBase64=this.service.formData.PathImg;
+    this.service.cardImageBase64 = this.service.formData.PathImg;
+    this.service.Asignacion(this.service.formData.IdProducto);
   }
 
   onDelete(id) {
