@@ -86,6 +86,7 @@ import { CalificacionListComponent } from './calificaciones/calificacion-list/ca
 import { DireccionesComponent } from './direcciones/direcciones.component';
 import { DireccionFormComponent } from './direcciones/direccion-form/direccion-form.component';
 import { DireccionListComponent } from './direcciones/direccion-list/direccion-list.component';
+import { FotoService } from './servicios/foto.service';
 
 
 @NgModule({
@@ -179,6 +180,7 @@ import { DireccionListComponent } from './direcciones/direccion-list/direccion-l
   CategoriaProductoService,
   TransportadorService,
   FacturaService,
+  FotoService,
   PedidoService,
   AuthGuard, {
     provide: HTTP_INTERCEPTORS,
