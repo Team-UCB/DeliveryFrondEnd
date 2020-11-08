@@ -24,6 +24,7 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { MensajesComponent } from './mensajes/mensajes.component';
 import { CalificacionesComponent } from './calificaciones/calificaciones.component';
 import { DireccionesComponent } from './direcciones/direcciones.component';
+import { ProductosVendedorComponent } from './productos-vendedor/productos-vendedor.component';
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
   {path:"vendedores", component: VendedoresComponent, canActivate: [AuthGuard]},
@@ -31,6 +32,8 @@ const routes: Routes = [
   {path:"productos", component: ProductosComponent, canActivate: [AuthGuard]},
   {path:"ofertas", component: OfertasComponent, canActivate: [AuthGuard]},
   {path:"roles", component: RolesComponent, canActivate: [AuthGuard]},
+  {path:"VENDEDORESPRODUCTOS", component: ProductosVendedorComponent, canActivate: [AuthGuard]},
+ 
   {path:"chats", component: ChatsComponent, canActivate: [AuthGuard]},
   {path:"clientes", component: ClientesComponent, canActivate: [AuthGuard]},
   {path:"rubros", component: RubrosComponent, canActivate: [AuthGuard]},
