@@ -87,6 +87,7 @@ import { DireccionesComponent } from './direcciones/direcciones.component';
 import { DireccionFormComponent } from './direcciones/direccion-form/direccion-form.component';
 import { DireccionListComponent } from './direcciones/direccion-list/direccion-list.component';
 import { FotoService } from './servicios/foto.service';
+import { ProductosVendedorComponent } from './productos-vendedor/productos-vendedor.component';
 
 
 @NgModule({
@@ -156,6 +157,7 @@ import { FotoService } from './servicios/foto.service';
     PedidoListComponent,
     PedidosComponent,
     PedidoFormComponent,
+    ProductosVendedorComponent,
     
   ],
   imports: [

@@ -12,6 +12,7 @@ export class ProductoService {
   formData: Producto;
   filterData: PageAndSort;
   list: Producto[];
+  listProductovendedor: Producto[];
   total = 0;
   tam = 0;
 
@@ -46,6 +47,30 @@ export class ProductoService {
 
       console.log(this.list);
   }
+
+
+
+
+
+  Listproductosvendedor() {
+    return this.http.get(`${environment.apiUrl}Productos/${parseInt(localStorage.getItem('UserId'))}`)
+    .toPromise()
+    .then(res => this.listProductovendedor = (res as any).Datos as Producto[]);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   filtrar(filtro) {
     this.filterData.Filtro = filtro;
