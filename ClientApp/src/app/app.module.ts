@@ -87,6 +87,10 @@ import { DireccionesComponent } from './direcciones/direcciones.component';
 import { DireccionFormComponent } from './direcciones/direccion-form/direccion-form.component';
 import { DireccionListComponent } from './direcciones/direccion-list/direccion-list.component';
 import { FotoService } from './servicios/foto.service';
+import { RepartidorPedidoComponent } from './repartidor-pedido/repartidor-pedido.component';
+import { VistaComponent } from './repartidor-pedido/vista/vista.component';
+import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
+import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.component';
 
 
 @NgModule({
@@ -156,6 +160,10 @@ import { FotoService } from './servicios/foto.service';
     PedidoListComponent,
     PedidosComponent,
     PedidoFormComponent,
+    RepartidorPedidoComponent,
+    VistaComponent,
+    ClientePedidoComponent,
+    VendedorPedidoComponent,
     
   ],
   imports: [
