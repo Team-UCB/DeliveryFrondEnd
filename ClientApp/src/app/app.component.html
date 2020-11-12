@@ -34,6 +34,9 @@
 <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">vendedores</a>
   </li>
+  <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/VENDEDORESPRODUCTOS']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a>
+  </li>
 <li class="nav-item">
     <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a>
   </li>

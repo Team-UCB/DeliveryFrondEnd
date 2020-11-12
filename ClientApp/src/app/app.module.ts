@@ -91,6 +91,7 @@ import { RepartidorPedidoComponent } from './repartidor-pedido/repartidor-pedido
 import { VistaComponent } from './repartidor-pedido/vista/vista.component';
 import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
 import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.component';
+import { ProductosVendedorComponent } from './productos-vendedor/productos-vendedor.component';
 
 
 @NgModule({
@@ -164,6 +165,7 @@ import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.compo
     VistaComponent,
     ClientePedidoComponent,
     VendedorPedidoComponent,
+    ProductosVendedorComponent,
     
   ],
   imports: [
