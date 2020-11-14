@@ -67,5 +67,9 @@ export class TransportadorService {
     this.refreshList();
   }
 
-  
+  //funcionalidad de transportador-pedido
+  nombre: string="pollomon";
+  llamarTransportador(){
+  this.filtrar(this.nombre);
+  }
 }

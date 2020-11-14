@@ -1,64 +1,20 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { PedidoService } from '../../servicios/pedido.service';
-import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
-import { TransportadorService } from '../../servicios/transportador.service';
+import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { MapService } from '../map.service';
+import { GeoJson, FeatureCollection } from '../map';
 
 @Component({
-  selector: 'app-vista',
-  templateUrl: './vista.component.html',
-  styles: [
-  ]
+  selector: 'app-map-box',
+  templateUrl: './map-box.component.html',
+  styleUrls: ['./map-box.component.css']
 })
-export class VistaComponent implements OnInit {
-  @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
-  constructor(public service: PedidoService, public service1: TransportadorService) { }
+export class MapBoxComponent implements OnInit {
+
+  constructor(private mapService: MapService) { }
 
   ngOnInit(): void {
-    this.service.filterData.Direccion="desc";
-    this.service.refreshList();
-    this.service1.llamarTransportador();
-
-    
-  }
-  
-  populateForm(selectedRecord) {
-    this.service.formData = Object.assign({}, selectedRecord);
-  }
-
-  verUbicacion(id) {
-    
     this.initializeMap();
   }
-
-  onSort({ column, direction }: SortEvent) {
-    // resetting other headers
-    this.headers.forEach(header => {
-      if (header.sortable !== column) {
-        header.direction = '';
-      }
-    });
-    this.service.filterData.Columna = column;
-    this.service.filterData.Direccion = direction;
-    this.service.refreshList();
-  }
-
-  filtrar(filtro) {
-    // resetting other headers
-    this.service.filtrar(filtro);
-  }
-  listar(cantidad) {
-    // resetting other headers
-    this.service.listar(cantidad);
-  }
-
-  Anterior(){
-    this.service.Anterior();
-  }
-  Siguiente(){
-    this.service.Siguiente();
-  }
-
   private initializeMap() {
     /// locate the user
     mapboxgl.accessToken = "pk.eyJ1IjoicG9sbG9tb24iLCJhIjoiY2toZ2xvZHliMTFubTJzb3Jldm5zbTVmdiJ9.4l8sE2V55-Zo_ytMdcAZFQ";
