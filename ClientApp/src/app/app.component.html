@@ -31,11 +31,20 @@
 <li class="nav-item" >
     <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones </a>
   </li>
+  <li class="nav-item" >
+    <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/map-box']" routerLinkActive="router-link-active">Map </a>
+  </li>
+  <li class="nav-item" >
+    <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/modals']" routerLinkActive="router-link-active">Modal </a>
+  </li>
 <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">vendedores</a>
   </li>
   <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/VENDEDORESPRODUCTOS']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a>
+  </li>
+  <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Repartidor pedido</a>
   </li>
 <li class="nav-item">
     <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a>

@@ -1,1 +1,73 @@
-<p>vista works!</p>
+<form>
+    <div class="row">
+      <div class="col-md-5">
+        Cantidad de Pag:
+        <select #cant ng-model="cant">
+          <option value="">
+          <option value=1>1
+          <option value=4>4
+          <option value=6>6
+        </select>
+        <button class="btn btn-success float-rigth" type="button" (click)="listar(cant.value)">Listar</button>
+      </div>
+      <div class="row">
+        Filtrar:
+        <div class="col-md-15">
+        <input #buscar class="form-control"placeholder="ingrese la busqueda" required>
+        <button class="btn btn-success float-rigth" type="button" (click)="filtrar(buscar.value)">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <hr>
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col" sortable="Estado" (sort)="onSort($event)">Estado</th>
+        <th scope="col" sortable="MontoEnvio" (sort)="onSort($event)">Monto envio</th>
+        <th scope="col" sortable="TipoPago" (sort)="onSort($event)">Tipo de pago</th>
+        <th scope="col" sortable="MontoCliente" (sort)="onSort($event)">Monto de cliente</th>
+        <th scope="col" sortable="IdCliente" (sort)="onSort($event)">Cliente</th>
+        <th scope="col" sortable="IdVendedor" (sort)="onSort($event)">Vendedor</th>
+        <th scope="col" sortable="IdTransporte" (sort)="onSort($event)">Transporte</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of service.list" [hidden]="pedido.IdTransporte!=124">
+        <td (click)="populateForm(pedido)">{{pedido.Estado}}</td>
+        <td (click)="populateForm(pedido)">{{pedido.MontoEnvio}}</td>
+        <td (click)="populateForm(pedido)">{{pedido.TipoPago}}</td>
+        <td (click)="populateForm(pedido)">{{pedido.MontoCliente}}</td>
+        <td (click)="populateForm(pedido)">{{pedido.IdCliente}}</td>
+        <td (click)="populateForm(pedido)">{{pedido.IdVendedor}}</td>
+        <td (click)="populateForm(pedido)">{{pedido.IdTransporte}}</td>
+        <td>
+          <i (click)="verUbicacion(pedido.IdCliente)"><u>Ver Ubicacion</u></i>
+        </td>
+      </tr>
+    </tbody>
+      <tbody hidden=true> 
+        <tr *ngFor="let trans of service1.list">
+          <td (click)="populateForm(trans)">{{trans.Latitud}}</td>
+          <td (click)="populateForm(trans)">{{trans.Longitud}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger"></i>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+  <form>
+    <div class="row">
+      <div class="col-md-5">
+        <button class="btn btn-success float-rigth" type="button" (click)="Anterior()">Anterior</button>
+      </div>
+      <div class="col-md-5">
+        <button class="btn btn-success float-rigth" type="button"(click)="Siguiente()">Siguiente</button>
+      </div>
+    </div>
+  </form>
+<hr>
+<h4 class="display-4 text-center">Ubicacion del pedido</h4>
+  <div class="map" id="map"></div>
