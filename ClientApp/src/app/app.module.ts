@@ -94,6 +94,7 @@ import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.compo
 import { ProductosVendedorComponent } from './productos-vendedor/productos-vendedor.component';
 import { MapBoxComponent } from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
+import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
 
 
 @NgModule({
@@ -170,6 +171,7 @@ import { ModalsComponent } from './modals/modals.component';
     ProductosVendedorComponent,
     MapBoxComponent,
     ModalsComponent,
+    RegistrarVendedorComponent,
     
   ],
   imports: [

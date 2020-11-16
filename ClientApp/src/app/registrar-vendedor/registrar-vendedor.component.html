@@ -1,0 +1,75 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card rounded-5">
+        <div class="card-header">
+          <h3 class="mb-0">Registrar Vendedor</h3>
+        </div>
+        <div class="card-body">
+          <form class="form">
+            
+            <div class="form-group">
+              <label for="uname1">Persona Contacto</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.PersonaContacto" name="personaContacto" class="form-control rounded-0" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Celular</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.Celular" name="celular" class="form-control rounded-0"  required>
+            </div>
+  
+            <div class="form-group">
+              <label for="uname1">Telefono</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.Telefono" name="telefono" class="form-control rounded-0" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Correo</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.Correo" name="correo" class="form-control rounded-0"  required>
+            </div>
+  
+            <div class="form-group">
+              <label for="uname1">NombreEmpresa</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.NombreEmpresa" name="nombreEmpresa" class="form-control rounded-0" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Direccion</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.Direccion" name="direccion" class="form-control rounded-0"  required>
+            </div>
+  
+            <div class="form-group">
+              <label for="uname1">PathLogo</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.PathLogo" name="pathLogo" class="form-control rounded-0" required>
+            </div>
+            <div class="form-group">
+              <label>IdRubro</label>
+              <input type="text" [(ngModel)]="registrarVendedorData.IdRubro" name="idRubro" class="form-control rounded-0"  required>
+            </div>
+            <div class="form-group">
+                <label>Ingresa la Imagen:</label>
+                <div class="box">
+                <fieldset class="form-group">
+                    {{imageError}}
+                    <div class="custom-file fileInputProfileWrap">
+                        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+                        <div class="img-space" >
+                            <ng-container *ngIf="isImageSaved; else elseTemplate">
+                                <img [src]="_vendedorSvr.cardImageBase64" class="rounded-circle"/>
+                            </ng-container>
+                            <ng-template #elseTemplate>
+                                <img [src]="_vendedorSvr.cardImageBase64" class="rounded-circle">
+                            </ng-template>
+                        </div>
+                    </div>
+                </fieldset>
+                </div>
+              </div>
+  
+            <button type="button" (click)="registrarVendedor()" class="btn btn-primary float-right">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
