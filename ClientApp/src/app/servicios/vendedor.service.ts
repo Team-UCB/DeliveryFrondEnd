@@ -6,14 +6,17 @@ import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Rubro } from '../modelos/rubro.model';
+import { Foto} from '../modelos/foto.model';
 @Injectable({
   providedIn: 'root'
 })
 export class VendedorService {
 
   formData: Vendedor;
+  formData1: Foto;
   filterData: PageAndSort;
   //readonly rootURL = 'http://perezleonardo.somee.com/api';
+  cardImageBase64: string;
   listRubro: Rubro[];
   list: Vendedor[];
   total = 0;

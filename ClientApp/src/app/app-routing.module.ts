@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { CategoriaProductosComponent} from './categoriaProductos/categoriaProductos.component';
 import { TransportadoresComponent} from './transportadores/transportadores.component';
 import { RegistrarComponent } from './registrar/registrar.component';
+import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
 import { RolesComponent } from './roles/roles.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
@@ -55,6 +56,7 @@ const routes: Routes = [
   {path:"direcciones", component: DireccionesComponent, canActivate: [AuthGuard]},
   {path:"ingresar", component: LoginComponent},
   {path:"registrar", component: RegistrarComponent},
+  {path:"registrar-vendedor", component: RegistrarVendedorComponent},
   {path:"inicio", component: InicioComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
