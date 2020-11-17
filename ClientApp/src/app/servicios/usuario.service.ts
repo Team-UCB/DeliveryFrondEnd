@@ -98,12 +98,21 @@ export class UsuarioService {
   }
   logoutUser(){
       localStorage.removeItem('UserId');
+      localStorage.removeItem('IdRef');
+      localStorage.removeItem('Entidad');
       this._router.navigate(['/inicio']);
  }
 
  getToken(){
    return localStorage.getItem('Token');
   }
-  
-
+  getEntidadVendedor() {
+    return localStorage.getItem('Entidad')=="Vendedor";
+  }
+  getEntidadCliente() {
+    return localStorage.getItem('Entidad')=="Cliente";
+  }
+  getEntidadTransportador() {
+    return localStorage.getItem('Entidad')=="Transportador";
+  }
 }

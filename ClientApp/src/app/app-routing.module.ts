@@ -27,8 +27,11 @@ import { CalificacionesComponent } from './calificaciones/calificaciones.compone
 import { DireccionesComponent } from './direcciones/direcciones.component';
 import { ProductosVendedorComponent } from './productos-vendedor/productos-vendedor.component';
 import { RepartidorPedidoComponent } from './repartidor-pedido/repartidor-pedido.component';
+import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
+import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.component';
 import {MapBoxComponent} from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
+import { from } from 'rxjs';
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
   {path:"vendedores", component: VendedoresComponent, canActivate: [AuthGuard]},
@@ -38,6 +41,8 @@ const routes: Routes = [
   {path:"roles", component: RolesComponent, canActivate: [AuthGuard]},
   {path:"VENDEDORESPRODUCTOS", component: ProductosVendedorComponent, canActivate: [AuthGuard]},
   {path:"repartidor-pedido", component: RepartidorPedidoComponent, canActivate: [AuthGuard]},
+  {path:"cliente-pedido", component: ClientePedidoComponent, canActivate: [AuthGuard]},
+  {path:"vendedor-pedido", component: VendedorPedidoComponent, canActivate: [AuthGuard]},
   {path:"map-box", component: MapBoxComponent, canActivate: [AuthGuard]},
   {path:"modals", component: ModalsComponent, canActivate: [AuthGuard]},
 

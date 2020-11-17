@@ -37,8 +37,6 @@ export class DireccionService {
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
       .then(res => this.listCliente = (res as any).Datos as Cliente[]);
-
-      console.log(this.list);
   }
 
   postDireccion() {
@@ -82,5 +80,12 @@ export class DireccionService {
   Siguiente() {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
+  }
+
+  //funcionalida repartidor-pedido
+  direccionesCliente: Direccion[];
+  formDataDir: Direccion;
+  getDireccionCliente(id) {
+    return this.http.get(`${environment.apiUrl}Direcciones/${id}`);
   }
 }

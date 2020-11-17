@@ -44,7 +44,13 @@
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/VENDEDORESPRODUCTOS']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a>
   </li>
   <li class="nav-item">
-    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Repartidor pedido</a>
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Repartidor pedido</a>
+  </li>
+  <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Cliente pedido</a>
+  </li>
+  <li class="nav-item">
+    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Vendedor pedido</a>
   </li>
 <li class="nav-item">
     <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a>
