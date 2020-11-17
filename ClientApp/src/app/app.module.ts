@@ -95,6 +95,8 @@ import { ProductosVendedorComponent } from './productos-vendedor/productos-vende
 import { MapBoxComponent } from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
 import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
+import { RegistrarVendedorFormComponent } from './registrar-vendedor/registrar-vendedor-form/registrar-vendedor-form.component';
+import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-vendedor-list/registrar-vendedor-list.component';
 
 
 @NgModule({
@@ -172,6 +174,8 @@ import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vende
     MapBoxComponent,
     ModalsComponent,
     RegistrarVendedorComponent,
+    RegistrarVendedorFormComponent,
+    RegistrarVendedorListComponent,
     
   ],
   imports: [
