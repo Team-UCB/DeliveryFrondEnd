@@ -95,6 +95,7 @@ import { ProductosVendedorComponent } from './productos-vendedor/productos-vende
 import { MapBoxComponent } from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
 import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
+import { VistaVPComponent } from './vendedor-pedido/vista-vp/vista-vp.component';
 import { RegistrarVendedorFormComponent } from './registrar-vendedor/registrar-vendedor-form/registrar-vendedor-form.component';
 import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-vendedor-list/registrar-vendedor-list.component';
 
@@ -174,6 +175,7 @@ import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-v
     MapBoxComponent,
     ModalsComponent,
     RegistrarVendedorComponent,
+    VistaVPComponent,
     RegistrarVendedorFormComponent,
     RegistrarVendedorListComponent,
     
