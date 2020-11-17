@@ -126,6 +126,5 @@ export class FotoFormComponent implements OnInit {
         reader.readAsDataURL(fileInput.target.files[0]);
         console.log(this.service.cardImageBase64);
     }
-    
 }
 }

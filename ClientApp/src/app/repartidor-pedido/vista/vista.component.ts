@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { PedidoService } from '../../servicios/pedido.service';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 import { TransportadorService } from '../../servicios/transportador.service';
+import { DireccionService } from '../../servicios/direccion.service';
 import * as mapboxgl from 'mapbox-gl';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-vista',
@@ -12,23 +14,34 @@ import * as mapboxgl from 'mapbox-gl';
 })
 export class VistaComponent implements OnInit {
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
-  constructor(public service: PedidoService, public service1: TransportadorService) { }
+  constructor(public service: PedidoService, public service1: TransportadorService, public servDir: DireccionService) { }
 
   ngOnInit(): void {
-    this.service.filterData.Direccion="desc";
-    this.service.refreshList();
+    this.llamarDatos();
+    this.service.filtrar("Preparacion");
     this.service1.llamarTransportador();
-
-    
   }
   
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
   }
-
-  verUbicacion(id) {
-    
-    this.initializeMap();
+  
+  lat:number=0;
+  long:number=0;
+  verUbicacion(id){
+    this.servDir.getDireccionCliente(id).subscribe(
+      res => {
+      console.log(res);
+      this.lat=((res as any)[0].Latitud);
+      this.long=((res as any)[0].Longitud);
+      console.log(this.lat);
+      console.log(this.long);
+    },
+    err => {
+      console.log(err);
+        }
+    );
+    this.initializeMap(this.lat, this.long);
   }
 
   onSort({ column, direction }: SortEvent) {
@@ -59,7 +72,7 @@ export class VistaComponent implements OnInit {
     this.service.Siguiente();
   }
 
-  private initializeMap() {
+  private initializeMap( lat, long) {
     /// locate the user
     mapboxgl.accessToken = "pk.eyJ1IjoicG9sbG9tb24iLCJhIjoiY2toZ2xvZHliMTFubTJzb3Jldm5zbTVmdiJ9.4l8sE2V55-Zo_ytMdcAZFQ";
 
@@ -68,12 +81,12 @@ export class VistaComponent implements OnInit {
      container: "map",
      style: "mapbox://styles/mapbox/dark-v10",
      zoom: 16,
-     center: [-64.7295,-21.5108]
+     //center: [-64.7295,-21.5108]
+     center: [lat,long]
     });
-  
     map.addControl(new mapboxgl.NavigationControl());
     map.addControl(new mapboxgl.FullscreenControl());
-  
+    
     map.on("load", function () {
      /* Image: An image is loaded and added to the map. */
      map.loadImage("https://i.imgur.com/MK4NUzI.png", function(error, image) {
@@ -94,7 +107,7 @@ export class VistaComponent implements OnInit {
                    properties: {},
                    geometry: {
                      type: "Point",
-                     coordinates: [-64.7295,-21.5108]
+                     coordinates: [lat,long]
                    }
                  }
                ]
@@ -107,4 +120,9 @@ export class VistaComponent implements OnInit {
        });
     });
   }
-}
+
+  idVen:number=0;
+  llamarDatos(){
+    this.idVen = parseInt(localStorage.getItem('IdRef'));
+  }
+} 
