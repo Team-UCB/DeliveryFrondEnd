@@ -112,5 +112,12 @@ export class PedidoService {
     this.refreshList();
   }
 
+  //funcionalidad de listar los pedidos
+  formDataListaPedidos: Pedido;
+
+   listarEstados(cantidad) {
+    this.filterData.Filtro = cantidad;
+      this.refreshList();
+  }
   
 }
