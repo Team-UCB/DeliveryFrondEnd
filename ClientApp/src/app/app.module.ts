@@ -96,6 +96,8 @@ import { MapBoxComponent } from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
 import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
 import { VistaVPComponent } from './vendedor-pedido/vista-vp/vista-vp.component';
+import { RegistrarVendedorFormComponent } from './registrar-vendedor/registrar-vendedor-form/registrar-vendedor-form.component';
+import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-vendedor-list/registrar-vendedor-list.component';
 
 
 @NgModule({
@@ -173,7 +175,12 @@ import { VistaVPComponent } from './vendedor-pedido/vista-vp/vista-vp.component'
     MapBoxComponent,
     ModalsComponent,
     RegistrarVendedorComponent,
+<<<<<<< HEAD
     VistaVPComponent,
+=======
+    RegistrarVendedorFormComponent,
+    RegistrarVendedorListComponent,
+>>>>>>> a3fa4618d60233f537fb6484831138d2bb068b2a
     
   ],
   imports: [
