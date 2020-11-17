@@ -175,12 +175,9 @@ import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-v
     MapBoxComponent,
     ModalsComponent,
     RegistrarVendedorComponent,
-<<<<<<< HEAD
     VistaVPComponent,
-=======
     RegistrarVendedorFormComponent,
     RegistrarVendedorListComponent,
->>>>>>> a3fa4618d60233f537fb6484831138d2bb068b2a
     
   ],
   imports: [
