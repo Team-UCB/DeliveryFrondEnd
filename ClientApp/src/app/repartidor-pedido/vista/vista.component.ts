@@ -4,7 +4,6 @@ import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 import { TransportadorService } from '../../servicios/transportador.service';
 import { DireccionService } from '../../servicios/direccion.service';
 import * as mapboxgl from 'mapbox-gl';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-vista',
@@ -34,14 +33,14 @@ export class VistaComponent implements OnInit {
       console.log(res);
       this.lat=((res as any)[0].Latitud);
       this.long=((res as any)[0].Longitud);
-      console.log(this.lat);
-      console.log(this.long);
+      this.initializeMap(this.lat, this.long);
     },
     err => {
       console.log(err);
         }
     );
-    this.initializeMap(this.lat, this.long);
+    
+    
   }
 
   onSort({ column, direction }: SortEvent) {
@@ -81,8 +80,7 @@ export class VistaComponent implements OnInit {
      container: "map",
      style: "mapbox://styles/mapbox/dark-v10",
      zoom: 16,
-     //center: [-64.7295,-21.5108]
-     center: [lat,long]
+     center: [lat, long]
     });
     map.addControl(new mapboxgl.NavigationControl());
     map.addControl(new mapboxgl.FullscreenControl());
@@ -107,7 +105,7 @@ export class VistaComponent implements OnInit {
                    properties: {},
                    geometry: {
                      type: "Point",
-                     coordinates: [lat,long]
+                     coordinates: [lat, long]
                    }
                  }
                ]
