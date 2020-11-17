@@ -80,7 +80,6 @@ export class VistaComponent implements OnInit {
      container: "map",
      style: "mapbox://styles/mapbox/dark-v10",
      zoom: 16,
-     //center: [-64.7295,-21.5108]
      center: [lat, long]
     });
     map.addControl(new mapboxgl.NavigationControl());
