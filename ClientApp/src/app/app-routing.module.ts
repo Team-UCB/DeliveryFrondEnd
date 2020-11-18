@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { CategoriaProductosComponent} from './categoriaProductos/categoriaProductos.component';
 import { TransportadoresComponent} from './transportadores/transportadores.component';
 import { RegistrarComponent } from './registrar/registrar.component';
-import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
 import { RolesComponent } from './roles/roles.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
@@ -31,6 +30,8 @@ import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.componen
 import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.component';
 import {MapBoxComponent} from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
+import { RegistroVendedorComponent } from './registro-vendedor/registro-vendedor.component';
+import { PerfilVendedorComponent } from './perfil-vendedor/perfil-vendedor.component';
 import { from } from 'rxjs';
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
@@ -61,8 +62,9 @@ const routes: Routes = [
   {path:"direcciones", component: DireccionesComponent, canActivate: [AuthGuard]},
   {path:"ingresar", component: LoginComponent},
   {path:"registrar", component: RegistrarComponent},
-  {path:"registrar-vendedor", component: RegistrarVendedorComponent},
   {path:"inicio", component: InicioComponent},
+  {path:"registro-vendedor", component: RegistroVendedorComponent},
+  {path:"perfil-vendedor", component: PerfilVendedorComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];
