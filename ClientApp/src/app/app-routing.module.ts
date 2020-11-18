@@ -5,7 +5,6 @@ import { VendedoresComponent} from './vendedores/vendedores.component';
 import { UsuariosComponent} from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { OfertasComponent} from './ofertas/ofertas.component';
-//import { pedidosComponent} from './pedidos/pedidos.component';
 import { FacturasComponent} from './facturas/facturas.component';
 import { ChatsComponent} from './chats/chats.component';
 import { ClientesComponent} from './clientes/clientes.component';
