@@ -1,0 +1,126 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+    <input type="hidden" name="PathLogo" [value]="service.formData.PathLogo">
+    
+    <br><br><br>
+    <label>MI INFORMACIÓN</label>
+    <br><br>
+
+  <app-perfil-vendedor-list></app-perfil-vendedor-list>
+    <br><br><hr>
+
+    <label>EDITAR MI PERFIL</label>
+    <br><br>
+
+    <label>Persona de contacto: </label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          </div>
+        <input name="PersonaContacto" #PersonaContacto="ngModel" [(ngModel)]="service.formData.PersonaContacto" class="form-control" required>
+      </div>
+    </div>
+
+    <label>Celular:</label>
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+          </div>
+          <input name="Celular" #Celular="ngModel" [(ngModel)]="service.formData.Celular" class="form-control" required>
+        </div>
+      </div>
+
+      <label>Teléfono:</label>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            
+          </div>
+          <input name="Telefono" #Telefono="ngModel" [(ngModel)]="service.formData.Telefono" class="form-control" required>
+        </div>
+      </div>
+
+      <label>Correo electrónico: </label>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            
+          </div>
+          <input name="Correo" #Correo="ngModel" [(ngModel)]="service.formData.Correo" class="form-control" required>
+        </div>
+      </div>
+
+      <label>Nombre de la empresa</label>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            
+          </div>
+          <input name="NombreEmpresa" #NombreEmpresa="ngModel" [(ngModel)]="service.formData.NombreEmpresa" class="form-control"  required>
+        </div>
+      </div>
+
+
+      <label>Dirección</label>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            
+          </div>
+          <input name="Direccion" #Direccion="ngModel" [(ngModel)]="service.formData.Direccion" class="form-control" required>
+        </div>
+      </div>
+  
+    <!---->
+  <br>
+  <div class="form-group">
+    <label>Agregar imagen de Logotipo:</label>
+    <div class="box">
+    <fieldset class="form-group">
+        {{imageError}}
+        <div class="custom-file fileInputProfileWrap">
+            <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+            <div class="img-space" >
+                <ng-container *ngIf="isImageSaved; else elseTemplate">
+                    <img [src]="service.cardImageBase64" class="rounded-circle"/>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <img [src]="service.cardImageBase64" class="rounded-circle">
+                </ng-template>
+            </div>
+        </div>
+    </fieldset>
+    </div>
+  </div>
+  <!---->
+
+
+    <label>Rubro</label>
+    <select name="IdRubro" #IdRubro="ngModel"  [(ngModel)]="opcionRubro" class="form-control" (change)="capturar(IdRubro.value)" >
+      <option value="0">Selecciona una opción</option>
+      <option *ngFor="let dato of service.listRubro" value= {{dato.Id}}>
+        {{dato.Nombre}}
+      </option>
+    </select>
+    
+    <br>
+    <div class="form-group">
+      <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+              (click)="onSubmit(form)"><i class="fas fa-database"></i> Guardar
+      </button>
+    </div>
+    <br>
+    <br>
+  </form>
+  <br>
+    
+    
+    
+    
+    
+    
+    
+  
+
+
+  

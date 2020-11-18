@@ -21,6 +21,10 @@
         <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/registrar']" routerLinkActive="router-link-active">Registrar</a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-vendedor">registro vendedor</a>
+      </li>
+
 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Menu
@@ -104,9 +108,6 @@
   <li class="nav-item">
     <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/direcciones']" routerLinkActive="router-link-active">Direcciones</a>
   </li>
-  <li class="nav-item">
-    <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/registrar-vendedor']" routerLinkActive="router-link-active">registrar vendedor</a>
-  </li>
 
 
           
@@ -120,6 +121,10 @@
       <li class="nav-item">
         <a class="nav-link" (click)="_authService.logoutUser()" style="cursor: pointer;">Salir</a>
       </li>  
+
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" routerLinkActive="active" routerLink="/perfil-vendedor">Ver Perfil</a>
+      </li>
        
        
 <li class="nav-item">
