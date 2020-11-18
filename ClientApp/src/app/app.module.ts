@@ -94,10 +94,13 @@ import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.compo
 import { ProductosVendedorComponent } from './productos-vendedor/productos-vendedor.component';
 import { MapBoxComponent } from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
-import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
 import { VistaVPComponent } from './vendedor-pedido/vista-vp/vista-vp.component';
-import { RegistrarVendedorFormComponent } from './registrar-vendedor/registrar-vendedor-form/registrar-vendedor-form.component';
-import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-vendedor-list/registrar-vendedor-list.component';
+import { RegistroVendedorComponent } from './registro-vendedor/registro-vendedor.component';
+import { PerfilVendedorComponent } from './perfil-vendedor/perfil-vendedor.component';
+import { PerfilVendedorListComponent } from './perfil-vendedor/perfil-vendedor-list/perfil-vendedor-list.component';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { PerfilClienteListComponent } from './perfil-cliente/perfil-cliente-list/perfil-cliente-list.component';
 
 
 @NgModule({
@@ -174,10 +177,13 @@ import { RegistrarVendedorListComponent } from './registrar-vendedor/registrar-v
     ProductosVendedorComponent,
     MapBoxComponent,
     ModalsComponent,
-    RegistrarVendedorComponent,
     VistaVPComponent,
-    RegistrarVendedorFormComponent,
-    RegistrarVendedorListComponent,
+    RegistroVendedorComponent,
+    PerfilVendedorComponent,
+    PerfilVendedorListComponent,
+    RegistroClienteComponent,
+    PerfilClienteComponent,
+    PerfilClienteListComponent,
     
   ],
   imports: [

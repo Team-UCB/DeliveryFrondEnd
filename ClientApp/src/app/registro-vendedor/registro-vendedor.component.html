@@ -1,0 +1,101 @@
+
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-5">
+      <div class="card-header">
+        <h3 class="mb-0">Registrarme como vendedor</h3>
+      </div>
+      <div class="card-body">
+        <form #form="ngForm" autocomplete="off">
+
+          <!--DATOS VENDEDOR-->
+          <h1 class="mb-0">Datos personales</h1>
+
+          <div class="form-group">
+            <label>Persona de contacto</label>
+              <div class="input-group">
+                  <div class="input-group-prepend"></div>
+                      <input type="text" name="PersonaContacto" #PersonaContacto="ngModel" [(ngModel)]="registroVendedorData.PersonaContacto" class="form-control" required>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label>Celular</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="Celular" #Celular="ngModel" [(ngModel)]="registroVendedorData.Celular" class="form-control" required>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label>Telefono</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="Telefono" #Telefono="ngModel" [(ngModel)]="registroVendedorData.Telefono" class="form-control" required>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label>Correo Electronico</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="Correo" #Correo="ngModel" [(ngModel)]="registroVendedorData.Correo" class="form-control" required>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label>Nombre de la empresa</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="NombreEmpresa" #NombreEmpresa="ngModel" [(ngModel)]="registroVendedorData.NombreEmpresa" class="form-control" required>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label>Direccion</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="Direccion" #Direccion="ngModel" [(ngModel)]="registroVendedorData.Direccion" class="form-control" required>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label>Logotipo</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="PathLogo" #PathLogo="ngModel" [(ngModel)]="registroVendedorData.PathLogo" class="form-control" required>
+                </div>
+          </div>
+
+          <div class="form-group">
+              <label>Rubro</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="number" name="IdRubro" #IdRubro="ngModel" [(ngModel)]="registroVendedorData.IdRubro" class="form-control" required>
+                </div>
+          </div>
+
+
+          <!--DATOS USUARIO-->
+
+          <h1 class="mb-0">Datos de mi usuario</h1>
+
+          <div class="form-group">
+            <label for="uname1">Usuario</label>
+            <input type="text" [(ngModel)]="registerUserData.Nombre" name="nombre" class="form-control rounded-0" required>
+          </div>
+
+          <div class="form-group">
+            <label>Contrase&ntilde;a</label>
+            <input type="password" [(ngModel)]="registerUserData.Clave" name="clave" class="form-control rounded-0"  required>
+          </div>  
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+              (click)="registerDataVendedor()"><i class="fas fa-database"></i>Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> 

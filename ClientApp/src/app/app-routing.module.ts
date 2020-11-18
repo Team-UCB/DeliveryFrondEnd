@@ -5,7 +5,6 @@ import { VendedoresComponent} from './vendedores/vendedores.component';
 import { UsuariosComponent} from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { OfertasComponent} from './ofertas/ofertas.component';
-//import { pedidosComponent} from './pedidos/pedidos.component';
 import { FacturasComponent} from './facturas/facturas.component';
 import { ChatsComponent} from './chats/chats.component';
 import { ClientesComponent} from './clientes/clientes.component';
@@ -14,7 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { CategoriaProductosComponent} from './categoriaProductos/categoriaProductos.component';
 import { TransportadoresComponent} from './transportadores/transportadores.component';
 import { RegistrarComponent } from './registrar/registrar.component';
-import { RegistrarVendedorComponent } from './registrar-vendedor/registrar-vendedor.component';
 import { RolesComponent } from './roles/roles.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { AuthGuard } from './auth.guard';
@@ -31,7 +29,14 @@ import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.componen
 import { VendedorPedidoComponent } from './vendedor-pedido/vendedor-pedido.component';
 import {MapBoxComponent} from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
+import { RegistroVendedorComponent } from './registro-vendedor/registro-vendedor.component';
+import { PerfilVendedorComponent } from './perfil-vendedor/perfil-vendedor.component';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+
 import { from } from 'rxjs';
+
+
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
   {path:"vendedores", component: VendedoresComponent, canActivate: [AuthGuard]},
@@ -61,8 +66,11 @@ const routes: Routes = [
   {path:"direcciones", component: DireccionesComponent, canActivate: [AuthGuard]},
   {path:"ingresar", component: LoginComponent},
   {path:"registrar", component: RegistrarComponent},
-  {path:"registrar-vendedor", component: RegistrarVendedorComponent},
   {path:"inicio", component: InicioComponent},
+  {path:"registro-vendedor", component: RegistroVendedorComponent},
+  {path:"perfil-vendedor", component: PerfilVendedorComponent},
+  {path:"registro-cliente", component: RegistroClienteComponent},
+  {path:"perfil-cliente", component: PerfilClienteComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];

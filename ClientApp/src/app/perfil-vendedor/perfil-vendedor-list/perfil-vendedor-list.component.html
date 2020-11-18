@@ -1,0 +1,38 @@
+<form>
+    <form>
+        <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th scope="col" sortable="PersonaContacto" (sort)="($event)">PersonaContacto</th>
+            <th scope="col" sortable="Celular" (sort)="($event)">Celular</th>
+            <th scope="col" sortable="Telefono" (sort)="($event)">Telefono</th>
+            <th scope="col" sortable="Correo" (sort)="($event)">Correo</th>
+            <th scope="col" sortable="NombreEmpresa" (sort)="($event)">NombreEmpresa</th>
+            <th scope="col" sortable="Direccion" (sort)="($event)">Direccion</th>
+            <th scope="col" sortable="PathLogo" (sort)="($event)">PathLogo</th>
+            <th scope="col" sortable="IdRubro" (sort)="($event)">Rubro</th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr *ngFor="let vendedor of service.list">
+          <tr *ngFor="let vendedor of service.list" [hidden]="vendedor.Id!=idVen">
+            <td (click)="populateForm(vendedor)">{{vendedor.PersonaContacto}}</td>
+            <td (click)="populateForm(vendedor)">{{vendedor.Celular}}</td>
+            <td (click)="populateForm(vendedor)">{{vendedor.Telefono}}</td>
+            <td (click)="populateForm(vendedor)">{{vendedor.Correo}}</td>
+            <td (click)="populateForm(vendedor)">{{vendedor.NombreEmpresa}}</td>
+            <td (click)="populateForm(vendedor)">{{vendedor.Direccion}}</td>
+            <!--<td (click)="populateForm(vendedor)">{{vendedor.PathLogo}}</td>-->
+            <td (click)="populateForm(vendedor)">Logotipo asignado</td>
+            <td (click)="populateForm(vendedor)">{{vendedor.IdRubro}}</td>
+    
+          </tr>
+        </tbody>
+      </table>
+    </form>
+     
+      
+      
+      
+    
