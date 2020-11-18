@@ -47,7 +47,7 @@ export class RegistroVendedorComponent implements OnInit {
 
     this.registerUserData.Entidad = 'Vendedor';
     this.registerUserData.IdRef = idVendedor;
-    this.registerUserData.IdRol = 3;
+    this.registerUserData.IdRol = 2;
     this.registerUserData.Estado = 'activo';
     console.log(this.registroVendedorData);
     this.userService.formData = this.registerUserData;
