@@ -14,12 +14,12 @@ import { VendedorService } from '../servicios/vendedor.service';
 export class PerfilVendedorComponent implements OnInit {
 
   datos;
-  opcionRubro: number=0;
-  verSeleccion:string='';
-  //imagen
+  opcionRubro: number = 0;
+  verSeleccion: string = '';
+  // VAR IMAGEN
   imageError: string;
   isImageSaved: boolean;
-  //cardImageBase64: string;
+  // VAR PARA LOGO
   img: string='';
 
   constructor(public service: VendedorService, private toastr: ToastrService) { }
@@ -34,8 +34,9 @@ export class PerfilVendedorComponent implements OnInit {
   }
 
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.form.reset();
+    }
     this.service.formData = {
     Id: 0,
     PersonaContacto: '',
@@ -91,7 +92,7 @@ export class PerfilVendedorComponent implements OnInit {
     )
   }
 
-  //
+  // AGREGAR IMAGEN DE LOGO
   fileChangeEvent(fileInput: any) {
     this.imageError = null;
     if (fileInput.target.files && fileInput.target.files[0]) {
@@ -135,7 +136,6 @@ export class PerfilVendedorComponent implements OnInit {
                     const imgBase64Path = e.target.result;
                     this.service.cardImageBase64 = imgBase64Path;
                     this.isImageSaved = true;
-                    // this.previewImagePath = imgBase64Path;
                 }
             };
         };
