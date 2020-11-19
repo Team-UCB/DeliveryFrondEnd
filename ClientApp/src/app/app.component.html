@@ -110,6 +110,11 @@
           <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/perfil-cliente">VER PERFIL</a></li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/perfil-transportador">VER PERFIL</a></li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/direccion-cliente">Mis direcciones</a>
+          </li>
         
           <li class="nav-item">
             <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Pedidos Asignados</a></li>
