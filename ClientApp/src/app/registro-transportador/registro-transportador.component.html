@@ -1,1 +1,92 @@
-<p>registro-transportador works!</p>
+
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card rounded-5">
+        <div class="card-header">
+          <h3 class="mb-0">Registrarme como transportador</h3>
+        </div>
+        <div class="card-body">
+          <form #form="ngForm" autocomplete="off">
+  
+            <!--DATOS TRANSPORTADOR-->
+            <h1 class="mb-0">Datos personales</h1>
+  
+            <div class="form-group">
+              <label>Nombre completo:</label>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                        <input type="text" name="NombreCompleto" #NombreCompleto="ngModel" [(ngModel)]="registroTransportadorData.NombreCompleto" class="form-control" required>
+                </div>
+            </div>
+  
+            <div class="form-group">
+                <label>Celular:</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                          <input type="text" name="Celular" #Celular="ngModel" [(ngModel)]="registroTransportadorData.Celular" class="form-control" required>
+                  </div>
+            </div>
+  
+            <div class="form-group">
+                <label>Descripción de vehículo</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                          <input type="text" name="DescripcionVehiculo" #DescripcionVehiculo="ngModel" [(ngModel)]="registroTransportadorData.DescripcionVehiculo" class="form-control" required>
+                  </div>
+            </div>
+  
+            <div class="form-group">
+                <label>Tipo de vehículo</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                          <input type="text" name="TipoVehiculo" #TipoVehiculo="ngModel" [(ngModel)]="registroTransportadorData.TipoVehiculo" class="form-control" required>
+                  </div>
+            </div>
+  
+            <div class="form-group">
+                <label>Estado</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                          <input type="text" name="Estado" #Estado="ngModel" [(ngModel)]="registroTransportadorData.Estado" class="form-control" required>
+                  </div>
+            </div>
+  
+            <div class="form-group">
+                <label>Latitud</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                          <input type="number" name="Latitud" #Latitud="ngModel" [(ngModel)]="registroTransportadorData.Latitud" class="form-control" required>
+                  </div>
+            </div>
+  
+            <div class="form-group">
+                <label>Longitud</label>
+                  <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                          <input type="number" name="Longitud" #Longitud="ngModel" [(ngModel)]="registroTransportadorData.Longitud" class="form-control" required>
+                  </div>
+            </div>
+  
+            <!--DATOS USUARIO-->
+  
+            <h1 class="mb-0">Datos de mi usuario</h1>
+  
+            <div class="form-group">
+              <label for="uname1">Usuario</label>
+              <input type="text" [(ngModel)]="registerUserData.Nombre" name="nombre" class="form-control rounded-0" required>
+            </div>
+  
+            <div class="form-group">
+              <label>Contrase&ntilde;a</label>
+              <input type="password" [(ngModel)]="registerUserData.Clave" name="clave" class="form-control rounded-0"  required>
+            </div>  
+  
+            <div class="form-group">
+              <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+                (click)="registerDataTransportador()"><i class="fas fa-database"></i>Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
