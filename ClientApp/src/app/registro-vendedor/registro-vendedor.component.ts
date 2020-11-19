@@ -5,7 +5,6 @@ import { Usuario } from '../modelos/usuario.model';
 import { Vendedor } from '../modelos/vendedor.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-registro-vendedor',
@@ -14,32 +13,20 @@ import { NgForm } from '@angular/forms';
   ]
 })
 export class RegistroVendedorComponent implements OnInit {
+
   registerUserData: Usuario;
   registroVendedorData: Vendedor;
   LastVendedor: Vendedor;
 
-  datos;
-  opcionRubro: number=0;
-  verSeleccion:string='';
-
-  constructor(public userService: UsuarioService, public vendedorService: VendedorService,
-              private toastr: ToastrService, public router: Router)
-  {
-    this.registerUserData = new Usuario();
-    this.registroVendedorData = new Vendedor();
-    this.LastVendedor = new Vendedor();
-  }
-
-  capturar(id){
-    this.vendedorService.formData.IdRubro = parseInt(id);
-  }
+  constructor(private userService: UsuarioService, private vendedorService: VendedorService, 
+              private toastr: ToastrService, public router: Router) { 
+                this.registerUserData = new Usuario();
+                this.registroVendedorData = new Vendedor();
+                this.LastVendedor = new Vendedor();
+              }
 
   ngOnInit(): void {
-    //this.vendedorService.listRubros();
   }
-
-
-  // REGISTRAR VENDEDOR
   registerDataVendedor(): void{
     this.vendedorService.formData = this.registroVendedorData;
     this.vendedorService.postVendedor().subscribe(
@@ -60,7 +47,7 @@ export class RegistroVendedorComponent implements OnInit {
 
     this.registerUserData.Entidad = 'Vendedor';
     this.registerUserData.IdRef = idVendedor;
-    this.registerUserData.IdRol = 3;
+    this.registerUserData.IdRol = 2;
     this.registerUserData.Estado = 'activo';
     console.log(this.registroVendedorData);
     this.userService.formData = this.registerUserData;

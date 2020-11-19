@@ -25,24 +25,16 @@
       <thead>
         <tr>
           <th scope="col" sortable="NombresApellidos" (sort)="onSort($event)">Nombres y apellidos</th>
-          <th scope="col" sortable="Direccion" (sort)="onSort($event)">Direccion</th>
-          <th scope="col" sortable="Latitud" (sort)="onSort($event)">Latitud</th>
-          <th scope="col" sortable="Longitud" (sort)="onSort($event)">Longitud</th>
           <th scope="col" sortable="Celular" (sort)="onSort($event)">Celular</th>
           <th scope="col" sortable="Telefono" (sort)="onSort($event)">Telefono</th>
-          <th scope="col" sortable="Referencia" (sort)="onSort($event)">Referencia</th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let cliente of service.list">
           <td (click)="populateForm(cliente)">{{cliente.NombresApellidos}}</td>
-          <td (click)="populateForm(cliente)">{{cliente.Direccion}}</td>
-          <td (click)="populateForm(cliente)">{{cliente.Latitud}}</td>
-          <td (click)="populateForm(cliente)">{{cliente.Longitud}}</td>
           <td (click)="populateForm(cliente)">{{cliente.Celular}}</td>
           <td (click)="populateForm(cliente)">{{cliente.Telefono}}</td>
-          <td (click)="populateForm(cliente)">{{cliente.Referencia}}</td>
           <td>
             <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(cliente.Id)"></i>
           </td>

@@ -1,15 +1,15 @@
-import { ClienteService } from '../../servicios/cliente.service'; 
+import { ClienteService } from '../servicios/cliente.service'; 
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-cliente-form',
-  templateUrl: './cliente-form.component.html',
-  styleUrls: ['./cliente-form.component.css']
+  selector: 'app-perfil-cliente',
+  templateUrl: './perfil-cliente.component.html',
+  styles: [
+  ]
 })
-export class ClienteFormComponent implements OnInit {
+export class PerfilClienteComponent implements OnInit {
 
   constructor(public service: ClienteService, private toastr: ToastrService) { }
 
@@ -58,4 +58,5 @@ export class ClienteFormComponent implements OnInit {
       err => { console.log(err); }
     )
   }
+
 }

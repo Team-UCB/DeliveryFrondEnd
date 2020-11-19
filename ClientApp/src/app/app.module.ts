@@ -98,6 +98,12 @@ import { VistaVPComponent } from './vendedor-pedido/vista-vp/vista-vp.component'
 import { RegistroVendedorComponent } from './registro-vendedor/registro-vendedor.component';
 import { PerfilVendedorComponent } from './perfil-vendedor/perfil-vendedor.component';
 import { PerfilVendedorListComponent } from './perfil-vendedor/perfil-vendedor-list/perfil-vendedor-list.component';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { PerfilClienteListComponent } from './perfil-cliente/perfil-cliente-list/perfil-cliente-list.component';
+import { RegistroTransportadorComponent } from './registro-transportador/registro-transportador.component';
+import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
+import { PerfilTransportadorListComponent } from './perfil-transportador/perfil-transportador-list/perfil-transportador-list.component';
 
 
 @NgModule({
@@ -178,6 +184,12 @@ import { PerfilVendedorListComponent } from './perfil-vendedor/perfil-vendedor-l
     RegistroVendedorComponent,
     PerfilVendedorComponent,
     PerfilVendedorListComponent,
+    RegistroClienteComponent,
+    PerfilClienteComponent,
+    PerfilClienteListComponent,
+    RegistroTransportadorComponent,
+    PerfilTransportadorComponent,
+    PerfilTransportadorListComponent,
     
   ],
   imports: [

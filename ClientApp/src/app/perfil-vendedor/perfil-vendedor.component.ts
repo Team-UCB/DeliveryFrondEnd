@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { VendedorService } from '../servicios/vendedor.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import * as _ from 'lodash';
 import { from } from 'rxjs';
-import { VendedorService } from '../servicios/vendedor.service';
 
 @Component({
   selector: 'app-perfil-vendedor',
@@ -12,7 +12,6 @@ import { VendedorService } from '../servicios/vendedor.service';
   ]
 })
 export class PerfilVendedorComponent implements OnInit {
-
   datos;
   opcionRubro: number=0;
   verSeleccion:string='';
@@ -21,18 +20,16 @@ export class PerfilVendedorComponent implements OnInit {
   isImageSaved: boolean;
   //cardImageBase64: string;
   img: string='';
-
   constructor(public service: VendedorService, private toastr: ToastrService) { }
-  
-  capturar(id){
-    this.service.formData.IdRubro=parseInt(id);
-  }
 
   ngOnInit(): void {
     this.resetForm();
     this.service.listRubros();
   }
 
+  capturar(id){
+    this.service.formData.IdRubro=parseInt(id);
+  }
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
@@ -143,5 +140,4 @@ export class PerfilVendedorComponent implements OnInit {
         console.log(this.service.cardImageBase64);
     }
   }
-
 }

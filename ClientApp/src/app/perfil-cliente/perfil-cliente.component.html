@@ -1,6 +1,15 @@
 <form #form="ngForm" autocomplete="off">
     <input type="hidden" name="id" [value]="service.formData.Id">
    
+    <br><br><br>
+    <label>MI INFORMACIÓN</label>
+    <br><br>
+
+    <app-perfil-cliente-list></app-perfil-cliente-list>
+    <br><br><hr>
+
+    <label>EDITAR MI PERFIL</label>
+    <br><br>
     <label>Nombres y apellidos del cliente:</label>
     <div class="form-group">
       <div class="input-group">

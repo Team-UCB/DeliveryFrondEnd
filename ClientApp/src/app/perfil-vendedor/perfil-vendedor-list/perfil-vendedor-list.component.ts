@@ -1,4 +1,4 @@
-import { Component, OnInit, Query, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit, Query, QueryList, ViewChild, ViewChildren  } from '@angular/core';
 import { VendedorService } from '../../servicios/vendedor.service';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 
@@ -10,21 +10,19 @@ import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 })
 export class PerfilVendedorListComponent implements OnInit {
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
+  constructor(public service: VendedorService) { }
 
-  constructor(public service: VendedorService) {}
-
-    ngOnInit(): void {
-      this.llamarDatos();
-      this.service.refreshList();
-    }
-    populateForm(selectedRecord) {
-      this.service.formData = Object.assign({}, selectedRecord);
-      //
-      this.service.cardImageBase64 = this.service.formData.PathLogo;
-    }
-    idVen:number=0;
-    llamarDatos(){
-      this.idVen = parseInt(localStorage.getItem('IdRef'));
-    }
-
+  ngOnInit(): void {
+    this.llamarDatos();
+    this.service.refreshList();
+  }
+  populateForm(selectedRecord) {
+    this.service.formData = Object.assign({}, selectedRecord);
+    //
+    this.service.cardImageBase64 = this.service.formData.PathLogo;
+  }
+  idVen:number=0;
+  llamarDatos(){
+    this.idVen = parseInt(localStorage.getItem('IdRef'));
+  }
 }

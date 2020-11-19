@@ -1,0 +1,21 @@
+<form>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col" sortable="NombresApellidos" (sort)="($event)">Nombres y apellidos</th>
+                <th scope="col" sortable="Celular" (sort)="($event)">Celular</th>
+                <th scope="col" sortable="Telefono" (sort)="($event)">Telefono</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of service.list">
+            <tr *ngFor="let cliente of service.list" [hidden]="cliente.Id!=idCli">
+                <td (click)="populateForm(cliente)">{{cliente.NombresApellidos}}</td>
+                <td (click)="populateForm(cliente)">{{cliente.Celular}}</td>
+                <td (click)="populateForm(cliente)">{{cliente.Telefono}}</td>
+            
+            </tr>
+        </tbody>
+    </table>
+</form>
