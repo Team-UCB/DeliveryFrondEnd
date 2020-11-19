@@ -15,23 +15,12 @@ export class DetallePedidoFormComponent implements OnInit {
  
   constructor(public service: DetallePedidoService, private toastr: ToastrService) { }
 
-
-
-
-
-  
-
   capturar(id) {
     // Pasamos el valor seleccionado a la variable verSeleccion
     this.service.formData.IdProducto = parseInt(id);
     this.service.formData.IdPedido=parseInt(id);
 
   }
-
-
-
-
-
 
   ngOnInit(): void {
     
