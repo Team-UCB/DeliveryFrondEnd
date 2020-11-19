@@ -23,12 +23,8 @@ export class ClienteFormComponent implements OnInit {
     this.service.formData = {
       Id: 0,
       NombresApellidos: '',
-      Direccion: '',
-      Latitud: 0,
-      Longitud: 0,
       Celular: '',
-      Telefono: '',
-      Referencia: ''
+      Telefono: ''
     }
   }
 
