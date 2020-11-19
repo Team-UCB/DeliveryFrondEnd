@@ -46,7 +46,7 @@ export class RegistroClienteComponent implements OnInit {
     //registrar usuario
     this.registerUserData.Entidad = "cliente";
     this.registerUserData.IdRef = idCliente;
-    this.registerUserData.IdRol = 2;
+    this.registerUserData.IdRol = 3;
     this.registerUserData.Estado = "activo";
     console.log(this.registerClientData);
     this.userService.formData = this.registerUserData;
