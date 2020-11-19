@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../servicios/cliente.service';
-import { UsuarioDetalleService } from '../servicios/usuario-detalle.service';
-import { UsuarioDetalle } from '../modelos/usuario-detalle.model';
+import { UsuarioService } from '../servicios/usuario.service';
+import { Usuario } from '../modelos/usuario.model';
 import { Cliente } from '../modelos/cliente.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -13,14 +13,14 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class RegistroClienteComponent implements OnInit {
-  registerUserData: UsuarioDetalle;
+  registerUserData: Usuario;
   registerClientData: Cliente;
   LastClient: Cliente;
 
-  constructor(private userService: UsuarioDetalleService, private clientService: ClienteService,
+  constructor(private userService: UsuarioService, private clientService: ClienteService,
               private toastr: ToastrService,public router: Router) 
   {
-    this.registerUserData = new UsuarioDetalle();
+    this.registerUserData = new Usuario();
     this.registerClientData = new Cliente();
     this.LastClient = new Cliente();
   }
@@ -46,11 +46,11 @@ export class RegistroClienteComponent implements OnInit {
     //registrar usuario
     this.registerUserData.Entidad = "cliente";
     this.registerUserData.IdRef = idCliente;
-    this.registerUserData.IdRol = 2;
+    this.registerUserData.IdRol = 3;
     this.registerUserData.Estado = "activo";
     console.log(this.registerClientData);
     this.userService.formData = this.registerUserData;
-    this.userService.postUsuarioDetalle().subscribe(
+    this.userService.postUsuario().subscribe(
       res => {
         console.log(res);
         this.toastr.info('Datos guardados', 'Su usuario fue creado correctamente');
