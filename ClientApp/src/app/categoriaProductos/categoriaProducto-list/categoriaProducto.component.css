@@ -19,3 +19,14 @@ th[sortable] {
     transform: rotate(180deg);
     -ms-transform: rotate(180deg);
   }
+
+  table {
+    width: 100%;
+    border: 1px solid #f8f9fa80;
+ }
+ th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #f8f9fa80;
+ }
