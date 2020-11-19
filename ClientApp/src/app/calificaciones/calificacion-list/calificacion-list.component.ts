@@ -5,7 +5,7 @@ import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 @Component({
   selector: 'app-calificacion-list',
   templateUrl: './calificacion-list.component.html',
-  styleUrls: []
+  styleUrls: ['./calificacion-list.component.css']
 })
 
 export class CalificacionListComponent implements OnInit {

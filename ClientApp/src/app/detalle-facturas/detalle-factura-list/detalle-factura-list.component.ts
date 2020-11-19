@@ -5,8 +5,7 @@ import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 @Component({
   selector: 'app-detalle-factura-list',
   templateUrl: './detalle-factura-list.component.html',
-  styles: [
-  ] 
+  styles: ['./detalle-factura-list.component.css'] 
 })
 export class DetalleFacturaListComponent implements OnInit {
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
