@@ -1,120 +1,268 @@
-<body style="background-color: #a7a9ad">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #b8bdc2 !important;">
-    <a class="navbar-brand" href="#">Pedidos</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #721c24 !important;">
+  <a class="navbar-brand" href="#">Pedidos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
  
-   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/ingresar']" routerLinkActive="router-link-active">Ingresar</a></li>
-
-        <!-- REGISTRARSE COMO -->
-
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/registrar']" routerLinkActive="router-link-active">Registrar usuario</a></li>
-        
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-vendedor">Registrarme como vendedor</a></li>
-
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-cliente">Registrarme como cliente</a></li>
-
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-transportador">Registrarme como transportador</a></li>
-
-        <!-- MENÚ -->
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-    
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="    background-color: #212529;">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
       
-            <li class="nav-item" >
-              <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones </a></li>
-            <li class="nav-item" >
-              <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/map-box']" routerLinkActive="router-link-active">Map </a></li>
-            <li class="nav-item" >
-              <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/modals']" routerLinkActive="router-link-active">Modal </a></li>
-            <li class="nav-item">
-              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">vendedores</a></li>
-            <li class="nav-item">
-              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/VENDEDORESPRODUCTOS']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a></li>
-            <li class="nav-item">
-              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Repartidor pedido</a></li>
-            <li class="nav-item">
-              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Cliente pedido</a></li>
-            <li class="nav-item">
-              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Vendedor pedido</a></li>
-            <li class="nav-item">
-                <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">usuarios</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/roles']" routerLinkActive="router-link-active">roles</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/facturas']" routerLinkActive="router-link-active">Facturas</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a></li>
-            <li class="nav-item">
-                <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/fotos']" routerLinkActive="router-link-active">Fotos</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/pedidos']" routerLinkActive="router-link-active">Pedidos</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/calificaciones']" routerLinkActive="router-link-active">Calificaciones</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
-            <li class="nav-item">
-                <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/direcciones']" routerLinkActive="router-link-active">Direcciones</a></li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/ingresar']" routerLinkActive="router-link-active">INGRESAR</a></li>
+
+      <!-- REGISTRARSE COMO -->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">REGISTRARME COMO</a>
+  
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="    background-color: #212529;">
+
+          <li class="nav-item">
+            <a style="color:floralwhite" class="nav-link" *ngIf="!_authService.loggedIn()" [routerLink]="['/registrar']" routerLinkActive="router-link-active">Registrar usuario</a></li> 
+          <li class="nav-item">
+            <a style="color:floralwhite" class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-vendedor">Registrarme como vendedor</a></li>
+          <li class="nav-item">
+            <a style="color:floralwhite" class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-cliente">Registrarme como cliente</a></li>
+          <li class="nav-item">
+            <a style="color:floralwhite" class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-transportador">Registrarme como transportador</a></li>
             
             <div class="dropdown-divider"></div>
-              <a style="color:floralwhite" class="dropdown-item" href="#">MAS</a>
-          
-          </div>
-        </li>
+            <a style="color:floralwhite" class="dropdown-item" href="#">MAS</a>
+        
+        </div>
+      </li>
 
-          <li class="nav-item">
-            <a class="nav-link" (click)="_authService.logoutUser()" style="cursor: pointer;">Salir</a></li>  
+      <!-- MENÚ -->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" *ngIf="_authService.loggedIn()" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENU</a>
+  
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="    background-color: #212529;">
     
-          <!-- VER PERFIL -->
-
+          <li class="nav-item" >
+            <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones </a></li>
+          <li class="nav-item" >
+            <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/map-box']" routerLinkActive="router-link-active">Mapa </a></li>
+          <li class="nav-item" >
+            <a style="color: floralwhite;" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/modals']" routerLinkActive="router-link-active">Modal </a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" routerLinkActive="active" routerLink="/perfil-vendedor">Ver Perfil Vendedor</a></li>
+            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">Vendedores</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/perfil-cliente">Ver Perfil Cliente</a></li>
+            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/VENDEDORESPRODUCTOS']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/perfil-transportador">Ver Perfil Transportador</a></li>
+            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Repartidor pedido</a></li>
+          <li class="nav-item">
+            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Cliente pedido</a></li>
+          <li class="nav-item">
+            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Vendedor pedido</a></li>
+          <li class="nav-item">
+              <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">usuarios</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/roles']" routerLinkActive="router-link-active">roles</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/facturas']" routerLinkActive="router-link-active">Facturas</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a></li>
+          <li class="nav-item">
+              <a style="color: floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/fotos']" routerLinkActive="router-link-active">Fotos</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/pedidos']" routerLinkActive="router-link-active">Pedidos</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/calificaciones']" routerLinkActive="router-link-active">Calificaciones</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
+          <li class="nav-item">
+              <a style="color:floralwhite" class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/direcciones']" routerLinkActive="router-link-active">Direcciones</a></li>
           
+          <div class="dropdown-divider"></div>
+            <a style="color:floralwhite" class="dropdown-item" href="#">MAS</a>
+        
+        </div>
+      </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="_authService.logoutUser()" style="cursor: pointer;">SALIR</a></li>  
+  
+        <!-- VER PERFIL -->
+
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" routerLinkActive="active" routerLink="/perfil-vendedor">VER PERFIL</a></li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/perfil-cliente">VER PERFIL</a></li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/perfil-transportador">VER PERFIL</a></li>
+        
+        <!--  <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">PRUEBA</a></li>-->
+
+    </ul>
+
+    
+    <!--<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>-->
+  </div>
+
+</nav>
+
+<body style="background-color: #000000">
+
+
+  <header class="mt-0 pt-0">
+    <div class="bg-cover clearfix pt-3">
+      <br><br>
+        <h2 class="logo">Delivery  "EL CHAPACO"</h2>
+        <br><br>
+
+        <nav class="nav nav-fill mx-auto">
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Prueba</a></li>
-  
-      </ul>
-  
-      
-      <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+                <a class="nav-link" href="https://facebook.com/fh5co" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://twitter.com/fh5co" target="_blank"><i
+                        class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fab fa-google-plus-g"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-rss"></i></a>
+            </li>
+        </nav>
+        <br><br>
+
+
+        <!--<input type="text" id="nav-search" class="nav-search mx-auto" name="" class="form-control">-->
+        <!--<div class="ml-0 mr-0 pb-1">
+            <nav class="navbar navbar-expand-md">
+
+                <button class="navbar-toggler ml-auto" data-target="#my-nav" data-toggle="collapse"
+                    aria-controls="my-nav" aria-expanded="false" onclick="myFunction(this)"
+                    aria-label="Toggle navigation">
+                    <span class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span>
+                </button>
+                <div id="my-nav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html">NEWS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.html">HISTORY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">CULTURE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">TECH</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">LIFE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">OPINION</a>
+                        </li>
+                        <li class="nav-item">
+                            <form action="" method="POST">
+                                <div class="input-group mt-0 mx-auto" style="width:16px;">
+
+                                    <div class="">
+                                        <img src="assets/images/search-icon.png" id="toggle-search"
+                                            class="ml-2 toggle-search" alt="search icon">
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>-->
     </div>
- 
-  </nav>
+
+    <div class="row ml-0 mr-0">
+        <div class="col-md-6 pr-0">
+            <div class="card">
+
+                <img class="card-img" src="assets/images/78.jpg" alt="">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
+                    <a [routerLink]="['/landing']" class="dropdown-item" class="btn">READ MORE</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pl-0">
+            <div class="card">
+
+                <img class="card-img" src="assets/images/102.jpg" alt="">
+                <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
+                    <a [routerLink]="['/landing']" class="dropdown-item" class="btn">SEE PRODUCTS</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 pr-0 first">
+            <div class="card">
+                <img class="card-img" src="assets/images/74.jpg" alt="">
+                <div class="card-img-overlay">
+                     <!--<h5>Architecture</h5>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 pl-0 pr-0">
+            <div class="card">
+                <img class="card-img" src="assets/images/72.jpg" alt="">
+                <div class="card-img-overlay">
+                     <!--<h5>Interior</h5>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 pl-0 pr-0">
+            <div class="card">
+                <img class="card-img" src="assets/images/76.jpeg" alt="">
+                <div class="card-img-overlay">
+                    <!-- <h5>Food</h5>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 pl-0 last">
+            <div class="card">
+                <img class="card-img" src="assets/images/80.jpg" alt="">
+                <div class="card-img-overlay">
+                    <!-- <h5>Travel</h5>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<!-- PRINCIPAL -->
+
+  
   <header class="bg-primary py-5 mb-5">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
