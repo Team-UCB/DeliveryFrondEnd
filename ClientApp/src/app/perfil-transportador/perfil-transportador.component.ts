@@ -1,17 +1,17 @@
-import { ClienteService } from '../../servicios/cliente.service'; 
+import { TransportadorService } from '../servicios/transportador.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-cliente-form',
-  templateUrl: './cliente-form.component.html',
-  styleUrls: ['./cliente-form.component.css']
+  selector: 'app-perfil-transportador',
+  templateUrl: './perfil-transportador.component.html',
+  styles: [
+  ]
 })
-export class ClienteFormComponent implements OnInit {
+export class PerfilTransportadorComponent implements OnInit {
 
-  constructor(public service: ClienteService, private toastr: ToastrService) { }
+  constructor(public service: TransportadorService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -22,9 +22,14 @@ export class ClienteFormComponent implements OnInit {
       form.form.reset();
     this.service.formData = {
       Id: 0,
-      NombresApellidos: '',
-      Celular: '',
-      Telefono: ''
+      NombreCompleto:'',
+      Celular:'',
+      DescripcionVehiculo:'',
+      TipoVehiculo:'',
+      Estado:'',
+      Latitud:0,
+      Longitud:0
+
     }
   }
 
@@ -36,10 +41,10 @@ export class ClienteFormComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.putCliente().subscribe(
+    this.service.putTransportador().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.info('Datos Guardados', 'Detalles de Cliente');
+        this.toastr.info('Editado correctamente', 'Detalles de transportador');
         this.service.refreshList();
       },
       err => {
@@ -49,8 +54,7 @@ export class ClienteFormComponent implements OnInit {
   }
 
   insertRecord(form: NgForm) {
-    console.log(this.service.formData);
-    this.service.postCliente().subscribe(
+    this.service.postTransportador().subscribe(
       res => {
         this.resetForm(form);
         this.service.refreshList();

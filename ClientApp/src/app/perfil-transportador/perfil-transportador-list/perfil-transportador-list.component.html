@@ -1,0 +1,28 @@
+<form>
+<table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th scope="col" sortable="NombreCompleto" (sort)="($event)">Nombre completo</th>
+        <th scope="col" sortable="Celular" (sort)="($event)">Celular</th>
+        <th scope="col" sortable="DescripcionVehiculo" (sort)="($event)">Descripci&oacute;n de veh&iacute;culo</th>
+        <th scope="col" sortable="TipoVehiculo" (sort)="($event)">Tipo de veh&iacute;culo</th>
+        <th scope="col" sortable="Estado" (sort)="($event)">Estado</th>
+        <th scope="col" sortable="Latitud" (sort)="($event)">Latitud</th>
+        <th scope="col" sortable="Longitud" (sort)="($event)">Longitud</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transportador of service.list"></tr>
+        <tr *ngFor="let transportador of service.list" [hidden]="transportador.Id!=idTrans">
+        <td (click)="populateForm(transportador)">{{transportador.NombreCompleto}}</td>
+        <td (click)="populateForm(transportador)">{{transportador.Celular}}</td>
+        <td (click)="populateForm(transportador)">{{transportador.DescripcionVehiculo}}</td>
+        <td (click)="populateForm(transportador)">{{transportador.TipoVehiculo}}</td>
+        <td (click)="populateForm(transportador)">{{transportador.Estado}}</td>
+        <td (click)="populateForm(transportador)">{{transportador.Latitud}}</td>
+        <td (click)="populateForm(transportador)">{{transportador.Longitud}}</td>
+      </tr>
+    </tbody>
+  </table>
+</form>

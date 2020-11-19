@@ -23,11 +23,15 @@
       
       <!-- REGISTRAR COMO -->
       <li class="nav-item">
-        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-vendedor">registro vendedor</a>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-vendedor">Registrarme como vendedor</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-cliente">registro vendedor</a>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-cliente">Registrarme como cliente</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLinkActive="active" routerLink="/registro-transportador">Registrarme como transportador</a>
       </li>
 
       
@@ -131,11 +135,15 @@
  
       <!-- VER PERFIL -->
       <li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" routerLinkActive="active" routerLink="/perfil-vendedor">Ver Perfil</a>
+        <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" routerLinkActive="active" routerLink="/perfil-vendedor">Ver Perfil Vendedor</a>
       </li>
        
       <li class="nav-item">
-        <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/perfil-cliente">Ver Perfil</a>
+        <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/perfil-cliente">Ver Perfil Cliente</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/perfil-transportador">Ver Perfil Transportador</a>
       </li>
        
 <li class="nav-item">

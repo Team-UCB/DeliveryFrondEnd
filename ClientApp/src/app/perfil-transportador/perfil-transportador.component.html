@@ -1,0 +1,107 @@
+<form #form="ngForm" autocomplete="off">
+    <input type="hidden" name="id" [value]="service.formData.Id">
+  
+    <br><br><br>
+    <label>MI INFORMACIÓN</label>
+    <br><br>
+
+    <app-perfil-transportador-list></app-perfil-transportador-list>
+  <br><br><hr>
+
+  <label>EDITAR MI PERFIL</label>
+  <br><br>
+  
+    <label>Nombre completo de transportador/delivery:</label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="NombreCompleto.valid" [class.red-icon]="NombreCompleto.invalid && NombreCompleto.touched"></i>
+          </div>
+        </div>
+        <input  name="NombreCompleto" #NombreCompleto="ngModel" [(ngModel)]="service.formData.NombreCompleto" class="form-control" required>
+      </div>
+    </div>
+    
+    <label>Celular:</label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Celular.valid" [class.red-icon]="Celular.invalid && Celular.touched"></i>
+          </div>
+        </div>
+        <input  name="Celular" #Celular="ngModel" [(ngModel)]="service.formData.Celular" class="form-control" required>
+      </div>
+    </div>
+
+    <label>Descripción del vehículo</label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="DescripcionVehiculo.valid" [class.red-icon]="DescripcionVehiculo.invalid && DescripcionVehiculo.touched"></i>
+          </div>
+        </div>
+        <input  name="DescripcionVehiculo" #DescripcionVehiculo="ngModel" [(ngModel)]="service.formData.DescripcionVehiculo" class="form-control" required>
+      </div>
+    </div>
+    
+    <label>Tipo del vehículo</label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="TipoVehiculo.valid" [class.red-icon]="TipoVehiculo.invalid && TipoVehiculo.touched"></i>
+          </div>
+        </div>
+        <input  name="TipoVehiculo" #TipoVehiculo="ngModel" [(ngModel)]="service.formData.TipoVehiculo" class="form-control" required>
+      </div>
+    </div>
+    
+    <label>Estado</label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="Estado.valid" [class.red-icon]="Estado.invalid && Estado.touched"></i>
+          </div>
+        </div>
+        <input  name="Estado" #Estado="ngModel" [(ngModel)]="service.formData.Estado" class="form-control" required>
+      </div>
+    </div>
+
+    <label>Latitud</label>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-info-circle" [class.green-icon]="Latitud.valid" [class.red-icon]="Latitud.invalid && Latitud.touched"></i>
+          </div>
+        </div>
+        <input name="Latitud" #Latitud="ngModel" [(ngModel)]="service.formData.Latitud" class="form-control" required>
+      </div>
+    </div>
+    
+    <label>Longitud</label>
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-info-circle" [class.green-icon]="Longitud.valid" [class.red-icon]="Longitud.invalid && Longitud.touched"></i>
+            </div>
+          </div>
+          <input name="Longitud" #Longitud="ngModel" [(ngModel)]="service.formData.Longitud" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
+                (click)="onSubmit(form)">
+          <i class="fas fa-database"></i> Guardar
+        </button>
+      </div>
+      
+  </form>
+  
+  

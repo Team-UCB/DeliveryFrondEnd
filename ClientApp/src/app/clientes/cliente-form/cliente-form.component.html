@@ -1,6 +1,7 @@
 <form #form="ngForm" autocomplete="off">
     <input type="hidden" name="id" [value]="service.formData.Id">
-    
+   
+    <label>Nombres y apellidos del cliente:</label>
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -8,47 +9,11 @@
             <i class="fas fa-user-circle" [class.green-icon]="NombresApellidos.valid" [class.red-icon]="NombresApellidos.invalid && NombresApellidos.touched"></i>
           </div>
         </div>
-        <input name="NombresApellidos" #NombresApellidos="ngModel" [(ngModel)]="service.formData.NombresApellidos" class="form-control"
-               placeholder="Nombres y apellidos del cliente" required>
+        <input name="NombresApellidos" #NombresApellidos="ngModel" [(ngModel)]="service.formData.NombresApellidos" class="form-control" required>
       </div>
     </div>
   
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="Direccion.valid" [class.red-icon]="Direccion.invalid && Direccion.touched"></i>
-          </div>
-        </div>
-        <input name="Direccion" #Direccion="ngModel" [(ngModel)]="service.formData.Direccion" class="form-control"
-               placeholder="Dirección" required>
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="Latitud.valid" [class.red-icon]="Latitud.invalid && Latitud.touched"></i>
-          </div>
-        </div>
-        <input name="Latitud" #Latitud="ngModel" [(ngModel)]="service.formData.Latitud" class="form-control"
-              type="number" placeholder="Latitud" required>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="Longitud.valid" [class.red-icon]="Longitud.invalid && Longitud.touched"></i>
-          </div>
-        </div>
-        <input name="Longitud" #Longitud="ngModel" [(ngModel)]="service.formData.Longitud" class="form-control"
-              type="number" placeholder="Longitud" required>
-      </div>
-    </div>
-  
+    <label>Celular:</label>
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -56,11 +21,11 @@
             <i class="fas fa-user-circle" [class.green-icon]="Celular.valid" [class.red-icon]="Celular.invalid && Celular.touched"></i>
           </div>
         </div>
-        <input name="Celular" #Celular="ngModel" [(ngModel)]="service.formData.Celular" class="form-control"
-              placeholder="Celular" required>
+        <input name="Celular" #Celular="ngModel" [(ngModel)]="service.formData.Celular" class="form-control" required>
       </div>
     </div>
   
+    <label>Telefono:</label>
     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -68,20 +33,7 @@
             <i class="fas fa-user-circle" [class.green-icon]="Telefono.valid" [class.red-icon]="Telefono.invalid && Telefono.touched"></i>
           </div>
         </div>
-        <input name="Telefono" #Telefono="ngModel" [(ngModel)]="service.formData.Telefono" class="form-control"
-              placeholder="Telefono" required>
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="Referencia.valid" [class.red-icon]="Referencia.invalid && Referencia.touched"></i>
-          </div>
-        </div>
-        <input name="Referencia" #Referencia="ngModel" [(ngModel)]="service.formData.Referencia" class="form-control"
-              placeholder="Referencia" required>
+        <input name="Telefono" #Telefono="ngModel" [(ngModel)]="service.formData.Telefono" class="form-control" required>
       </div>
     </div>
   
