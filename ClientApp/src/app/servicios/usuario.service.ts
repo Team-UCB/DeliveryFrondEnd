@@ -6,6 +6,7 @@ import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Rol } from '../modelos/rol.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,21 +15,20 @@ export class UsuarioService {
   formData: Usuario;
   filterData: PageAndSort;
   list: Usuario[];
-
-
+  totalRows: number;
   listRol: Rol[];
   total = 0;
   tam = 0;
 
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
-    this.filterData.Columna = "Id";
-    this.filterData.Direccion = "asc";
+    this.filterData.Columna = 'Id';
+    this.filterData.Direccion = 'asc';
     this.filterData.Pagina = 1;
     this.filterData.TamPagina = 10;
-    this.filterData.Filtro = "";
+    this.filterData.Filtro = '';
   }
-  
+
   postUsuario() {
     console.log(this.formData);
     return this.http.post(`${environment.apiUrl}Usuarios`, this.formData);
@@ -66,9 +66,6 @@ export class UsuarioService {
       .then(res => this.listRol = (res as any).Datos as Rol[]);
   }
 
-
-
-
   filtrar(filtro) {
     this.filterData.Filtro = filtro;
     this.refreshList();
@@ -89,19 +86,31 @@ export class UsuarioService {
     this.refreshList();
   }
 
-  loggedIn(){
+  /*loggedIn(){
     return !!localStorage.getItem('UserId');
+  }*/
+
+  loggedIn() {
+    return !!localStorage.getItem('Token');
   }
 
-  getUserId(){
-    return localStorage.getItem('UserId');
+  loggedClient()
+  {
+    if (localStorage.getItem('Entidad') == "cliente") {
+      return true;
+    }
+    return false;
   }
   logoutUser(){
       localStorage.removeItem('UserId');
+      localStorage.removeItem('Token');
       localStorage.removeItem('IdRef');
       localStorage.removeItem('Entidad');
       this._router.navigate(['/inicio']);
  }
+ getUserId(){
+  return localStorage.getItem('UserId');
+}
 
  getToken(){
    return localStorage.getItem('Token');

@@ -31,7 +31,12 @@ import {MapBoxComponent} from './map-box/map-box.component';
 import { ModalsComponent } from './modals/modals.component';
 import { RegistroVendedorComponent } from './registro-vendedor/registro-vendedor.component';
 import { PerfilVendedorComponent } from './perfil-vendedor/perfil-vendedor.component';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+
 import { from } from 'rxjs';
+
+
 const routes: Routes = [
   {path:"localizaciones", component: LocalizacionesComponent, canActivate: [AuthGuard]},
   {path:"vendedores", component: VendedoresComponent, canActivate: [AuthGuard]},
@@ -64,6 +69,8 @@ const routes: Routes = [
   {path:"inicio", component: InicioComponent},
   {path:"registro-vendedor", component: RegistroVendedorComponent},
   {path:"perfil-vendedor", component: PerfilVendedorComponent},
+  {path:"registro-cliente", component: RegistroClienteComponent},
+  {path:"perfil-cliente", component: PerfilClienteComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];

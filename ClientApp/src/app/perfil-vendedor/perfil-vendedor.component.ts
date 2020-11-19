@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { VendedorService } from '../servicios/vendedor.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import * as _ from 'lodash';
 import { from } from 'rxjs';
-import { VendedorService } from '../servicios/vendedor.service';
 
 @Component({
   selector: 'app-perfil-vendedor',
@@ -12,31 +12,27 @@ import { VendedorService } from '../servicios/vendedor.service';
   ]
 })
 export class PerfilVendedorComponent implements OnInit {
-
   datos;
-  opcionRubro: number = 0;
-  verSeleccion: string = '';
-  // VAR IMAGEN
+  opcionRubro: number=0;
+  verSeleccion:string='';
+  //imagen
   imageError: string;
   isImageSaved: boolean;
-  // VAR PARA LOGO
+  //cardImageBase64: string;
   img: string='';
-
   constructor(public service: VendedorService, private toastr: ToastrService) { }
-  
-  capturar(id){
-    this.service.formData.IdRubro=parseInt(id);
-  }
 
   ngOnInit(): void {
     this.resetForm();
     this.service.listRubros();
   }
 
+  capturar(id){
+    this.service.formData.IdRubro=parseInt(id);
+  }
   resetForm(form?: NgForm) {
-    if (form != null) {
+    if (form != null)
       form.form.reset();
-    }
     this.service.formData = {
     Id: 0,
     PersonaContacto: '',
@@ -92,7 +88,7 @@ export class PerfilVendedorComponent implements OnInit {
     )
   }
 
-  // AGREGAR IMAGEN DE LOGO
+  //
   fileChangeEvent(fileInput: any) {
     this.imageError = null;
     if (fileInput.target.files && fileInput.target.files[0]) {
@@ -136,6 +132,7 @@ export class PerfilVendedorComponent implements OnInit {
                     const imgBase64Path = e.target.result;
                     this.service.cardImageBase64 = imgBase64Path;
                     this.isImageSaved = true;
+                    // this.previewImagePath = imgBase64Path;
                 }
             };
         };
@@ -143,5 +140,4 @@ export class PerfilVendedorComponent implements OnInit {
         console.log(this.service.cardImageBase64);
     }
   }
-
 }
