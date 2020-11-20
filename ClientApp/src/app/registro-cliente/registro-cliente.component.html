@@ -1,65 +1,65 @@
 <div class="row pt-5">
-    <div class="col-md-6 mx-auto">
-      <div class="card rounded-5">
-        <div class="card-header">
-          <h3 class="mb-0">Registrarme como cliente</h3>
-        </div>
-        <div class="card-body">
-          <form #form="ngForm" autocomplete="off">
-            <h4 class="mb-0">Datos personales</h4>
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-5">
+      <div class="card-header">
+        <h3 class="mb-0">Registrarme como cliente</h3><br>
+      </div>
+      <div class="card-body">
+        <form #form="ngForm" autocomplete="off">
+          <h4 class="mb-0">Datos personales</h4><br>
 
+          <div class="form-group">
+            <label>Nombres y apellidos</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                
+              </div>
+              <input name="NombresApellidos" #NombresApellidos="ngModel" [(ngModel)]="registerClientData.NombresApellidos" class="form-control"
+                     placeholder="Nombre completo" required>
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label>Celular</label>
+              <div class="input-group">               
+                <div class="input-group-prepend">                    
+                </div>
+                <input name="Celular" #Celular="ngModel" [(ngModel)]="registerClientData.Celular" class="form-control"
+                       placeholder="Celular" required>
+              </div>
+            </div> 
+      
             <div class="form-group">
-              <label>Nombres y apellidos</label>
+              <label>Tel&eacute;fono</label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  
+                 
                 </div>
-                <input name="NombresApellidos" #NombresApellidos="ngModel" [(ngModel)]="registerClientData.NombresApellidos" class="form-control"
-                       placeholder="Nombre completo" required>
+                <input name="Tel&eacute;fono" #Telefono="ngModel" [(ngModel)]="registerClientData.Telefono" class="form-control"
+                       placeholder="Telefono" required>
               </div>
-            </div>
-          
-            <div class="form-group">
-              <label>Celular</label>
-                <div class="input-group">               
-                  <div class="input-group-prepend">                    
-                  </div>
-                  <input name="Celular" #Celular="ngModel" [(ngModel)]="registerClientData.Celular" class="form-control"
-                         placeholder="Celular" required>
-                </div>
-              </div> 
-        
-              <div class="form-group">
-                <label>Tel&eacute;fono</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                   
-                  </div>
-                  <input name="Tel&eacute;fono" #Telefono="ngModel" [(ngModel)]="registerClientData.Telefono" class="form-control"
-                         placeholder="Telefono" required>
-                </div>
-              </div> 
-              <h4 class="mb-0">Datos de mi usuario</h4>
-            <div class="form-group">
-              <label for="uname1">Usuario</label>
-              <input type="text" [(ngModel)]="registerUserData.Nombre" name="nombre" class="form-control rounded-0" required>
-            </div>
-            <div class="form-group">
-              <label>Contrase&ntilde;a</label>
-              <input type="password" [(ngModel)]="registerUserData.Clave" name="clave" class="form-control rounded-0"  required>
-            </div>  
-            <div class="form-group">
-              <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
-                (click)="registerDataClient()"><i class="fas fa-database"></i>Guardar</button>
-            </div>
-            <h4 class="mb-0">Mis direcciones</h4>
-            <div class="form-group">
-              <button class="btn btn-success btn-lg btn-block" type="button" 
-               [routerLink]="['/direccionesCliente', this.LastClient.Id]"><i class="fas fa-database"></i>agregar direcci&oacute;n</button>
-            </div>
-          </form>
-        </div>
+            </div> 
+            <h4 class="mb-0">Datos de mi usuario</h4><br>
+          <div class="form-group">
+            <label for="uname1">Usuario</label>
+            <input type="text" [(ngModel)]="registerUserData.Nombre" name="nombre" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label>Contrase&ntilde;a</label>
+            <input type="password" [(ngModel)]="registerUserData.Clave" name="clave" class="form-control rounded-0"  required>
+          </div>  
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+              (click)="registerDataClient()"><i class="fas fa-database"></i>Guardar</button>
+          </div>
+          <h4 class="mb-0">Mis direcciones</h4>
+          <div class="form-group">
+            <br>
+            <button class="btn btn-success btn-lg btn-block" type="button" 
+             [routerLink]="['/direccion-cliente', this.LastClient.Id]"><i class="fas fa-database"></i>AGREGAR DIRECCIÓN</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
+</div>
