@@ -119,5 +119,11 @@ export class PedidoService {
     this.filterData.Filtro = cantidad;
       this.refreshList();
   }
+
+
+  ObtenerPedidoRepartidor(id){
+
+    return  this.http.get(`${environment.apiUrl}pedidos/getPedidoRepartidor/${id}`);
+  }
   
 }
