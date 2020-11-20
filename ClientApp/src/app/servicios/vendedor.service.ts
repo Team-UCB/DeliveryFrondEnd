@@ -78,4 +78,10 @@ export class VendedorService {
         this.filterData.Pagina=this.filterData.Pagina+1;
         this.refreshList();
       }
+
+
+      ObtenerPedidoVendedor(id){
+
+        return  this.http.get(`${environment.apiUrl}vendedores/getPedidoVendedor/${id}`);
+      }
 }

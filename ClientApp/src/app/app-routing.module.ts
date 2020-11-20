@@ -35,7 +35,8 @@ import { RegistroClienteComponent } from './registro-cliente/registro-cliente.co
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 import { RegistroTransportadorComponent } from './registro-transportador/registro-transportador.component';
 import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
-
+import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedidos.component';
+import {ListaPreparacionComponent} from './lista-preparacion/lista-preparacion.component';
 import { from } from 'rxjs';
 
 
@@ -52,7 +53,9 @@ const routes: Routes = [
   {path:"vendedor-pedido", component: VendedorPedidoComponent, canActivate: [AuthGuard]},
   {path:"map-box", component: MapBoxComponent, canActivate: [AuthGuard]},
   {path:"modals", component: ModalsComponent, canActivate: [AuthGuard]},
+  {path: "lista-preparacion", component: ListaPreparacionComponent, canActivate: [AuthGuard]},
 
+  {path:"repartidorPedido",component: RepartidorpedidosComponent, canActivate: [AuthGuard]},
   {path:"chats", component: ChatsComponent, canActivate: [AuthGuard]},
   {path:"clientes", component: ClientesComponent, canActivate: [AuthGuard]},
   {path:"rubros", component: RubrosComponent, canActivate: [AuthGuard]},

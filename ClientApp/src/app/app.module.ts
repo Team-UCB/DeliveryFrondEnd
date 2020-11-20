@@ -105,6 +105,12 @@ import { RegistroTransportadorComponent } from './registro-transportador/registr
 import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
 import { PerfilTransportadorListComponent } from './perfil-transportador/perfil-transportador-list/perfil-transportador-list.component';
 import { VistaCPComponent } from './cliente-pedido/vista-cp/vista-cp.component';
+import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedidos.component';
+import { ListaPreparacionComponent } from './lista-preparacion/lista-preparacion.component';
+import { ListaPreparacionListComponent } from './lista-preparacion/lista-preparacion-list/lista-preparacion-list.component';
+import { PedidosClientComponent } from './pedidos-client/pedidos-client.component';
+
+import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
 
 
 @NgModule({
@@ -192,6 +198,12 @@ import { VistaCPComponent } from './cliente-pedido/vista-cp/vista-cp.component';
     PerfilTransportadorComponent,
     PerfilTransportadorListComponent,
     VistaCPComponent,
+    RepartidorpedidosComponent,
+    ListaPreparacionComponent,
+    ListaPreparacionListComponent,
+    PedidosClientComponent,
+  
+    PedidosclienteFormComponent,
     
   ],
   imports: [
