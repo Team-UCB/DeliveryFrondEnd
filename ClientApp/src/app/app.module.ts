@@ -111,6 +111,7 @@ import { ListaPreparacionListComponent } from './lista-preparacion/lista-prepara
 import { PedidosClientComponent } from './pedidos-client/pedidos-client.component';
 
 import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
+import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
 
 
 @NgModule({
@@ -204,6 +205,7 @@ import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-for
     PedidosClientComponent,
   
     PedidosclienteFormComponent,
+    DireccionClienteComponent,
     
   ],
   imports: [

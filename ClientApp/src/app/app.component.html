@@ -51,7 +51,7 @@
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">Vendedores</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/VENDEDORESPRODUCTOS']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/productos-vendedor']" routerLinkActive="router-link-active">PRODUCTOS VENDEDORES</a></li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Repartidor pedido</a></li>
           <li class="nav-item">
@@ -115,13 +115,18 @@
           <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/perfil-cliente">VER PERFIL</a></li>
         <li class="nav-item">
           <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/perfil-transportador">VER PERFIL</a></li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="_authService.getEntidadCliente()" routerLinkActive="active" routerLink="/direccion-cliente">Mis direcciones</a>
+          </li>
         
           <li class="nav-item">
-            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Pedidos Asignados</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/repartidor-pedido']" routerLinkActive="router-link-active">Pedidos Asignados</a></li>
           <li class="nav-item">
-            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Pedidos</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Pedidos</a></li>
           <li class="nav-item">
-            <a style="color:floralwhite" class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Lista de Pedidos</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Lista de Pedidos</a></li>
 
         
         <!--  <li class="nav-item">

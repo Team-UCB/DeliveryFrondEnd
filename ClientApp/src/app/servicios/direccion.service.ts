@@ -18,6 +18,8 @@ export class DireccionService {
   total = 0;
   tam = 0;
 
+  idCliente: number;
+
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
     this.filterData.Columna = "Id";
@@ -50,12 +52,21 @@ export class DireccionService {
   }
 
   refreshList() {
+
+    const idRef = localStorage.getItem('IdRef');
+    if (idRef == 'null')
+    {
+      this.idCliente = 0;
+    }else{
+      this.idCliente = Number(idRef);
+    }
     
     this.http.get(`${environment.apiUrl}Direcciones` + '?columna=' + this.filterData.Columna +
       '&direccion=' + this.filterData.Direccion +
       '&pagina=' + this.filterData.Pagina +
       '&tampagina=' + this.filterData.TamPagina +
-      '&filtro=' + this.filterData.Filtro)
+      '&filtro=' + this.filterData.Filtro +
+      '&id=' + this.idCliente)
       .toPromise()
       .then(res => this.list = (res as any).Datos as Direccion[]);
 
