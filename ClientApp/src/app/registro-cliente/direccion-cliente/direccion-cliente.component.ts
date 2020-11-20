@@ -29,6 +29,7 @@ export class DireccionClienteComponent implements OnInit {
     static latitud: string;
     static longitud: string;
   ngOnInit(): void {
+    this.llamarDatos();
     this.resetForm();
     this.idClienteSelect = Number(localStorage.getItem('IdRef'));
     (mapboxgl.accessToken as any) = environment.accessToken;
@@ -155,16 +156,9 @@ export class DireccionClienteComponent implements OnInit {
     // resetting other headers
     this.service.filtrar(filtro);
   }
-  listar(cantidad) {
-    // resetting other headers
-    this.service.listar(cantidad);
-  }
-
-  Anterior(){
-    this.service.Anterior();
-  }
-  Siguiente(){
-    this.service.Siguiente();
+  idVen:number=0;
+  llamarDatos(){
+    this.idVen = parseInt(localStorage.getItem('IdRef'));
   }
 }
 function foo(e) {
