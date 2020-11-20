@@ -48,7 +48,7 @@ const routes: Routes = [
   {path:"productos", component: ProductosComponent, canActivate: [AuthGuard]},
   {path:"ofertas", component: OfertasComponent, canActivate: [AuthGuard]},
   {path:"roles", component: RolesComponent, canActivate: [AuthGuard]},
-  {path:"VENDEDORESPRODUCTOS", component: ProductosVendedorComponent, canActivate: [AuthGuard]},
+  {path:"productos-vendedor", component: ProductosVendedorComponent, canActivate: [AuthGuard]},
   {path:"repartidor-pedido", component: RepartidorPedidoComponent, canActivate: [AuthGuard]},
   {path:"cliente-pedido", component: ClientePedidoComponent, canActivate: [AuthGuard]},
   {path:"vendedor-pedido", component: VendedorPedidoComponent, canActivate: [AuthGuard]},
