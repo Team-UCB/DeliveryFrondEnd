@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-lista-preparacion-list',
   templateUrl: './lista-preparacion-list.component.html',
-  styles: [
+  styles: ['./lista-preparacion-list.component.css'
   ]
 })
 export class ListaPreparacionListComponent implements OnInit {

@@ -69,9 +69,9 @@
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a></li>
             <li class="nav-item">
-              <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/lista-preparacion']" routerLinkActive="router-link-active">Lista de Preparacion</a></li>
+              <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/lista-preparacion']" routerLinkActive="router-link-active">Lista de Preparacion</a></li>
               <li class="nav-item">
-                <a class="nav-link" *ngIf="_authService.loggedIn()" routerLinkActive="active" routerLink="/repartidorPedido">Pedidos del repartidor</a>
+                <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/repartidorPedido">Pedidos del repartidor</a>
               </li>
               <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/facturas']" routerLinkActive="router-link-active">Facturas</a></li>
