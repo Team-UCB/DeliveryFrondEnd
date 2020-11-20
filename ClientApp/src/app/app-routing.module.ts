@@ -33,8 +33,10 @@ import { RegistroVendedorComponent } from './registro-vendedor/registro-vendedor
 import { PerfilVendedorComponent } from './perfil-vendedor/perfil-vendedor.component';
 import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
 import { RegistroTransportadorComponent } from './registro-transportador/registro-transportador.component';
 import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
+
 
 import { from } from 'rxjs';
 
@@ -73,6 +75,7 @@ const routes: Routes = [
   {path:"perfil-vendedor", component: PerfilVendedorComponent},
   {path:"registro-cliente", component: RegistroClienteComponent},
   {path:"perfil-cliente", component: PerfilClienteComponent},
+  {path:"direccion-cliente", component: DireccionClienteComponent},
   {path:"registro-transportador", component: RegistroTransportadorComponent},
   {path:"perfil-transportador", component: PerfilTransportadorComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
