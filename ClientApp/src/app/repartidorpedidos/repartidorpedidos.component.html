@@ -1,0 +1,48 @@
+<style>
+  #contenedorTodo{ margin: 0; padding: 0,0,0,0; }
+</style>
+
+
+<h1 class="text-center">Pedido a repartir </h1>
+<hr>  
+
+<div class="modal-body row container" id="contenedorTodo" >
+     
+
+          <div class="col-md-6">
+              <h3 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Empresa {{vendedor.NombreEmpresa}}</h3>
+              <h6 class="">Encargado:  {{vendedor.PersonaContacto}}</h6>
+              <h6 class="">Celular:  {{vendedor.Celular}}</h6>
+              <h6 class="">Direccion:  {{vendedor.Direccion}}</h6>
+              <h6 class="">Telefono:  {{vendedor.Telefono}}</h6>
+          </div>
+          <hr>
+          <div class="col-md-6">
+              <h3 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Datos de Comprador</h3>
+              <h6 class="">Encargado:   {{comprador.NombresApellidos}}</h6>
+              <h6 class="">Celular:   {{comprador.Celular}}</h6>
+              <h6 class="">Direccion:  {{comprador.Telefono}}</h6>
+          </div>
+          
+</div>
+<h1>DETALLE PEDIDO</h1>
+<div *ngFor="let detallepedido of listDetallePedido ">
+   
+    
+    <h6 class="">Submonto:   {{detallepedido.SubMonto}}</h6>
+    <h6 class="">Cantidad:    {{detallepedido.Cantidad}}</h6>
+    <h6 class="">Producto:  {{detallepedido.IdProducto}}</h6>
+
+    <hr/>
+  </div>
+ <h6 class="">Monto por el pedido:  {{pedido.MontoCliente}}</h6>
+ <h6 class="">Monto por el envio:  {{pedido.MontoEnvio}}</h6>
+
+
+
+   <div class="form-group">
+    <button class="btn btn-success float-rigth" type="button" 
+            (click)="Finalizarpe(pedido)">
+      <i class="fas fa-database"></i> Finalizar pedido
+    </button>
+  </div>
