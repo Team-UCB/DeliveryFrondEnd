@@ -1,7 +1,7 @@
 <form #form="ngForm" autocomplete="off">
   <input type="hidden" name="id" [value]="service.formData.Id">
   <div class="form-group">
-    <label>Fecha de ingreso</label>
+    <label>Fecha de ingreso del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -14,7 +14,7 @@
     </div>
   </div>   
   <div class="form-group">
-    <label>Fecha de atenci&oacute;n</label>
+    <label>Fecha de atenci&oacute;n del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Fecha de salida</label>
+    <label>Fecha de salida del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -40,7 +40,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Fecha de entrega</label>
+    <label>Fecha de entrega del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -53,7 +53,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Estado</label>
+    <label>Estado del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -65,7 +65,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>C&oacute;digo QR de factura</label>
+    <label>C&oacute;digo QR de factura del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -77,7 +77,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Monto de envio</label>
+    <label>Monto de envio del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -89,7 +89,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Tipo de pago</label>
+    <label>Tipo de pago del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -101,7 +101,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Monto de cliente</label>
+    <label>Monto de cliente del pedido</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -113,7 +113,7 @@
     </div>
   </div>
 <!---->
-<label>Cliente</label>
+<label>Cliente del pedido</label>
   <select name="IdCliente" #IdCliente="ngModel"  [(ngModel)]="opcionCliente" class="form-control" (change)="capturar(IdCliente.value)" >
     <option value="0">Selecciona una opción</option>
     <option *ngFor="let dato of service.listCliente" value= {{dato.Id}}>
@@ -122,7 +122,7 @@
 </select>
 <!---->
 <!---->
-<label>Vendedor</label>
+<label>Vendedor del pedido</label>
 <select name="IdVendedor" #IdVendedor="ngModel"  [(ngModel)]="opcionVendedor" class="form-control" (change)="capturar(IdVendedor.value)" >
   <option value="0">Selecciona una opción</option>
   <option *ngFor="let dato of service.listVendedor" value= {{dato.Id}}>
@@ -131,7 +131,7 @@
 </select>
 <!---->
 <!---->
-<label>Transporte</label>
+<label>Transporte del pedido</label>
 <select name="IdTransporte" #IdTransporte="ngModel"  [(ngModel)]="opcionTransporte" class="form-control" (change)="capturar(IdTransporte.value)" >
   <option value="0">Selecciona una opción</option>
   <option *ngFor="let dato of service.listTransportador" value= {{dato.Id}}>
