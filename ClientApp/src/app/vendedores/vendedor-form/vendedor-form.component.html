@@ -1,6 +1,7 @@
 <form #form="ngForm" autocomplete="off">
     <input type="hidden" name="id" [value]="service.formData.Id">
     <div class="form-group">
+      <label>Contacto del vendedor:</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
@@ -8,10 +9,11 @@
           </div>
         </div>
         <input name="PersonaContacto" #PersonaContacto="ngModel" [(ngModel)]="service.formData.PersonaContacto" class="form-control"
-               placeholder="PersonaContacto de ubicacion" required>
+               placeholder="Contacto de vendedor" required>
       </div>
     </div>
     <div class="form-group">
+      <label>Celular del vendedor:</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
@@ -19,10 +21,11 @@
             </div>
           </div>
           <input name="Celular" #Celular="ngModel" [(ngModel)]="service.formData.Celular" class="form-control"
-                 placeholder="Celular  " required>
+                 placeholder="Celular del vendedor " required>
         </div>
       </div>
       <div class="form-group">
+        <label>Tel&eacute;fono del vendedor:</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
@@ -30,10 +33,11 @@
             </div>
           </div>
           <input name="Telefono" #Telefono="ngModel" [(ngModel)]="service.formData.Telefono" class="form-control"
-                 placeholder="Telefono de ubicacion" required>
+                 placeholder="Teléfono del vendedor" required>
         </div>
       </div>
       <div class="form-group">
+        <label>Corr&eacute;o del vendedor:</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
@@ -41,10 +45,11 @@
             </div>
           </div>
           <input name="Correo" #Correo="ngModel" [(ngModel)]="service.formData.Correo" class="form-control"
-                 placeholder="Correo de ubicacion" required>
+                 placeholder="Corréo de vendedor" required>
         </div>
       </div>
       <div class="form-group">
+        <label>Nombre de la empresa:</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
@@ -52,10 +57,11 @@
             </div>
           </div>
           <input name="NombreEmpresa" #NombreEmpresa="ngModel" [(ngModel)]="service.formData.NombreEmpresa" class="form-control"
-                 placeholder="NombreEmpresa de ubicacion" required>
+                 placeholder="Nombre de la Empresa" required>
         </div>
       </div>
     <div class="form-group">
+      <label>Direcci&oacute;n de la empresa:</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
@@ -63,12 +69,11 @@
           </div>
         </div>
         <input name="Direccion" #Direccion="ngModel" [(ngModel)]="service.formData.Direccion" class="form-control"
-               placeholder="Direccion de la localizacion" required>
+               placeholder="Direccion de la empresa" required>
       </div>
     </div>
-    
-  
     <div class="form-group">
+      <label>Logo de la empresa:</label>
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
@@ -76,11 +81,11 @@
           </div>
         </div>
         <input name="PathLogo" #PathLogo="ngModel" [(ngModel)]="service.formData.PathLogo" class="form-control"
-        placeholder="PersonaContacto de ubicacion" required>
+        placeholder="Path Logo de la empresa" required>
       </div>
     </div>
     <!---->
-    <label>Rubro</label>
+    <label>Rubro:</label>
     <select name="IdRubro" #IdRubro="ngModel"  [(ngModel)]="opcionRubro" class="form-control" (change)="capturar(IdRubro.value)" >
       <option value="0">Selecciona una opción</option>
       <option *ngFor="let dato of service.listRubro" value= {{dato.Id}}>
@@ -88,7 +93,6 @@
       </option>
     </select>
     <!---->
-  
     <div class="form-group">
       <button class="btn btn-success float-rigth" type="button" [disabled]="form.invalid"
               (click)="onSubmit(form)">

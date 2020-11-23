@@ -1,17 +1,19 @@
 <form #form="ngForm" autocomplete="off">
   <input type="hidden" name="id" [value]="service.formData.Id">
   <div class="form-group">
+  <label>Fecha de inicio de oferta:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
           <i class="fas fa-user-circle" [class.green-icon]="FechaInicio.valid" [class.red-icon]="FechaInicio.invalid && FechaInicio.touched"></i>
         </div>
       </div>
-      <input  name="FechaInicio" #FechaInicio="ngModel" [(ngModel)]="service.formData.FechaInicio" class="form-control"
-             placeholder="yyyy-mm-dd Fecha de inicio de oferta" required>
+      <input  type='datetime-local' name="FechaInicio" #FechaInicio="ngModel" [(ngModel)]="service.formData.FechaInicio" class="form-control"
+              required>
     </div>
   </div>
   <div class="form-group">
+    <label>Fecha de fin de oferta:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -19,12 +21,13 @@
         </div>
       </div>
       
-      <input  format=""name="FechaFin" #FechaFin="ngModel" [(ngModel)]="service.formData.FechaFin" class="form-control"
-             placeholder="yyyy-mm-dd Fecha de fin de oferta " required>
+      <input  type='datetime-local' name="FechaFin" #FechaFin="ngModel" [(ngModel)]="service.formData.FechaFin" class="form-control"
+             required>
     </div>
   </div>
   
   <div class="form-group">
+    <label>Precio de Oferta en Bs:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -36,6 +39,7 @@
     </div>
   </div>
 <!---->
+<label>Producto en oferta:</label>
   <select name="IdProducto" #IdProducto="ngModel"  [(ngModel)]="opcionSeleccionado" class="form-control" (change)="capturar(IdProducto.value)" >
     <option value="0">Selecciona una opción</option>
     <option *ngFor="let dato of service.listProducto" value= {{dato.Id}}>

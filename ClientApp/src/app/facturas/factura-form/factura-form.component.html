@@ -1,7 +1,7 @@
 <form #form="ngForm" autocomplete="off">
   <input type="hidden" name="id" [value]="service.formData.Id">
   <div class="form-group">
-    <label>Numero de factura</label>
+    <label>N&uacute;mero de factura:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Fecha de emision</label>
+    <label>Fecha de emisi&oacute;n:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Estado de factura</label>
+    <label>Estado de factura:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Codigo de control</label>
+    <label>C&oacute;digo de control:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -50,7 +50,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Observaciones</label>
+    <label>Observaciones de factura:</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
@@ -62,7 +62,7 @@
     </div>
   </div>
 <!---->
-<label>Dosificacion</label>
+<label>Dosificaci&oacute;n de factura:</label>
   <select name="IdDosificacion" #IdDosificacion="ngModel"  [(ngModel)]="opcionDosificacion" class="form-control" (change)="capturar(IdDosificacion.value)" >
     <option value="0">Selecciona una opción</option>
     <option *ngFor="let dato of service.listDosificacion" value= {{dato.Id}}>
