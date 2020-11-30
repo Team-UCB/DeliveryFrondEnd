@@ -38,6 +38,8 @@ import { RegistroTransportadorComponent } from './registro-transportador/registr
 import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
 import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedidos.component';
 import {ListaPreparacionComponent} from './lista-preparacion/lista-preparacion.component';
+import { CalificarTransportadorVendedorComponent} from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
+import { CalificarTransportadorClienteComponent} from './calificar-transportador-cliente/calificar-transportador-cliente.component';
 
 
 import { from } from 'rxjs';
@@ -82,6 +84,8 @@ const routes: Routes = [
   {path:"direccion-cliente", component: DireccionClienteComponent},
   {path:"registro-transportador", component: RegistroTransportadorComponent},
   {path:"perfil-transportador", component: PerfilTransportadorComponent},
+  {path:"calificar-trans-ven", component: CalificarTransportadorVendedorComponent },
+  {path:"calificar-trans-cli", component: CalificarTransportadorClienteComponent },
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];
