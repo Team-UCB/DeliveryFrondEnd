@@ -5,6 +5,8 @@ import { HttpClient } from "@angular/common/http";
 import { PageAndSort } from '../modelos/pageandsort.model';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { Vendedor } from '../modelos/vendedor.model';
+import { Cliente } from '../modelos/cliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -84,4 +86,8 @@ export class CalificacionService {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
   }
+  //Jerissa
+  formDataVendedor: Vendedor;
+  formDataCliente: Cliente;
+  formDataPedido: Pedido;
 }
