@@ -1,0 +1,48 @@
+<br><br>
+
+<h3 class="mb-0">Calificar Vendedor</h3><br><br>
+<form #form="ngForm" autocomplete="off">
+  <input type="hidden" name="id" [value]="service.formData.Id">
+
+  <!--PUNTUACION-->
+  <br>
+  <label>Puntuación:</label><br><br>
+  <pre>- 3 estrellas: malo</pre>
+  <pre>- 10 estrellas: muy bueno</pre>
+  <ngb-rating  [(rate)]="currentRate">
+    <ng-template let-fill="fill" let-index="index">
+      <span class="star" [class.filled]="fill === 100" (click)="puntaje(index+1)" [class.bad]="index < 3">&#9733;</span>
+    </ng-template>
+  </ngb-rating>
+  <hr>
+  <!--<pre>Usted puntuo al servicio: <b>{{currentRate}}</b></pre>-->
+  
+  <label>Observaciones:</label>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="Observaciones.valid" [class.red-icon]="Observaciones.invalid && Observaciones.touched"></i>
+        </div>
+      </div>
+      <input name="Observaciones" #Observaciones="ngModel" [(ngModel)]="service.formData.Observaciones" class="form-control"
+             placeholder="Observaciones" required>
+    </div>
+  </div>
+
+  <br>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="button" [disabled]="form.invalid"
+    (click)="onSubmit(form)"><i class="fas fa-database"></i> Guardar</button>
+  </div>
+
+</form>
+
+<br><br>
+<div>
+  <button class="btn btn-success btn-lg btn-block" type="button" 
+  [routerLink]="['/calificar-trans-cli']"><i class="fas fa-user-check"></i> Calificar Cliente</button>
+</div>
+<br><br><br><br>
+
+    
