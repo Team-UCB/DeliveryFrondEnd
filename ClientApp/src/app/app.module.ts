@@ -115,6 +115,7 @@ import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-for
 import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
 import { CalificarTransportadorVendedorComponent } from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
 import { CalificarTransportadorClienteComponent } from './calificar-transportador-cliente/calificar-transportador-cliente.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -219,7 +220,8 @@ import { CalificarTransportadorClienteComponent } from './calificar-transportado
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [
   LocalizacionService,

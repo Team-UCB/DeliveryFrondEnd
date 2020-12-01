@@ -9,6 +9,8 @@ import { VendedorService } from '../servicios/vendedor.service';
 import { DetallePedido } from '../modelos/detalle-pedido.model';
 import { DetallePedidoService } from '../servicios/detalle-pedido.service';
 import { DetallePedidosComponent } from '../detalle-pedidos/detalle-pedidos.component';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-repartidorpedidos',
   templateUrl: './repartidorpedidos.component.html',
@@ -24,7 +26,7 @@ export class RepartidorpedidosComponent implements OnInit {
 
 
 
-  constructor(public serviceVendedor: VendedorService, private toastr: ToastrService,
+  constructor(public serviceVendedor: VendedorService, private toastr: ToastrService, private _routes: Router,
     public serviceCliente: ClienteService,
     public servicePedido: PedidoService ,
     public servicedetallePedido: DetallePedidoService) { }
@@ -32,45 +34,10 @@ export class RepartidorpedidosComponent implements OnInit {
 ngOnInit(): void {
   this.vendedor= new Vendedor;
   this.comprador= new Cliente;
-
-
-
-  
-
-this.pedidoRepartidor();    
+  this.pedidoRepartidor();    
 
 }
 
-
-Finalizarpe(obj) {
-  this.servicePedido.formDataListaPedidos = Object.assign({}, obj);
-  this.servicePedido.formDataListaPedidos.Estado = "Finalizado";
-  this.FINALIZARPEDIDO(this.servicePedido.formDataListaPedidos.Id);
-}
-
-
-FINALIZARPEDIDO(id) {
-  this.servicePedido.formData = this.servicePedido.formDataListaPedidos;
-  this.servicePedido.putPedido().subscribe(
-    res => {
-      this.toastr.info('Finalizado', 'Pedido');
-      this.servicePedido.formData.Estado = "Despachado";
-      this.ngOnInit();
-    },
-    err => {
-      console.log(err);
-    }
-  )
-}
-
-
-
-
-
-
-
-
-    
 
 
 pedidoRepartidor(){
@@ -101,6 +68,29 @@ this.servicePedido.ObtenerPedidoRepartidor(1).subscribe(res=>{
 })
 
 
+
 }
+// FINALIZAR PEDIDO TRANSPORTADOR
+Finalizarpe(obj) {
+  this.servicePedido.formDataListaPedidos = Object.assign({}, obj);
+  this.servicePedido.formDataListaPedidos.Estado = 'Finalizado';
+  this.finalizarPedido(this.servicePedido.formDataListaPedidos.Id);
+}
+
+
+  finalizarPedido(id) {
+    this.servicePedido.formData = this.servicePedido.formDataListaPedidos;
+    this.servicePedido.putPedido().subscribe(
+      res => {
+        this.toastr.info('Finalizado', 'Pedido');
+        this.servicePedido.formData.Estado = 'Despachado';
+        this._routes.navigate(['/calificar-trans-ven']);
+        this.ngOnInit();
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
 
 }
