@@ -70,13 +70,12 @@ this.servicePedido.ObtenerPedidoRepartidor(1).subscribe(res=>{
 
 
 }
-// FINALIZAR PEDIDO TRANSPORTADOR
-Finalizarpe(obj) {
-  this.servicePedido.formDataListaPedidos = Object.assign({}, obj);
-  this.servicePedido.formDataListaPedidos.Estado = 'Finalizado';
-  this.finalizarPedido(this.servicePedido.formDataListaPedidos.Id);
-}
-
+  // FINALIZAR PEDIDO TRANSPORTADOR
+  Finalizarpe(obj) {
+    this.servicePedido.formDataListaPedidos = Object.assign({}, obj);
+    this.servicePedido.formDataListaPedidos.Estado = 'Finalizado';
+    this.finalizarPedido(this.servicePedido.formDataListaPedidos.Id);
+  }
 
   finalizarPedido(id) {
     this.servicePedido.formData = this.servicePedido.formDataListaPedidos;
