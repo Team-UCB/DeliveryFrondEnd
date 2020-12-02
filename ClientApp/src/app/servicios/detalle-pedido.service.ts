@@ -19,6 +19,7 @@ export class DetallePedidoService {
   listPedido: Pedido[];
   listProducto: Producto[];
 
+  listDetallesPedido: DetallePedido[];
 
 
 
@@ -101,4 +102,15 @@ export class DetallePedidoService {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
   }
+
+
+    ///este metodo para el detalle pedido
+    listDetallesPedidos(id) {
+      return this.http.get(`${environment.apiUrl}DetallePedidos/${id}`)
+        .toPromise()
+        .then(res => this.listDetallesPedido = (res as any) as DetallePedido[]);
+  
+        console.log(this.listDetallesPedido);
+    }
+  
 }

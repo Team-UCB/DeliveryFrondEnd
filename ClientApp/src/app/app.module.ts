@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SortColumns } from './directivas/sortcolumns';
 import { LocalizacionesComponent } from './localizaciones/localizaciones.component';
@@ -105,7 +106,16 @@ import { RegistroTransportadorComponent } from './registro-transportador/registr
 import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
 import { PerfilTransportadorListComponent } from './perfil-transportador/perfil-transportador-list/perfil-transportador-list.component';
 import { VistaCPComponent } from './cliente-pedido/vista-cp/vista-cp.component';
+import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedidos.component';
+import { ListaPreparacionComponent } from './lista-preparacion/lista-preparacion.component';
+import { ListaPreparacionListComponent } from './lista-preparacion/lista-preparacion-list/lista-preparacion-list.component';
+import { PedidosClientComponent } from './pedidos-client/pedidos-client.component';
+
+import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
 import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
+import { CalificarTransportadorVendedorComponent } from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
+import { CalificarTransportadorClienteComponent } from './calificar-transportador-cliente/calificar-transportador-cliente.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -193,14 +203,23 @@ import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/
     PerfilTransportadorComponent,
     PerfilTransportadorListComponent,
     VistaCPComponent,
+    RepartidorpedidosComponent,
+    ListaPreparacionComponent,
+    ListaPreparacionListComponent,
+    PedidosClientComponent,
+    PedidosclienteFormComponent,
     DireccionClienteComponent,
+    CalificarTransportadorVendedorComponent,
+    CalificarTransportadorClienteComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [
   LocalizacionService,

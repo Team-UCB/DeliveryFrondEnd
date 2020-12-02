@@ -1,0 +1,69 @@
+<form>
+    <div class="row">
+      
+        <div class="col-md-5">
+        Filtrar:
+        <div class="col-md-15">
+        <input #buscar class="form-control"placeholder="ingrese la busqueda" required>
+        <br>
+        <button class="btn btn-primary float-rigth" type="button" (click)="filtrar(buscar.value)">Filtrar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <br>
+  <table class="table table-hover table-striped" >
+    <thead>
+      <tr>
+        <th scope="col" sortable="FechaIngreso" (sort)="onSort($event)">Fecha de ingreso</th>
+        <th scope="col" sortable="FechaAtencion" (sort)="onSort($event)">Fecha de atencion</th>
+        <th scope="col" sortable="FechaSalida" (sort)="onSort($event)">Fecha de salida</th>
+        <th scope="col" sortable="FechaEntrega" (sort)="onSort($event)">Fecha de entrega</th>
+        <th scope="col" sortable="Estado" (sort)="onSort($event)">Estado</th>
+        <th scope="col" sortable="CodigoQrFactura" (sort)="onSort($event)">Codigo QR</th>
+        <th scope="col" sortable="MontoEnvio" (sort)="onSort($event)">Monto envio</th>
+        <th scope="col" sortable="TipoPago" (sort)="onSort($event)">Tipo de pago</th>
+        <th scope="col" sortable="MontoCliente" (sort)="onSort($event)">Monto de cliente</th>
+        <th scope="col" sortable="IdCliente" (sort)="onSort($event)">Cliente</th>
+        <th scope="col" sortable="IdVendedor" (sort)="onSort($event)">Vendedor</th>
+        <th scope="col" sortable="IdTransporte" (sort)="onSort($event)">Transporte</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody >            
+      <tr *ngFor="let pedido of service.list"  >        
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.FechaIngreso}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.FechaAtencion}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.FechaSalida}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.FechaEntrega}}</td>
+        
+        <td *ngIf="!mostrarPedidos(pedido.Estado)"(click)="populateForm(pedido)">{{pedido.Estado}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.CodigoQrFactura}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.MontoEnvio}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.TipoPago}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.MontoCliente}}</td>
+        <td   *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.IdCliente}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.IdVendedor}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)" (click)="populateForm(pedido)">{{pedido.IdTransporte}}</td>
+        <td *ngIf="!mostrarPedidos(pedido.Estado)">
+          <i class="btn btn-primary float-rigth" aria-hidden="true"type="button" (click)="ObjListaPreparacionAten(pedido)">Atender</i>
+        </td>
+                  
+      </tr>    
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <button class="btn btn-outline-primary mr-2" type="button" (click)="Anterior()"><i class="fa fa-reply" aria-hidden="true" ></i></button>
+        </td>
+        <td>
+          <button class="btn btn-outline-primary mr-2" type="button"(click)="Siguiente()" placement="top" ngbTooltip="Tooltip on top"><i class="fa fa-share" aria-hidden="true" ></i></button>
+        </td>
+        <td>
+          <button class="btn btn-outline-primary mr-2" type="button" (click)="Inicio()"><i class="fas fa-laptop-house" aria-hidden="true" ></i></button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+ 

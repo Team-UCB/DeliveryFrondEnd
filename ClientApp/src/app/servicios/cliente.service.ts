@@ -66,4 +66,8 @@ export class ClienteService {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
   }
+
+  ObtenerClientePedido(id){
+    return  this.http.get(`${environment.apiUrl}clientes/getClientePedido/${id}`);
+  }
 }

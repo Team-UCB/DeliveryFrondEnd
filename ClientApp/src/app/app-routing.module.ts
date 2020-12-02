@@ -36,6 +36,10 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
 import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
 import { RegistroTransportadorComponent } from './registro-transportador/registro-transportador.component';
 import { PerfilTransportadorComponent } from './perfil-transportador/perfil-transportador.component';
+import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedidos.component';
+import {ListaPreparacionComponent} from './lista-preparacion/lista-preparacion.component';
+import { CalificarTransportadorVendedorComponent} from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
+import { CalificarTransportadorClienteComponent} from './calificar-transportador-cliente/calificar-transportador-cliente.component';
 
 
 import { from } from 'rxjs';
@@ -48,13 +52,15 @@ const routes: Routes = [
   {path:"productos", component: ProductosComponent, canActivate: [AuthGuard]},
   {path:"ofertas", component: OfertasComponent, canActivate: [AuthGuard]},
   {path:"roles", component: RolesComponent, canActivate: [AuthGuard]},
-  {path:"VENDEDORESPRODUCTOS", component: ProductosVendedorComponent, canActivate: [AuthGuard]},
+  {path:"productos-vendedor", component: ProductosVendedorComponent, canActivate: [AuthGuard]},
   {path:"repartidor-pedido", component: RepartidorPedidoComponent, canActivate: [AuthGuard]},
   {path:"cliente-pedido", component: ClientePedidoComponent, canActivate: [AuthGuard]},
   {path:"vendedor-pedido", component: VendedorPedidoComponent, canActivate: [AuthGuard]},
   {path:"map-box", component: MapBoxComponent, canActivate: [AuthGuard]},
   {path:"modals", component: ModalsComponent, canActivate: [AuthGuard]},
+  {path: "lista-preparacion", component: ListaPreparacionComponent, canActivate: [AuthGuard]},
 
+  {path:"repartidorPedido",component: RepartidorpedidosComponent, canActivate: [AuthGuard]},
   {path:"chats", component: ChatsComponent, canActivate: [AuthGuard]},
   {path:"clientes", component: ClientesComponent, canActivate: [AuthGuard]},
   {path:"rubros", component: RubrosComponent, canActivate: [AuthGuard]},
@@ -78,6 +84,8 @@ const routes: Routes = [
   {path:"direccion-cliente", component: DireccionClienteComponent},
   {path:"registro-transportador", component: RegistroTransportadorComponent},
   {path:"perfil-transportador", component: PerfilTransportadorComponent},
+  {path:"calificar-trans-ven", component: CalificarTransportadorVendedorComponent },
+  {path:"calificar-trans-cli", component: CalificarTransportadorClienteComponent },
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];
