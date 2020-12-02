@@ -21,9 +21,6 @@ export class DetallePedidoService {
 
   listDetallesPedido: DetallePedido[];
 
-
-
-  
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
     this.filterData.Columna = "Id";
@@ -97,20 +94,20 @@ export class DetallePedidoService {
     this.filterData.Pagina = this.filterData.Pagina - 1;
     this.refreshList();
   }
-  
+
   Siguiente() {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
   }
 
 
-    ///este metodo para el detalle pedido
+    // Este metodo para el detalle pedido
     listDetallesPedidos(id) {
       return this.http.get(`${environment.apiUrl}DetallePedidos/${id}`)
         .toPromise()
         .then(res => this.listDetallesPedido = (res as any) as DetallePedido[]);
-  
+
         console.log(this.listDetallesPedido);
     }
-  
+
 }

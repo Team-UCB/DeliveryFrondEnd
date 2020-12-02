@@ -125,5 +125,5 @@ export class PedidoService {
 
     return  this.http.get(`${environment.apiUrl}pedidos/getPedidoRepartidor/${id}`);
   }
-  
+
 }
