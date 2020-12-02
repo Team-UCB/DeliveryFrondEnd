@@ -106,6 +106,7 @@ import { PerfilTransportadorComponent } from './perfil-transportador/perfil-tran
 import { PerfilTransportadorListComponent } from './perfil-transportador/perfil-transportador-list/perfil-transportador-list.component';
 import { VistaCPComponent } from './cliente-pedido/vista-cp/vista-cp.component';
 import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
+import { DireccionTransportadorComponent } from './registro-transportador/direccion-transportador/direccion-transportador.component';
 
 
 @NgModule({
@@ -194,6 +195,7 @@ import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/
     PerfilTransportadorListComponent,
     VistaCPComponent,
     DireccionClienteComponent,
+    DireccionTransportadorComponent,
     
   ],
   imports: [
