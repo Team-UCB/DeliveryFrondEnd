@@ -19,11 +19,11 @@ export class TransportadorService {
 
   constructor(private http: HttpClient, private _router: Router) {
     this.filterData = new PageAndSort();
-    this.filterData.Columna = "Id";
-    this.filterData.Direccion = "asc";
+    this.filterData.Columna = 'Id';
+    this.filterData.Direccion = 'asc';
     this.filterData.Pagina = 1;
     this.filterData.TamPagina = 10;
-    this.filterData.Filtro = "";
+    this.filterData.Filtro = '';
   }
   postTransportador() {
     return this.http.post(`${environment.apiUrl}Transportadores`, this.formData);
