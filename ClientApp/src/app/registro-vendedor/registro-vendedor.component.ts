@@ -18,8 +18,8 @@ export class RegistroVendedorComponent implements OnInit {
   registroVendedorData: Vendedor;
   LastVendedor: Vendedor;
 
-  constructor(private userService: UsuarioService, private vendedorService: VendedorService, 
-              private toastr: ToastrService, public router: Router) { 
+  constructor(private userService: UsuarioService, private vendedorService: VendedorService,
+              private toastr: ToastrService, public router: Router) {
                 this.registerUserData = new Usuario();
                 this.registroVendedorData = new Vendedor();
                 this.LastVendedor = new Vendedor();

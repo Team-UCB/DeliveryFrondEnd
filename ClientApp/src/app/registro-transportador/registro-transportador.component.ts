@@ -19,7 +19,7 @@ export class RegistroTransportadorComponent implements OnInit {
   LastTransportador: Transportador;
 
   constructor(private userService: UsuarioService, private transportadorService: TransportadorService, 
-              private toastr: ToastrService, public router: Router) 
+              private toastr: ToastrService, public router: Router)
               {
                 this.registerUserData = new Usuario();
                 this.registroTransportadorData = new Transportador();
