@@ -207,12 +207,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListaPreparacionComponent,
     ListaPreparacionListComponent,
     PedidosClientComponent,
-  
     PedidosclienteFormComponent,
     DireccionClienteComponent,
     CalificarTransportadorVendedorComponent,
     CalificarTransportadorClienteComponent,
-    
   ],
   imports: [
     BrowserModule,

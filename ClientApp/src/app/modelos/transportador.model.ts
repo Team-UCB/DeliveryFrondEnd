@@ -4,7 +4,7 @@ export class Transportador {
     Celular: string;
     DescripcionVehiculo: string;
     TipoVehiculo: string;
-    Estado : string;
-    Latitud : number;
+    Estado: string;
+    Latitud: number;
     Longitud: number;
 }

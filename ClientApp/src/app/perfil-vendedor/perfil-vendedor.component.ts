@@ -13,13 +13,13 @@ import { from } from 'rxjs';
 })
 export class PerfilVendedorComponent implements OnInit {
   datos;
-  opcionRubro: number=0;
-  verSeleccion:string='';
-  //imagen
+  opcionRubro: number = 0;
+  verSeleccion: string = '';
+  // imagen
   imageError: string;
   isImageSaved: boolean;
-  //cardImageBase64: string;
-  img: string='';
+  // cardImageBase64: string;
+  img: string = '';
   constructor(public service: VendedorService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -28,11 +28,13 @@ export class PerfilVendedorComponent implements OnInit {
   }
 
   capturar(id){
-    this.service.formData.IdRubro=parseInt(id);
+    // tslint:disable-next-line: radix
+    this.service.formData.IdRubro = parseInt(id);
   }
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.form.reset();
+    }
     this.service.formData = {
     Id: 0,
     PersonaContacto: '',
@@ -43,10 +45,11 @@ export class PerfilVendedorComponent implements OnInit {
     Direccion: '',
     PathLogo: 'assets/img/2.jpg',
     IdRubro: 0
-    }
+    };
   }
 
   onSubmit(form: NgForm) {
+    // tslint:disable-next-line: triple-equals
     if (this.service.formData.Id == 0){
       this.insertRecord(form);
     }
@@ -57,7 +60,6 @@ export class PerfilVendedorComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    //
     this.img = this.service.cardImageBase64;
     this.service.formData.PathLogo = this.img;
 
@@ -70,11 +72,10 @@ export class PerfilVendedorComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
   insertRecord(form: NgForm) {
-    //
     this.img = this.service.cardImageBase64;
     this.service.formData.PathLogo = this.img;
 
@@ -85,7 +86,7 @@ export class PerfilVendedorComponent implements OnInit {
         this.service.refreshList();
       },
       err => { console.log(err); }
-    )
+    );
   }
 
   //
