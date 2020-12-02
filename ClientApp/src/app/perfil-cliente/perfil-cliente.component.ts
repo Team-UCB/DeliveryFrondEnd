@@ -18,8 +18,9 @@ export class PerfilClienteComponent implements OnInit {
   }
 
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.form.reset();
+    }
     this.service.formData = {
       Id: 0,
       NombresApellidos: '',
@@ -29,10 +30,12 @@ export class PerfilClienteComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (this.service.formData.Id == 0)
+    if (this.service.formData.Id == 0) {
       this.insertRecord(form);
-    else
+    }
+    else {
       this.updateRecord(form);
+    }
   }
 
   updateRecord(form: NgForm) {
@@ -45,7 +48,7 @@ export class PerfilClienteComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
   insertRecord(form: NgForm) {
@@ -56,7 +59,7 @@ export class PerfilClienteComponent implements OnInit {
         this.service.refreshList();
       },
       err => { console.log(err); }
-    )
+    );
   }
 
 }
