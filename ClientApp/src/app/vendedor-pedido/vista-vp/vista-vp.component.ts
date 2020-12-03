@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChildren, QueryList  } from '@angular/core';
 import { PedidoService } from '../../servicios/pedido.service';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 import { ToastrService } from 'ngx-toastr';
-
+import {Pedido} from '../../modelos/pedido.model';
 @Component({
   selector: 'app-vista-vp',
   templateUrl: './vista-vp.component.html',
@@ -10,12 +10,14 @@ import { ToastrService } from 'ngx-toastr';
   ]
 })
 export class VistaVPComponent implements OnInit {
+  listaPedidosPendientes: Pedido[];
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
   constructor(public service: PedidoService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.llamarDatos();
     this.service.listarEstados("Pendiente");
+    this.listarComentarios();
   }
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
@@ -55,7 +57,15 @@ export class VistaVPComponent implements OnInit {
       }
     )
   }
-  
+  listarComentarios()
+  {
+    this.service.ObtenerPedidoPendiente().subscribe(
+      comentarios=>{
+        this.listaPedidosPendientes=comentarios as any;
+      }
+    );
+      console.log(this.listaPedidosPendientes);
+  }
   onSort({ column, direction }: SortEvent) {
     // resetting other headers
     this.headers.forEach(header => {

@@ -113,7 +113,8 @@
             <a class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Pedidos</a></li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Lista de Pedidos</a></li>
-
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/comentarios-delivery']" routerLinkActive="router-link-active">Comentarios delivery</a></li>
         
         <!--  <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">PRUEBA</a></li>-->
