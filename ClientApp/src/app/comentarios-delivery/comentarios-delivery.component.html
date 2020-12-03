@@ -6,14 +6,11 @@
         </button>
     </div>
     <div class="modal-body">
-      
       <tr *ngFor="let comentarios of list" style="color: black;">
         <hr>
-      
-        <td (click)="populateForm(comentarios)">{{comentarios.Observaciones}}</td>
+        <h5 (click)="populateForm(comentarios)">{{comentarios.Observaciones}}</h5>
       <hr>
       </tr>
-    
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-success" (click)="modal.close()">Cerrar</button>
