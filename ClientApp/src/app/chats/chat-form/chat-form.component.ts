@@ -24,6 +24,7 @@ export class ChatFormComponent implements OnInit {
       Id: 0,
       IdOrigen:0,
       IdDestino: 0,
+      Text:'',
       Estado:''
     }
   }

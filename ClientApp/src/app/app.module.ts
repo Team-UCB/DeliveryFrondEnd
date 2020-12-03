@@ -113,6 +113,7 @@ import { PedidosClientComponent } from './pedidos-client/pedidos-client.componen
 
 import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
 import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -215,7 +216,8 @@ import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [
   LocalizacionService,
