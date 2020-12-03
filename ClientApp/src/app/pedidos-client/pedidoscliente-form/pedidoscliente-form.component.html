@@ -1,1 +1,174 @@
-<p>pedidoscliente-form works!</p>
+<style>
+    #contenedorTodo{ margin: 0; padding: 0,0,0,0; }
+  </style>
+  
+  
+  <h1 class="text-center">Pedido</h1>
+  <hr>  
+  
+  <div class="modal-body row container" id="contenedorTodo" >
+  
+  
+  
+  
+      <div class="col-md-6">   
+          <form >
+  
+              <div class="row">
+                  &nbsp; &nbsp;  &nbsp;
+                  &nbsp; &nbsp; <button class="btn btn-outline-info" type="button" (click)="FiltrarListaProductos(buscar.value)">Filtrar</button>
+                 <div class="col-md-6">
+                  <input #buscar class="form-control" placeholder="ingrese la busqueda" autofocus  (change)="FiltrarListaProductos(buscar.value)" >
+                   </div>
+                </div>
+        </form>     
+          <br>
+          <div class="container-fluid " >
+                  <div class="container">
+                      <div class="row vr-gallery">                
+                          <div class="col-md-6 pl-2 mb-4 " *ngFor="let producto of listaProductosFiltrada">
+                              <div class="card">
+                                  <div class="card-body bg-gray cus-pd2 cus-arrow-up ">
+                                      <h5 class="text-center"> {{producto.Nombre}}</h5>
+                                      <h6 class="text-center">PrecioUnitario : {{producto.PrecioUnitario}} Bs.</h6>
+                                      <h6 class="text-center">Especificaciones : {{producto.Especificaciones}}</h6>
+                                                
+                                  </div>
+                                  <button class="btn btn-outline-primary"
+                                           (click)="open(mymodal,producto.Nombre,producto.PrecioUnitario,producto.Id)">
+                                      Agregar carrito
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+    
+    
+      <div class="col-md-6">
+          <h4 class="text-center">Productos en el carrito</h4>
+          <br>
+  
+          <form #form="ngForm" autocomplete="off">
+  
+              <button type="button" (click)="GuardarPedido()" class="btn btn-outline-success" [disabled]="form.invalid">Realizar Pedido</button> &nbsp; &nbsp; &nbsp; &nbsp;
+              <button type="button" (click)="onDeletePedido()" class="btn btn-outline-danger">Cancelar Pedido</button> 
+              
+                  
+              <br><br>
+              <div class="form-group">
+                 <div class="input-group">
+                      
+                      <select name="TipoPago" #TipoPago="ngModel"  [(ngModel)]="pedidoTerminado.TipoPago" class="form-control" >
+                          <option value="Tipo de pago" disabled selected>Seleccione Tipo de pago</option>
+                          <option  value="Tarjeta">Tarjeta</option>
+                          <option  value="Efectivo">Efectivo</option>
+                      </select>
+     
+                    
+                      &nbsp; &nbsp;
+                      <input type="number" class="form-control col-md-6" placeholder="Monto a pagar de cliente" [(ngModel)]="pedidoTerminado.MontoCliente" 
+                      name="MontoCliente" required>
+  
+                 </div>  
+              </div>
+  
+      
+        </form>
+          <table class="table ">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col" class="text-center">Producto</th>
+                  <th scope="col" class="text-center">Precio</th>
+                  <th scope="col" class="text-center">Cantidad</th>
+                  <th scope="col" class="text-center">SubMonto</th>
+                  <th scope="col" class="text-center">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let detallePedido of serviceDetallePedido.listDetallesPedido">
+                  <td>
+                      <div class="text-center"   *ngFor="let producto of service.listProductos">
+                          <p class="text-center" *ngIf="detallePedido.IdProducto==producto.Id">
+                                                  {{producto.Nombre}}
+                          </p>
+                      </div>
+                  </td>
+                  <td>
+                      <div class="text-center"   *ngFor="let producto of service.listProductos">
+                          <p class="text-center" *ngIf="detallePedido.IdProducto==producto.Id">
+                                                  {{producto.PrecioUnitario}} Bs.
+                          </p>
+                      </div>
+                  </td>
+                  <td class="text-center">{{detallePedido.Cantidad}}</td>
+                  <td class="text-center" >{{detallePedido.SubMonto}}  Bs.</td>
+                  <td class="text-center"> <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(detallePedido.Id)"></i> </td>
+                </tr>
+              </tbody>
+  
+              <tfoot class="table-dark">
+                  <tr>
+                      <td colspan="4"><strong>Total</strong></td>
+                      <td class="text-right"><strong>{{montototal}}  Bs.</strong></td>
+                  </tr>
+              </tfoot>
+  
+  
+            </table>
+  
+           
+  
+      </div>
+  
+  
+  
+  </div>
+  
+  
+  
+   
+  <ng-template #mymodal let-modal>
+      <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Agregar Producto </h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <div class="col-md-12">
+              <p>Nombre: {{nombreProducto}}</p>
+          </div>
+         
+          <div class="col-md-12">
+              <p>Precio: {{precioProducto}} Bs.</p>
+          </div>
+  
+          <div class="col-md-12">
+              <i> Cantidad : &nbsp; {{cantidadProducto}}  &nbsp;</i>
+              &nbsp; <i class="fa fa-plus-circle" aria-hidden="true" (click)="aumentarCantidad()" ></i>  &nbsp;
+              <i class="fa fa-minus-circle" aria-hidden="true" (click)="quitarCantidad()"></i>
+              <p></p>
+          </div>   
+  
+          <div class="col-md-12">
+              <p>Submonto : &nbsp; {{submontoProducto}} Bs.</p>
+          </div>
+           
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="insertRecord()">Ok</button>
+      </div>
+  </ng-template>
+  
+  
+     
+  
+  
+  
+      
+  
+  
+  
+  

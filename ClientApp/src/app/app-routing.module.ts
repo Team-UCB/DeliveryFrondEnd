@@ -40,7 +40,8 @@ import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedido
 import {ListaPreparacionComponent} from './lista-preparacion/lista-preparacion.component';
 import { CalificarTransportadorVendedorComponent} from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
 import { CalificarTransportadorClienteComponent} from './calificar-transportador-cliente/calificar-transportador-cliente.component';
-
+import { PedidosClientComponent } from './pedidos-client/pedidos-client.component';
+import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
 
 import { from } from 'rxjs';
 
@@ -86,6 +87,8 @@ const routes: Routes = [
   {path:"perfil-transportador", component: PerfilTransportadorComponent},
   {path:"calificar-trans-ven", component: CalificarTransportadorVendedorComponent },
   {path:"calificar-trans-cli", component: CalificarTransportadorClienteComponent },
+  {path:"pedidosClient", component: PedidosClientComponent},
+  {path:"pedidosClientform",component: PedidosclienteFormComponent},
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];

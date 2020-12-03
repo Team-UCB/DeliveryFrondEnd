@@ -1,1 +1,44 @@
-<p>pedidos-client works!</p>
+
+<br>
+<label>Seleccione un rubro para su Pedido</label>
+  <select name="IdRubro" #IdRubro="ngModel"  [(ngModel)]="opcionRubro" class="form-control" (change)="buscarVendedores()">
+    <option value="0">Selecciona una opción</option>
+    <option *ngFor="let dato of service.listRubro" value= {{dato.Id}} >
+      {{dato.Nombre}}
+    </option>
+ </select>
+<br>
+<hr>
+
+<form>
+
+    <div class="row">
+        &nbsp; &nbsp;  &nbsp; 
+        &nbsp; &nbsp; <button class="btn btn-outline-info" type="button" (click)="FiltrarListaProductos(buscar.value)">Filtrar</button>
+       <div class="col-md-6">
+        <input #buscar class="form-control" placeholder="ingrese la busqueda" autofocus  (change)="FiltrarListaProductos(buscar.value)" >
+         </div>
+      </div>
+
+      <br>
+</form>    
+    <div class="container-fluid " >
+        <div class="container">
+            <div class="row vr-gallery">         
+                <div class="col-md-4 pl-3 mb-4 "  *ngFor="let vendedor of listaVendedoresFiltrada" >
+                   
+                    <div class="card">
+                        <img class="card-img-top"  [src]="'data:image/jpg;base64,'+vendedor.PathLogo" alt=""/>
+                        <div class="card-body bg-gray cus-pd2 cus-arrow-up">
+                            <h3> {{vendedor.NombreEmpresa}}</h3>
+                            <h5>Celular: {{vendedor.Celular}}</h5>
+                            <h5>Direccion: {{vendedor.Direccion}}</h5>   
+                            <h5>Persona de Contacto: {{vendedor.PersonaContacto}}</h5>                       
+                        </div>
+                        <button class="btn btn-outline-primary" (click)="CrearPedido(vendedor.Id)"  >Seleccionar Empresa</button>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
