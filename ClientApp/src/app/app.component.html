@@ -91,6 +91,9 @@
             <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/direcciones']" routerLinkActive="router-link-active">Direcciones</a></li>   
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/comentarios-delivery']" routerLinkActive="router-link-active">Comentarios delivery</a>
+            </li>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">MAS</a>
         </div>
@@ -112,9 +115,10 @@
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.getEntidadCliente()" [routerLink]="['/cliente-pedido']" routerLinkActive="router-link-active">Pedidos</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Lista de Pedidos</a></li>
-
-        
+            <a class="nav-link" *ngIf="_authService.getEntidadVendedor() " [routerLink]="['/vendedor-pedido']"   routerLinkActive="router-link-active">Lista de Pedidos</a>
+          </li>
+            
+              
         <!--  <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">PRUEBA</a></li>-->
 

@@ -2,9 +2,13 @@ import { Component, OnInit, ViewChildren, QueryList  } from '@angular/core';
 import { PedidoService } from '../../servicios/pedido.service';
 import { SortColumns, SortEvent } from '../../directivas/sortcolumns';
 import { ToastrService } from 'ngx-toastr';
+
+import {Pedido} from '../../modelos/pedido.model';
+
 import { ChatService } from '../../servicios/chat.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Chat } from 'src/app/modelos/chat.model';
+
 
 @Component({
   selector: 'app-vista-vp',
@@ -13,6 +17,7 @@ import { Chat } from 'src/app/modelos/chat.model';
   ]
 })
 export class VistaVPComponent implements OnInit {
+  
   @ViewChildren(SortColumns) headers: QueryList<SortColumns>;
   constructor(public service: PedidoService, private toastr: ToastrService,private modal:NgbModal, public serviceChat: ChatService) { }
 
@@ -21,6 +26,7 @@ export class VistaVPComponent implements OnInit {
     this.resetForm();
     this.llamarDatos();
     this.service.listarEstados("Pendiente");
+    
   }
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
@@ -60,7 +66,7 @@ export class VistaVPComponent implements OnInit {
       }
     )
   }
-  
+ 
   onSort({ column, direction }: SortEvent) {
     // resetting other headers
     this.headers.forEach(header => {

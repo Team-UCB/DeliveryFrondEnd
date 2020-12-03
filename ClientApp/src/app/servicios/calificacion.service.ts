@@ -86,6 +86,9 @@ export class CalificacionService {
     this.filterData.Pagina = this.filterData.Pagina + 1;
     this.refreshList();
   }
+  ObtenerComentarios(id){
+    return  this.http.get(`${environment.apiUrl}Calificaciones/GetComentarios/${id}`);
+  }
   //Jerissa
   formDataVendedor: Vendedor;
   formDataCliente: Cliente;
