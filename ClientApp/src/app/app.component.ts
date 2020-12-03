@@ -9,5 +9,5 @@ import { UsuarioService } from './servicios/usuario.service';
 })
 export class AppComponent {
   title = 'ClientApp';
-  constructor(public _authService:UsuarioService, public service: PedidoService) {}
+  constructor(public _authService:UsuarioService) {}
 }
