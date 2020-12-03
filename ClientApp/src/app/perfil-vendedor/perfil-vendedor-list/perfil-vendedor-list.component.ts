@@ -16,6 +16,7 @@ export class PerfilVendedorListComponent implements OnInit {
     this.llamarDatos();
     this.service.refreshList();
   }
+
   populateForm(selectedRecord) {
     this.service.formData = Object.assign({}, selectedRecord);
     //
@@ -23,6 +24,7 @@ export class PerfilVendedorListComponent implements OnInit {
   }
   idVen:number=0;
   llamarDatos(){
+    // tslint:disable-next-line: radix
     this.idVen = parseInt(localStorage.getItem('IdRef'));
   }
 }

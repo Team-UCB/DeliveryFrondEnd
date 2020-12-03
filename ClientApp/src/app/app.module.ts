@@ -113,6 +113,8 @@ import { PedidosClientComponent } from './pedidos-client/pedidos-client.componen
 
 import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
 import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/direccion-cliente.component';
+import { CalificarTransportadorVendedorComponent } from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
+import { CalificarTransportadorClienteComponent } from './calificar-transportador-cliente/calificar-transportador-cliente.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -205,10 +207,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListaPreparacionComponent,
     ListaPreparacionListComponent,
     PedidosClientComponent,
-  
     PedidosclienteFormComponent,
     DireccionClienteComponent,
-    
+    CalificarTransportadorVendedorComponent,
+    CalificarTransportadorClienteComponent,
   ],
   imports: [
     BrowserModule,

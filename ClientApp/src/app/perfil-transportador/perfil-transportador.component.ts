@@ -18,26 +18,29 @@ export class PerfilTransportadorComponent implements OnInit {
   }
 
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.form.reset();
+    }
     this.service.formData = {
       Id: 0,
-      NombreCompleto:'',
-      Celular:'',
-      DescripcionVehiculo:'',
-      TipoVehiculo:'',
-      Estado:'',
-      Latitud:0,
-      Longitud:0
-
-    }
+      NombreCompleto: '',
+      Celular: '',
+      DescripcionVehiculo: '',
+      TipoVehiculo: '',
+      Estado: '',
+      Latitud: 0,
+      Longitud: 0
+    };
   }
 
   onSubmit(form: NgForm) {
-    if (this.service.formData.Id == 0)
+    // tslint:disable-next-line: triple-equals
+    if (this.service.formData.Id == 0) {
       this.insertRecord(form);
-    else
+    }
+    else {
       this.updateRecord(form);
+    }
   }
 
   updateRecord(form: NgForm) {
@@ -50,16 +53,17 @@ export class PerfilTransportadorComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
   insertRecord(form: NgForm) {
     this.service.postTransportador().subscribe(
       res => {
         this.resetForm(form);
+        this.toastr.info('Se guardo');
         this.service.refreshList();
       },
       err => { console.log(err); }
-    )
+    );
   }
 }
