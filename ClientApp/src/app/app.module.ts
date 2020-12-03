@@ -208,13 +208,13 @@ import { ComentariosDeliveryComponent } from './comentarios-delivery/comentarios
     ListaPreparacionComponent,
     ListaPreparacionListComponent,
     PedidosClientComponent,
-  
     PedidosclienteFormComponent,
     DireccionClienteComponent,
     CalificarTransportadorVendedorComponent,
     CalificarTransportadorClienteComponent,
+
     ComentariosDeliveryComponent,
-    
+
   ],
   imports: [
     BrowserModule,

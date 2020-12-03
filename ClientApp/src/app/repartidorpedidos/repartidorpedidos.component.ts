@@ -9,6 +9,7 @@ import { VendedorService } from '../servicios/vendedor.service';
 import { DetallePedido } from '../modelos/detalle-pedido.model';
 import { DetallePedidoService } from '../servicios/detalle-pedido.service';
 import { DetallePedidosComponent } from '../detalle-pedidos/detalle-pedidos.component';
+import { CalificacionService } from '../servicios/calificacion.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -27,55 +28,59 @@ export class RepartidorpedidosComponent implements OnInit {
 
 
   constructor(public serviceVendedor: VendedorService, private toastr: ToastrService, private _routes: Router,
-    public serviceCliente: ClienteService,
-    public servicePedido: PedidoService ,
-    public servicedetallePedido: DetallePedidoService) { }
+              public serviceCliente: ClienteService,
+              public servicePedido: PedidoService ,
+              public servicedetallePedido: DetallePedidoService,
+              public serviceCalificacion: CalificacionService) { }
 
 ngOnInit(): void {
-  this.vendedor= new Vendedor;
-  this.comprador= new Cliente;
-  this.pedidoRepartidor();    
+  this.vendedor = new Vendedor;
+  this.comprador = new Cliente;
+  this.pedidoRepartidor();
 
 }
-
 
 
 pedidoRepartidor(){
-this.servicePedido.ObtenerPedidoRepartidor(1).subscribe(res=>{
-     this.pedido=res as any as Pedido;
-    
-     this.servicePedido.formData = Object.assign({}, this.pedido);
+  this.servicePedido.ObtenerPedidoRepartidor(localStorage.getItem('IdRef')).subscribe(res => {
+       this.pedido = res as any as Pedido;
+       this.servicedetallePedido.listDetallesPedidos(this.pedido.Id).then(
+        // tslint:disable-next-line: no-shadowed-variable
+        res => {
+        this.listDetallePedido = res as any;
+        // Para calificar
+        this.serviceCalificacion.formDataPedido = this.pedido;
+        },
+        err => { console.log(err); }
+      );
 
-     
-     this.servicedetallePedido.listDetallesPedidos(this.pedido.Id).then(
-      res => {      
-        
-       this.listDetallePedido = res as any;       
-  
-      },
-      err => { console.log(err); }
-    )
+       this.serviceVendedor.ObtenerPedidoVendedor(this.pedido.IdVendedor).subscribe( 
+         // tslint:disable-next-line: no-shadowed-variable
+         res => {
+          this.vendedor = res as any;
+          //Para calificar
+          this.serviceCalificacion.formDataVendedor = this.vendedor;
+        }
+      );
 
-     this.serviceVendedor.ObtenerPedidoVendedor(this.pedido.IdVendedor).subscribe(res=>{
-      this.vendedor= res as any;
-      
-    })
-    this.serviceCliente.ObtenerClientePedido(this.pedido.IdCliente).subscribe(res=>{
-          this.comprador = res as any;
-         
-    })    
-  
-})
-
-
-
+       this.serviceCliente.ObtenerClientePedido(this.pedido.IdCliente).subscribe( 
+          // tslint:disable-next-line: no-shadowed-variable
+          res => {
+            this.comprador = res as any;
+            //Para calificar
+          this.serviceCalificacion.formDataCliente = this.comprador;
+          });
+  });
 }
+
   // FINALIZAR PEDIDO TRANSPORTADOR
+
   Finalizarpe(obj) {
-    this.servicePedido.formDataListaPedidos = Object.assign({}, obj);
-    this.servicePedido.formDataListaPedidos.Estado = 'Finalizado';
-    this.finalizarPedido(this.servicePedido.formDataListaPedidos.Id);
+  this.servicePedido.formDataListaPedidos = Object.assign({}, obj);
+  this.servicePedido.formDataListaPedidos.Estado = 'Finalizado';
+  this.finalizarPedido(this.servicePedido.formDataListaPedidos.Id);
   }
+
 
   finalizarPedido(id) {
     this.servicePedido.formData = this.servicePedido.formDataListaPedidos;
@@ -89,7 +94,6 @@ this.servicePedido.ObtenerPedidoRepartidor(1).subscribe(res=>{
       err => {
         console.log(err);
       }
-    )
+    );
   }
-
 }

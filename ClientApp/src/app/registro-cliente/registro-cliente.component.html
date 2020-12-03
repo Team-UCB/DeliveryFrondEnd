@@ -2,11 +2,11 @@
   <div class="col-md-6 mx-auto">
     <div class="card rounded-5">
       <div class="card-header">
-        <h3 class="mb-0">Registrarme como cliente</h3><br>
+        <h3 class="mb-0">Registrarme como cliente</h3>
       </div>
       <div class="card-body">
         <form #form="ngForm" autocomplete="off">
-          <h4 class="mb-0">Datos personales</h4><br>
+          <h4 class="mb-0">Datos personales</h4>
 
           <div class="form-group">
             <label>Nombres y apellidos</label>
@@ -39,7 +39,7 @@
                        placeholder="Telefono" required>
               </div>
             </div> 
-            <h4 class="mb-0">Datos de mi usuario</h4><br>
+            <h4 class="mb-0">Datos de mi usuario</h4>
           <div class="form-group">
             <label for="uname1">Usuario</label>
             <input type="text" [(ngModel)]="registerUserData.Nombre" name="nombre" class="form-control rounded-0" required>
@@ -54,9 +54,8 @@
           </div>
           <h4 class="mb-0">Mis direcciones</h4>
           <div class="form-group">
-            <br>
             <button class="btn btn-success btn-lg btn-block" type="button" 
-             [routerLink]="['/direccion-cliente', this.LastClient.Id]"><i class="fas fa-database"></i>AGREGAR DIRECCIÓN</button>
+             [routerLink]="['/direccionesCliente', this.LastClient.Id]"><i class="fas fa-database"></i>agregar direcci&oacute;n</button>
           </div>
         </form>
       </div>

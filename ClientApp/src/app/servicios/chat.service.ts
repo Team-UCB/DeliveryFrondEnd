@@ -61,5 +61,9 @@ export class ChatService {
         this.filterData.Pagina=this.filterData.Pagina+1;
         this.refreshList();
       }
+
+      traerChats(idOrigen, idDestino){
+        return this.http.get(`${environment.apiUrl}Chats/${idOrigen}/${idDestino}`);
+      }
 }
  
