@@ -40,12 +40,9 @@ import { RepartidorpedidosComponent } from './repartidorpedidos/repartidorpedido
 import {ListaPreparacionComponent} from './lista-preparacion/lista-preparacion.component';
 import { CalificarTransportadorVendedorComponent} from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
 import { CalificarTransportadorClienteComponent} from './calificar-transportador-cliente/calificar-transportador-cliente.component';
-<<<<<<< HEAD
 import { PedidosClientComponent } from './pedidos-client/pedidos-client.component';
 import { PedidosclienteFormComponent } from './pedidos-client/pedidoscliente-form/pedidoscliente-form.component';
-=======
 import { ComentariosDeliveryComponent} from './comentarios-delivery/comentarios-delivery.component';
->>>>>>> 05eac46d21321516281554f4d1b2fe8022c47dec
 
 import { from } from 'rxjs';
 
@@ -91,12 +88,9 @@ const routes: Routes = [
   {path:"perfil-transportador", component: PerfilTransportadorComponent},
   {path:"calificar-trans-ven", component: CalificarTransportadorVendedorComponent },
   {path:"calificar-trans-cli", component: CalificarTransportadorClienteComponent },
-<<<<<<< HEAD
   {path:"pedidosClient", component: PedidosClientComponent},
   {path:"pedidosClientform",component: PedidosclienteFormComponent},
-=======
   {path:"comentarios-delivery", component: ComentariosDeliveryComponent },
->>>>>>> 05eac46d21321516281554f4d1b2fe8022c47dec
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: '**', component: LoginComponent},
 ];

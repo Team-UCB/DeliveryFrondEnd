@@ -178,11 +178,5 @@ export class PedidoService {
 
     return  this.http.get(`${environment.apiUrl}pedidos/getPedidoRepartidor/${id}`);
   }
-<<<<<<< HEAD
    // AÑADIENDO
-
-=======
-
-  
->>>>>>> 05eac46d21321516281554f4d1b2fe8022c47dec
 }
