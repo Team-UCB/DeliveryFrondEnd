@@ -124,4 +124,7 @@ export class UsuarioService {
   getEntidadTransportador() {
     return localStorage.getItem('Entidad')=="Transportador";
   }
+  getEntidadAdministrador() {
+    return localStorage.getItem('Entidad')=="Administrador";
+  }
 }

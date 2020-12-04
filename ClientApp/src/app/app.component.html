@@ -37,13 +37,9 @@
         <a class="nav-link dropdown-toggle" *ngIf="_authService.loggedIn()" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MENU</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li class="nav-item" >
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones </a></li>
-          <li class="nav-item" >
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/map-box']" routerLinkActive="router-link-active">Mapa </a></li>
-          <li class="nav-item" >
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/modals']" routerLinkActive="router-link-active">Modal </a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/localizaciones']" routerLinkActive="router-link-active">Localizaciones </a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">Vendedores</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/vendedores']" routerLinkActive="router-link-active">Vendedores</a></li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/productos-vendedor']" routerLinkActive="router-link-active">Productos vendedores</a></li>
           <li class="nav-item">
@@ -53,46 +49,46 @@
           <li class="nav-item">
             <a class="nav-link" *ngIf="_authService.getEntidadVendedor()" [routerLink]="['/vendedor-pedido']" routerLinkActive="router-link-active">Vendedor pedido</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/productos']" routerLinkActive="router-link-active">Productos</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">Usuarios</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/usuarios']" routerLinkActive="router-link-active">Usuarios</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/roles']" routerLinkActive="router-link-active">Roles</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/roles']" routerLinkActive="router-link-active">Roles</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/ofertas']" routerLinkActive="router-link-active">Ofertas</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/chats']" routerLinkActive="router-link-active">Chats</a></li>
             <li class="nav-item">
               <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/lista-preparacion']" routerLinkActive="router-link-active">Lista de Preparaci&oacute;n</a></li>
               <li class="nav-item">
                 <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" routerLinkActive="active" routerLink="/repartidorPedido">Pedidos del repartidor</a>
               </li>
               <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/facturas']" routerLinkActive="router-link-active">Facturas</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/facturas']" routerLinkActive="router-link-active">Facturas</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/categoriaProductos']" routerLinkActive="router-link-active">Categor&iacute;a de Productos</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/transportadores']" routerLinkActive="router-link-active">Transportadores</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/detalle-facturas']" routerLinkActive="router-link-active">Detalle de Factura</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/detalle-pedidos']" routerLinkActive="router-link-active">Detalle de Pedido</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/rubros']" routerLinkActive="router-link-active">Rubro</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/fotos']" routerLinkActive="router-link-active">Fotos</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/fotos']" routerLinkActive="router-link-active">Fotos</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/pedidos']" routerLinkActive="router-link-active">Pedidos</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/pedidos']" routerLinkActive="router-link-active">Pedidos</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/clientes']" routerLinkActive="router-link-active">Clientes</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/calificaciones']" routerLinkActive="router-link-active">Calificaciones</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/calificaciones']" routerLinkActive="router-link-active">Calificaciones</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/mensajes']" routerLinkActive="router-link-active">Mensajes</a></li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/direcciones']" routerLinkActive="router-link-active">Direcciones</a></li>   
+            <a class="nav-link" *ngIf="_authService.getEntidadAdministrador()" [routerLink]="['/direcciones']" routerLinkActive="router-link-active">Direcciones</a></li>   
             <li class="nav-item">
-              <a class="nav-link" *ngIf="_authService.loggedIn()" [routerLink]="['/comentarios-delivery']" routerLinkActive="router-link-active">Comentarios delivery</a>
+              <a class="nav-link" *ngIf="_authService.getEntidadTransportador()" [routerLink]="['/comentarios-delivery']" routerLinkActive="router-link-active">Comentarios delivery</a>
             </li>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">MAS</a>
