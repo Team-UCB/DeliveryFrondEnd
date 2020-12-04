@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PedidoService } from './servicios/pedido.service';
 import { UsuarioService } from './servicios/usuario.service';
 
 @Component({

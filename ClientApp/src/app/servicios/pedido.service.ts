@@ -141,6 +141,7 @@ export class PedidoService {
       '&filtro=' + this.filterData.Filtro)
       .toPromise()
       .then(res => this.list = (res as any).Datos as Pedido[]);
+      
   }
 
   filtrar(filtro) {
@@ -151,6 +152,7 @@ export class PedidoService {
   listar(cantidad) {
     this.filterData.TamPagina = cantidad;
     this.refreshList();
+    
   }
 
   Anterior() {
@@ -176,6 +178,11 @@ export class PedidoService {
 
     return  this.http.get(`${environment.apiUrl}pedidos/getPedidoRepartidor/${id}`);
   }
+<<<<<<< HEAD
    // AÑADIENDO
 
+=======
+
+  
+>>>>>>> 05eac46d21321516281554f4d1b2fe8022c47dec
 }

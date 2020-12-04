@@ -21,7 +21,7 @@
       </div>
     </div>
   </form>
-  
+
   <br>
   <table class="table table-hover table-striped">
     <thead>
@@ -34,6 +34,7 @@
         <th scope="col" sortable="MontoCliente" (sort)="onSort($event)">Monto de cliente</th>
         <th scope="col" sortable="IdCliente" (sort)="onSort($event)">Cliente</th>
         <th scope="col" sortable="IdVendedor" (sort)="onSort($event)">Vendedor</th>
+        <th>Conversaciones</th>
       </tr>
     </thead>
     <tbody>
@@ -46,16 +47,41 @@
         <td (click)="populateForm(pedido)">{{pedido.MontoCliente}}</td>
         <td (click)="populateForm(pedido)">{{pedido.IdCliente}}</td>
         <td (click)="populateForm(pedido)">{{pedido.IdVendedor}}</td>
+        <td>
+          <button class="btn btn-outline-primary mr-2" type="button" [hidden]="pedido.Estado!='Preparacion'"><i class="fa fa-commenting" aria-hidden="true" (click)="open(contenido,pedido.IdVendedor)" > Chat Vendedor</i></button> 
+          <button class="btn btn-outline-primary mr-2" type="button" [hidden]="pedido.Estado!='Camino'"><i class="fa fa-commenting" aria-hidden="true" (click)="open(contenido,pedido.IdTransporte)" > Chat Transportador</i></button> 
+        </td>
       </tr>
     </tbody>
     <tfoot>
       <tr>
         <td>
-          <button class="btn btn-outline-primary mr-2" type="button" (click)="Anterior()"><i class="fa fa-reply" aria-hidden="true" ></i></button>
+          <button class="btn btn-outline-primary mr-2" type="button" (click)="Anterior()"><i class="fa fa-reply" aria-hidden="true"></i></button>
         </td>
         <td>
-          <button class="btn btn-outline-primary mr-2" type="button"(click)="Siguiente()" placement="top" ngbTooltip="Tooltip on top"><i class="fa fa-share" aria-hidden="true" ></i></button>
+          <button class="btn btn-outline-primary mr-2" type="button"(click)="Siguiente()" placement="top" ngbTooltip="Tooltip on top"><i class="fa fa-share" aria-hidden="true"></i></button>
         </td>
       </tr>
     </tfoot>
   </table>
+
+    
+    
+    <ng-template #contenido let-modal>
+      <div class="modal-header">
+          <h4 class="modal-title">Conversación</h4>
+          <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body" >
+        <p *ngFor="let item of listaChats">
+          {{item.Text}}
+        </p>
+      </div>
+      <div class="modal-footer">
+          <input class="form-control" placeholder="escribe el mensaje" [(ngModel)]="this.serviceChat.formData.Text">
+          <button type="button" class="btn btn-success" (click)="insertChat()"><i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </button>
+      </div>
+  </ng-template>

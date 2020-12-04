@@ -116,6 +116,7 @@ import { DireccionClienteComponent } from './registro-cliente/direccion-cliente/
 import { CalificarTransportadorVendedorComponent } from './calificar-transportador-vendedor/calificar-transportador-vendedor.component';
 import { CalificarTransportadorClienteComponent } from './calificar-transportador-cliente/calificar-transportador-cliente.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ComentariosDeliveryComponent } from './comentarios-delivery/comentarios-delivery.component';
 
 
 @NgModule({
@@ -211,6 +212,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DireccionClienteComponent,
     CalificarTransportadorVendedorComponent,
     CalificarTransportadorClienteComponent,
+
+    ComentariosDeliveryComponent,
+
   ],
   imports: [
     BrowserModule,
